@@ -15,9 +15,7 @@
 
 % TO DO
 % =====
-% launch preparation of stimuli with more noise patches on linux machine
 % make videos
-% test with linux computer in scanner with Eyelink and buttons presses
 % code analysis of behavioral data
 % code eye and data analysis with python started by terminal instructions
 
