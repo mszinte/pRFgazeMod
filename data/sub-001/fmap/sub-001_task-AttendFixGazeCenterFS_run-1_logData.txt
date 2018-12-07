@@ -1,0 +1,426 @@
+bar pass 1 started at 1544191351.806524
+bar pass 1 event t at 1544191353.050081
+bar pass 1 trial onset at 1544191353.056393
+bar pass 1 trial offset at 1544191354.247784
+bar pass 1 trial onset at 1544191354.256161
+bar pass 1 trial offset at 1544191355.447847
+bar pass 1 trial onset at 1544191355.456106
+bar pass 1 trial offset at 1544191356.647865
+bar pass 1 trial onset at 1544191356.656131
+bar pass 1 trial offset at 1544191357.847865
+bar pass 1 trial onset at 1544191357.856254
+bar pass 1 trial offset at 1544191359.047966
+bar pass 1 trial onset at 1544191359.056241
+bar pass 1 trial offset at 1544191360.247872
+bar pass 1 trial onset at 1544191360.256201
+bar pass 1 trial offset at 1544191361.447932
+bar pass 1 trial onset at 1544191361.456317
+bar pass 1 trial offset at 1544191362.648020
+bar pass 1 trial onset at 1544191362.656284
+bar pass 1 trial offset at 1544191363.847991
+bar pass 1 - 108/1.080000e+02 drawn fixation and bar stimuli - and 0/0 probes - 0 missed sync on 1296 frames, 0.0% (mean/median delay = NaN/NaN ms)
+bar pass 1 stopped at 1544191363.859395
+bar pass 2 started at 1544191363.973640
+bar pass 2 event t at 1544191365.176010
+bar pass 2 trial onset at 1544191365.182227
+bar pass 2 fixation probe onset at 1544191365.481381
+bar pass 2 trial offset at 1544191366.381320
+bar pass 2 trial onset at 1544191366.389757
+bar pass 2 fixation probe onset at 1544191366.681451
+bar pass 2 trial offset at 1544191367.581345
+bar pass 2 trial onset at 1544191367.589710
+bar pass 2 fixation probe onset at 1544191367.881403
+bar pass 2 trial offset at 1544191368.781369
+bar pass 2 trial onset at 1544191368.789796
+bar pass 2 fixation probe onset at 1544191369.081444
+bar pass 2 trial offset at 1544191369.981483
+bar pass 2 trial onset at 1544191369.989724
+bar pass 2 fixation probe onset at 1544191370.281722
+bar pass 2 trial offset at 1544191371.181420
+bar pass 2 trial onset at 1544191371.189752
+bar pass 2 fixation probe onset at 1544191371.481596
+bar pass 2 trial offset at 1544191372.398115
+bar pass 2 trial onset at 1544191372.406443
+bar pass 2 fixation probe onset at 1544191372.698136
+bar pass 2 trial offset at 1544191373.598157
+bar pass 2 trial onset at 1544191373.606464
+bar pass 2 fixation probe onset at 1544191373.898137
+bar pass 2 trial offset at 1544191374.806494
+bar pass 2 trial onset at 1544191374.814819
+bar pass 2 fixation probe onset at 1544191375.106574
+bar pass 2 trial offset at 1544191376.006596
+bar pass 2 trial onset at 1544191376.014924
+bar pass 2 fixation probe onset at 1544191376.306577
+bar pass 2 trial offset at 1544191377.214905
+bar pass 2 trial onset at 1544191377.223246
+bar pass 2 fixation probe onset at 1544191377.514896
+bar pass 2 trial offset at 1544191378.423257
+bar pass 2 trial onset at 1544191378.431592
+bar pass 2 fixation probe onset at 1544191378.723257
+bar pass 2 trial offset at 1544191379.623266
+bar pass 2 trial onset at 1544191379.631592
+bar pass 2 fixation probe onset at 1544191379.923288
+bar pass 2 trial offset at 1544191380.823286
+bar pass 2 trial onset at 1544191380.831622
+bar pass 2 fixation probe onset at 1544191381.123293
+bar pass 2 trial offset at 1544191382.023410
+bar pass 2 trial onset at 1544191382.031647
+bar pass 2 fixation probe onset at 1544191382.323334
+bar pass 2 trial offset at 1544191383.223378
+bar pass 2 trial onset at 1544191383.231681
+bar pass 2 fixation probe onset at 1544191383.523351
+bar pass 2 trial offset at 1544191384.423364
+bar pass 2 trial onset at 1544191384.431715
+bar pass 2 fixation probe onset at 1544191384.723401
+bar pass 2 trial offset at 1544191385.623389
+bar pass 2 trial onset at 1544191385.631721
+bar pass 2 fixation probe onset at 1544191385.923388
+bar pass 2 trial offset at 1544191386.823418
+bar pass 2 trial onset at 1544191386.831751
+bar pass 2 fixation probe onset at 1544191387.123422
+bar pass 2 trial offset at 1544191388.023457
+bar pass 2 trial onset at 1544191388.031766
+bar pass 2 fixation probe onset at 1544191388.323440
+bar pass 2 trial offset at 1544191389.223462
+bar pass 2 trial onset at 1544191389.231796
+bar pass 2 fixation probe onset at 1544191389.523470
+bar pass 2 trial offset at 1544191390.423510
+bar pass 2 trial onset at 1544191390.431822
+bar pass 2 fixation probe onset at 1544191390.723489
+bar pass 2 trial offset at 1544191391.623516
+bar pass 2 trial onset at 1544191391.631844
+bar pass 2 fixation probe onset at 1544191391.923538
+bar pass 2 trial offset at 1544191392.831990
+bar pass 2 trial onset at 1544191392.840219
+bar pass 2 fixation probe onset at 1544191393.131908
+bar pass 2 trial offset at 1544191394.031926
+bar pass 2 trial onset at 1544191394.040313
+bar pass 2 fixation probe onset at 1544191394.331959
+bar pass 2 trial offset at 1544191395.231938
+bar pass 2 trial onset at 1544191395.240250
+bar pass 2 fixation probe onset at 1544191395.531962
+bar pass 2 trial offset at 1544191396.432028
+bar pass 2 trial onset at 1544191396.440279
+bar pass 2 fixation probe onset at 1544191396.731958
+bar pass 2 trial offset at 1544191397.632000
+bar pass 2 trial onset at 1544191397.640320
+bar pass 2 fixation probe onset at 1544191397.931977
+bar pass 2 trial offset at 1544191398.840340
+bar pass 2 trial onset at 1544191398.848670
+bar pass 2 fixation probe onset at 1544191399.140363
+bar pass 2 trial offset at 1544191400.048690
+bar pass 2 trial onset at 1544191400.057038
+bar pass 2 fixation probe onset at 1544191400.348693
+bar pass 2 trial offset at 1544191401.248715
+bar pass 2 trial onset at 1544191401.257087
+bar pass 2 fixation probe onset at 1544191401.548719
+bar pass 2 trial offset at 1544191402.457163
+bar pass 2 trial onset at 1544191402.465417
+bar pass 2 fixation probe onset at 1544191402.757078
+bar pass 2 trial offset at 1544191403.657098
+bar pass 2 - 384/384 drawn fixation and bar stimuli - and 192/192 probes - 10 missed sync on 4608 frames, 0.2% (mean/median delay = 7.9/7.9 ms)
+bar pass 2 stopped at 1544191403.658494
+bar pass 3 started at 1544191403.773256
+bar pass 3 event t at 1544191404.976174
+bar pass 3 trial onset at 1544191404.982348
+bar pass 3 trial offset at 1544191406.173928
+bar pass 3 trial onset at 1544191406.182284
+bar pass 3 trial offset at 1544191407.373893
+bar pass 3 trial onset at 1544191407.382186
+bar pass 3 trial offset at 1544191408.574395
+bar pass 3 trial onset at 1544191408.582300
+bar pass 3 trial offset at 1544191409.773918
+bar pass 3 trial onset at 1544191409.782241
+bar pass 3 trial offset at 1544191410.982252
+bar pass 3 trial onset at 1544191410.990596
+bar pass 3 trial offset at 1544191412.182298
+bar pass 3 trial onset at 1544191412.190628
+bar pass 3 trial offset at 1544191413.382365
+bar pass 3 trial onset at 1544191413.390707
+bar pass 3 trial offset at 1544191414.582398
+bar pass 3 trial onset at 1544191414.590664
+bar pass 3 trial offset at 1544191415.782350
+bar pass 3 - 108/1.080000e+02 drawn fixation and bar stimuli - and 0/0 probes - 1 missed sync on 1296 frames, 0.1% (mean/median delay = 7.9/7.9 ms)
+bar pass 3 stopped at 1544191415.783793
+bar pass 4 started at 1544191415.899232
+bar pass 4 event t at 1544191417.101634
+bar pass 4 trial onset at 1544191417.107422
+bar pass 4 fixation probe onset at 1544191417.407397
+bar pass 4 trial offset at 1544191418.315777
+bar pass 4 trial onset at 1544191418.324091
+bar pass 4 fixation probe onset at 1544191418.615795
+bar pass 4 trial offset at 1544191419.524115
+bar pass 4 trial onset at 1544191419.532424
+bar pass 4 fixation probe onset at 1544191419.824188
+bar pass 4 trial offset at 1544191420.724210
+bar pass 4 trial onset at 1544191420.732456
+bar pass 4 fixation probe onset at 1544191421.024208
+bar pass 4 trial offset at 1544191421.924222
+bar pass 4 trial onset at 1544191421.932484
+bar pass 4 fixation probe onset at 1544191422.224158
+bar pass 4 trial offset at 1544191423.149172
+bar pass 4 trial onset at 1544191423.157539
+bar pass 4 fixation probe onset at 1544191423.449176
+bar pass 4 trial offset at 1544191424.357525
+bar pass 4 trial onset at 1544191424.365864
+bar pass 4 fixation probe onset at 1544191424.657553
+bar pass 4 trial offset at 1544191425.565995
+bar pass 4 trial onset at 1544191425.574312
+bar pass 4 fixation probe onset at 1544191425.874232
+bar pass 4 trial offset at 1544191426.774272
+bar pass 4 trial onset at 1544191426.782579
+bar pass 4 fixation probe onset at 1544191427.074247
+bar pass 4 trial offset at 1544191427.974296
+bar pass 4 trial onset at 1544191427.982630
+bar pass 4 fixation probe onset at 1544191428.274296
+bar pass 4 trial offset at 1544191429.174316
+bar pass 4 trial onset at 1544191429.182650
+bar pass 4 fixation probe onset at 1544191429.474330
+bar pass 4 trial offset at 1544191430.382675
+bar pass 4 trial onset at 1544191430.390980
+bar pass 4 fixation probe onset at 1544191430.682683
+bar pass 4 trial offset at 1544191431.591026
+bar pass 4 trial onset at 1544191431.599363
+bar pass 4 fixation probe onset at 1544191431.891026
+bar pass 4 trial offset at 1544191432.791036
+bar pass 4 trial onset at 1544191432.799371
+bar pass 4 fixation probe onset at 1544191433.091066
+bar pass 4 trial offset at 1544191433.999418
+bar pass 4 trial onset at 1544191434.007829
+bar pass 4 fixation probe onset at 1544191434.299470
+bar pass 4 trial offset at 1544191435.199486
+bar pass 4 trial onset at 1544191435.207772
+bar pass 4 fixation probe onset at 1544191435.499502
+bar pass 4 trial offset at 1544191436.407806
+bar pass 4 trial onset at 1544191436.416113
+bar pass 4 fixation probe onset at 1544191436.707792
+bar pass 4 trial offset at 1544191437.616152
+bar pass 4 trial onset at 1544191437.624481
+bar pass 4 fixation probe onset at 1544191437.916159
+bar pass 4 trial offset at 1544191438.816191
+bar pass 4 - 216/2.160000e+02 drawn fixation and bar stimuli - and 108/108 probes - 11 missed sync on 2592 frames, 0.4% (mean/median delay = 7.9/7.9 ms)
+bar pass 4 stopped at 1544191438.817109
+bar pass 5 started at 1544191438.934665
+bar pass 5 event t at 1544191440.146320
+bar pass 5 trial onset at 1544191440.158146
+bar pass 5 trial offset at 1544191441.349574
+bar pass 5 trial onset at 1544191441.357907
+bar pass 5 trial offset at 1544191442.549571
+bar pass 5 trial onset at 1544191442.557933
+bar pass 5 trial offset at 1544191443.749610
+bar pass 5 trial onset at 1544191443.757941
+bar pass 5 trial offset at 1544191444.949707
+bar pass 5 trial onset at 1544191444.957957
+bar pass 5 trial offset at 1544191446.149654
+bar pass 5 trial onset at 1544191446.157989
+bar pass 5 trial offset at 1544191447.349677
+bar pass 5 trial onset at 1544191447.358010
+bar pass 5 trial offset at 1544191448.549730
+bar pass 5 trial onset at 1544191448.558035
+bar pass 5 trial offset at 1544191449.749745
+bar pass 5 trial onset at 1544191449.758063
+bar pass 5 trial offset at 1544191450.949763
+bar pass 5 - 107/1.080000e+02 drawn fixation and bar stimuli - and 0/0 probes - 1 missed sync on 1296 frames, 0.1% (mean/median delay = 7.9/7.9 ms)
+bar pass 5 stopped at 1544191450.953646
+bar pass 6 started at 1544191451.068067
+bar pass 6 event t at 1544191452.274999
+bar pass 6 trial onset at 1544191452.283126
+bar pass 6 fixation probe onset at 1544191452.574799
+bar pass 6 trial offset at 1544191453.474795
+bar pass 6 trial onset at 1544191453.483129
+bar pass 6 fixation probe onset at 1544191453.774826
+bar pass 6 trial offset at 1544191454.674836
+bar pass 6 trial onset at 1544191454.683167
+bar pass 6 fixation probe onset at 1544191454.974849
+bar pass 6 trial offset at 1544191455.883197
+bar pass 6 trial onset at 1544191455.891521
+bar pass 6 fixation probe onset at 1544191456.183277
+bar pass 6 trial offset at 1544191457.083239
+bar pass 6 trial onset at 1544191457.091542
+bar pass 6 fixation probe onset at 1544191457.383246
+bar pass 6 trial offset at 1544191458.283236
+bar pass 6 trial onset at 1544191458.291571
+bar pass 6 fixation probe onset at 1544191458.583248
+bar pass 6 trial offset at 1544191459.491599
+bar pass 6 trial onset at 1544191459.499946
+bar pass 6 fixation probe onset at 1544191459.791611
+bar pass 6 trial offset at 1544191460.691618
+bar pass 6 trial onset at 1544191460.699986
+bar pass 6 fixation probe onset at 1544191460.991621
+bar pass 6 trial offset at 1544191461.899983
+bar pass 6 trial onset at 1544191461.908309
+bar pass 6 fixation probe onset at 1544191462.200000
+bar pass 6 trial offset at 1544191463.100028
+bar pass 6 trial onset at 1544191463.108416
+bar pass 6 fixation probe onset at 1544191463.400003
+bar pass 6 trial offset at 1544191464.300033
+bar pass 6 trial onset at 1544191464.308376
+bar pass 6 fixation probe onset at 1544191464.600048
+bar pass 6 trial offset at 1544191465.500059
+bar pass 6 trial onset at 1544191465.508487
+bar pass 6 fixation probe onset at 1544191465.800061
+bar pass 6 trial offset at 1544191466.700076
+bar pass 6 trial onset at 1544191466.708428
+bar pass 6 fixation probe onset at 1544191467.000116
+bar pass 6 trial offset at 1544191467.908557
+bar pass 6 trial onset at 1544191467.916905
+bar pass 6 fixation probe onset at 1544191468.216797
+bar pass 6 trial offset at 1544191469.125130
+bar pass 6 trial onset at 1544191469.133542
+bar pass 6 fixation probe onset at 1544191469.425135
+bar pass 6 trial offset at 1544191470.333484
+bar pass 6 trial onset at 1544191470.341854
+bar pass 6 fixation probe onset at 1544191470.633488
+bar pass 6 trial offset at 1544191471.541852
+bar pass 6 trial onset at 1544191471.550193
+bar pass 6 fixation probe onset at 1544191471.841855
+bar pass 6 trial offset at 1544191472.741916
+bar pass 6 trial onset at 1544191472.750304
+bar pass 6 fixation probe onset at 1544191473.041881
+bar pass 6 trial offset at 1544191473.941903
+bar pass 6 trial onset at 1544191473.950241
+bar pass 6 fixation probe onset at 1544191474.241934
+bar pass 6 trial offset at 1544191475.150279
+bar pass 6 trial onset at 1544191475.158602
+bar pass 6 fixation probe onset at 1544191475.450266
+bar pass 6 trial offset at 1544191476.350396
+bar pass 6 trial onset at 1544191476.358616
+bar pass 6 fixation probe onset at 1544191476.650328
+bar pass 6 trial offset at 1544191477.550313
+bar pass 6 trial onset at 1544191477.558664
+bar pass 6 fixation probe onset at 1544191477.850436
+bar pass 6 trial offset at 1544191478.750349
+bar pass 6 trial onset at 1544191478.758685
+bar pass 6 fixation probe onset at 1544191479.050356
+bar pass 6 trial offset at 1544191479.950365
+bar pass 6 trial onset at 1544191479.958719
+bar pass 6 fixation probe onset at 1544191480.250392
+bar pass 6 trial offset at 1544191481.150387
+bar pass 6 trial onset at 1544191481.158757
+bar pass 6 fixation probe onset at 1544191481.450388
+bar pass 6 trial offset at 1544191482.350413
+bar pass 6 trial onset at 1544191482.358766
+bar pass 6 fixation probe onset at 1544191482.650416
+bar pass 6 trial offset at 1544191483.558762
+bar pass 6 trial onset at 1544191483.567113
+bar pass 6 fixation probe onset at 1544191483.858775
+bar pass 6 trial offset at 1544191484.767149
+bar pass 6 trial onset at 1544191484.775484
+bar pass 6 fixation probe onset at 1544191485.067159
+bar pass 6 trial offset at 1544191485.967163
+bar pass 6 trial onset at 1544191485.975493
+bar pass 6 fixation probe onset at 1544191486.267184
+bar pass 6 trial offset at 1544191487.167203
+bar pass 6 trial onset at 1544191487.175532
+bar pass 6 fixation probe onset at 1544191487.467197
+bar pass 6 trial offset at 1544191488.367264
+bar pass 6 trial onset at 1544191488.375588
+bar pass 6 fixation probe onset at 1544191488.667235
+bar pass 6 trial offset at 1544191489.575592
+bar pass 6 trial onset at 1544191489.583892
+bar pass 6 fixation probe onset at 1544191489.875676
+bar pass 6 trial offset at 1544191490.775649
+bar pass 6 - 384/384 drawn fixation and bar stimuli - and 192/192 probes - 10 missed sync on 4608 frames, 0.2% (mean/median delay = 7.9/7.9 ms)
+bar pass 6 stopped at 1544191490.778808
+bar pass 7 started at 1544191490.894130
+bar pass 7 event t at 1544191492.095812
+bar pass 7 trial onset at 1544191492.100665
+bar pass 7 trial offset at 1544191493.292326
+bar pass 7 trial onset at 1544191493.300658
+bar pass 7 trial offset at 1544191494.492345
+bar pass 7 trial onset at 1544191494.500672
+bar pass 7 trial offset at 1544191495.692395
+bar pass 7 trial onset at 1544191495.700704
+bar pass 7 trial offset at 1544191496.892452
+bar pass 7 trial onset at 1544191496.900712
+bar pass 7 trial offset at 1544191498.092446
+bar pass 7 trial onset at 1544191498.100734
+bar pass 7 trial offset at 1544191499.292457
+bar pass 7 trial onset at 1544191499.300762
+bar pass 7 trial offset at 1544191500.492489
+bar pass 7 trial onset at 1544191500.500799
+bar pass 7 trial offset at 1544191501.692491
+bar pass 7 trial onset at 1544191501.700813
+bar pass 7 trial offset at 1544191502.892522
+bar pass 7 - 108/1.080000e+02 drawn fixation and bar stimuli - and 0/0 probes - 0 missed sync on 1296 frames, 0.0% (mean/median delay = NaN/NaN ms)
+bar pass 7 stopped at 1544191502.894641
+bar pass 8 started at 1544191503.008630
+bar pass 8 event t at 1544191504.210894
+bar pass 8 trial onset at 1544191504.217548
+bar pass 8 fixation probe onset at 1544191504.509225
+bar pass 8 trial offset at 1544191505.417574
+bar pass 8 trial onset at 1544191505.425928
+bar pass 8 fixation probe onset at 1544191505.717581
+bar pass 8 trial offset at 1544191506.617611
+bar pass 8 trial onset at 1544191506.625954
+bar pass 8 fixation probe onset at 1544191506.917615
+bar pass 8 trial offset at 1544191507.817644
+bar pass 8 trial onset at 1544191507.825952
+bar pass 8 fixation probe onset at 1544191508.117613
+bar pass 8 trial offset at 1544191509.026007
+bar pass 8 trial onset at 1544191509.034327
+bar pass 8 fixation probe onset at 1544191509.325979
+bar pass 8 trial offset at 1544191510.234339
+bar pass 8 trial onset at 1544191510.242682
+bar pass 8 fixation probe onset at 1544191510.534331
+bar pass 8 trial offset at 1544191511.442708
+bar pass 8 trial onset at 1544191511.451048
+bar pass 8 fixation probe onset at 1544191511.742715
+bar pass 8 trial offset at 1544191512.651050
+bar pass 8 trial onset at 1544191512.659463
+bar pass 8 fixation probe onset at 1544191512.951049
+bar pass 8 trial offset at 1544191513.851081
+bar pass 8 trial onset at 1544191513.859397
+bar pass 8 fixation probe onset at 1544191514.151077
+bar pass 8 trial offset at 1544191515.067776
+bar pass 8 trial onset at 1544191515.076206
+bar pass 8 fixation probe onset at 1544191515.367871
+bar pass 8 trial offset at 1544191516.276127
+bar pass 8 trial onset at 1544191516.284466
+bar pass 8 fixation probe onset at 1544191516.576226
+bar pass 8 trial offset at 1544191517.476145
+bar pass 8 trial onset at 1544191517.484490
+bar pass 8 fixation probe onset at 1544191517.776167
+bar pass 8 trial offset at 1544191518.676172
+bar pass 8 trial onset at 1544191518.684530
+bar pass 8 fixation probe onset at 1544191518.976194
+bar pass 8 trial offset at 1544191519.876191
+bar pass 8 trial onset at 1544191519.884529
+bar pass 8 fixation probe onset at 1544191520.176207
+bar pass 8 trial offset at 1544191521.084560
+bar pass 8 trial onset at 1544191521.092901
+bar pass 8 fixation probe onset at 1544191521.384624
+bar pass 8 trial offset at 1544191522.292938
+bar pass 8 trial onset at 1544191522.301248
+bar pass 8 fixation probe onset at 1544191522.592924
+bar pass 8 trial offset at 1544191523.501267
+bar pass 8 trial onset at 1544191523.509628
+bar pass 8 fixation probe onset at 1544191523.801303
+bar pass 8 trial offset at 1544191524.701412
+bar pass 8 trial onset at 1544191524.709719
+bar pass 8 fixation probe onset at 1544191525.001301
+bar pass 8 trial offset at 1544191525.901332
+bar pass 8 - 216/2.160000e+02 drawn fixation and bar stimuli - and 108/108 probes - 8 missed sync on 2592 frames, 0.3% (mean/median delay = 7.9/7.9 ms)
+bar pass 8 stopped at 1544191525.901804
+bar pass 9 started at 1544191526.015602
+bar pass 9 event t at 1544191527.217018
+bar pass 9 trial onset at 1544191527.226361
+bar pass 9 trial offset at 1544191528.418067
+bar pass 9 trial onset at 1544191528.426382
+bar pass 9 trial offset at 1544191529.618079
+bar pass 9 trial onset at 1544191529.626420
+bar pass 9 trial offset at 1544191530.818116
+bar pass 9 trial onset at 1544191530.826445
+bar pass 9 trial offset at 1544191532.018110
+bar pass 9 trial onset at 1544191532.026457
+bar pass 9 trial offset at 1544191533.218145
+bar pass 9 trial onset at 1544191533.226479
+bar pass 9 trial offset at 1544191534.426565
+bar pass 9 trial onset at 1544191534.434871
+bar pass 9 trial offset at 1544191535.626530
+bar pass 9 trial onset at 1544191535.634886
+bar pass 9 trial offset at 1544191536.826548
+bar pass 9 trial onset at 1544191536.834893
+bar pass 9 trial offset at 1544191538.026597
+bar pass 9 - 107/1.080000e+02 drawn fixation and bar stimuli - and 0/0 probes - 2 missed sync on 1296 frames, 0.2% (mean/median delay = 7.9/7.9 ms)
+bar pass 9 stopped at 1544191538.028697
