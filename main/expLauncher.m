@@ -28,7 +28,7 @@ const.expName           =   'pRF_gazeMod';  % experiment name.
 const.expStart          =   0;              % Start of a recording exp                          0 = NO  , 1 = YES
 const.checkTrial        =   0;              % Print trial conditions (for debugging)            0 = NO  , 1 = YES
 const.writeLogTxt       =   1;              % write a log file in addition to eyelink file      0 = NO  , 1 = YES
-const.genStimuli        =   1;              % Generate all stimuli                              0 = NO  , 1 = YES
+const.genStimuli        =   0;              % Generate all stimuli                              0 = NO  , 1 = YES
 const.drawStimuli       =   0;              % Draw stimuli generated                            0 = NO  , 1 = YES
 const.mkVideo           =   0;              % Make a video of a run (on mac not linux)          0 = NO  , 1 = YES
 
@@ -81,8 +81,8 @@ const.cond_run_num      =  [1;1;...
 
 % Desired screen setting
 % ----------------------
-const.desiredFD         =   60;            % Desired refresh rate
-fprintf(1,'\n\n\tDon''t forget to change before testing\n');
+const.desiredFD         =   120;            % Desired refresh rate
+% fprintf(1,'\n\n\tDon''t forget to change before testing\n');
 const.desiredRes        =   [1920,1080];    % Desired resolution
 
 % Path

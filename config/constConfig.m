@@ -26,7 +26,7 @@ rng('shuffle');
 const.white             =   [255,255,255];                                                      % white color
 const.black             =   [0,0,0];                                                            % black color
 const.gray              =   [128,128,128];                                                      % gray color
-const.background_color  =   const.gray;                                                         % background color
+const.background_color  =   const.black;                                                        % background color
 const.stim_color        =   const.white;                                                        % stimulus color
 const.ann_color         =   const.stim_color;                                                   % define anulus around fixation color
 const.ann_probe_color   =   const.stim_color;                                                   % define anulus around fixation color when probe
@@ -100,7 +100,7 @@ const.stim_rect         =   [   scr.x_mid-const.stim_size(1);...                
                             
 const.stim_rect_cond    =   const.stim_rect + [ const.stim_offset(const.cond2,:)';...           % rect of the actual stimulus in the specific condition
                                                 const.stim_offset(const.cond2,:)'];
-const.num_steps_kappa   =   3;                                                                 % number of kappa steps
+const.num_steps_kappa   =   5;                                                                 % number of kappa steps
 const.noise_kappa       =   [0,10.^(linspace(-1,1.5,const.num_steps_kappa-1))];                 % von misses filter kappa parameter (1st = noise, last = less noisy)
 const.good_4_harder     =   3;                                                                  % amount of trials before (harder) staircase update
 const.bad_4_easier      =   1;                                                                  % amount of trials before (easier) staircase update

@@ -331,15 +331,15 @@ while nbf < num_frame_max
         expDes.tex = expDes.texnew;
     end
     
-    if flick_val == 0
-        if time2probe
-            tex2draw                =   expDes.tex_blank_probe;
-        else
-            tex2draw                =   expDes.tex_blank;
-        end
-    elseif flick_val == 1
-        tex2draw                =   expDes.tex;
-    end
+%     if flick_val == 0
+%         if time2probe
+%             tex2draw                =   expDes.tex_blank_probe;
+%         else
+%             tex2draw                =   expDes.tex_blank;
+%         end
+%     elseif flick_val == 1
+    tex2draw                =   expDes.tex;
+%     end
     
     %% Screen flip
     Screen('DrawTexture',scr.main,tex2draw,[],const.stim_rect_cond)
