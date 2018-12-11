@@ -424,6 +424,16 @@ while nbf < num_frame_max
     end
     
     if keyPressed
+        if keyCode(my_key.tr)
+            % write in log/edf
+            log_txt                 =   sprintf('bar pass %i event t at %f',t,GetSecs);
+            if const.writeLogTxt
+                fprintf(const.log_file_fid,'%s\n',log_txt);
+            end
+            if const.tracker
+                Eyelink('message','%s',log_txt);
+            end
+        end
         if keyCode(my_key.escape)
             if const.expStart == 0
                 overDone(const,my_key)
@@ -482,17 +492,7 @@ while nbf < num_frame_max
                 expDes.expMat(bar_trials_num(bar_step),16)  =   GetSecs;
                 [expDes]                =   updateStaircase(cond1(bar_step),const,expDes,response,GetSecs);
                 resp                    =   1;
-            end
-            
-        elseif keyCode(my_key.tr)
-            % write in log/edf
-            log_txt                 =   sprintf('bar pass %i event t at %f',t,GetSecs);
-            if const.writeLogTxt
-                fprintf(const.log_file_fid,'%s\n',log_txt);
-            end
-            if const.tracker
-                Eyelink('message','%s',log_txt);
-            end
+            end 
         end
     end
  

@@ -26,7 +26,7 @@ rng('shuffle');
 const.white             =   [255,255,255];                                                      % white color
 const.black             =   [0,0,0];                                                            % black color
 const.gray              =   [128,128,128];                                                      % gray color
-const.background_color  =   const.black;                                                        % background color
+const.background_color  =   const.gray;                                                         % background color
 const.stim_color        =   const.white;                                                        % stimulus color
 const.ann_color         =   const.stim_color;                                                   % define anulus around fixation color
 const.ann_probe_color   =   const.stim_color;                                                   % define anulus around fixation color when probe
@@ -74,7 +74,7 @@ const.probe_num         =   (round(const.probe_duration/scr.frame_duration));   
 const.frame_to_draw_ver =   const.bar_step_ver*const.bar_step_dur_ver*const.noise_freq;         % number of drawn frame per pass for vertical bar pass
 const.frame_to_draw_hor =   const.bar_step_hor*const.bar_step_dur_hor*const.noise_freq;         % number of drawn frame per pass for horizontal bar pass
 const.frame_to_draw_apt =   const.bar_step_apt*const.bar_step_dur_apt*const.noise_freq;         % number of drawn frame per pass for horizontal bar pass
-const.frame_to_draw_blk =   const.blk_step*const.TR_dur*const.noise_freq;                      % number of drawn frame per bar pass for blank
+const.frame_to_draw_blk =   const.blk_step*const.TR_dur*const.noise_freq;                       % number of drawn frame per bar pass for blank
 
 const.probe_to_draw_ver =   const.bar_step_ver*const.probe_num_redraw;                          % number of probes to draw per pass in horizontal bar pass
 const.probe_to_draw_hor =   const.bar_step_hor*const.probe_num_redraw;                          % number of probes to draw per pass in vertical bar pass
@@ -88,10 +88,10 @@ const.num_frame_max_blk =   const.blk_step*const.TR_num;                        
 % Noise patches
 const.noise_num         =   2;                                                                  % number of generated patches per kappa
 const.stim_size         =   [scr.scr_sizeX/2,scr.scr_sizeY/2];                                  % full screen stimuli size in pixels
-const.apt_rad_val       =   4.5;                                                                  % aperture stimuli radius in dva
+const.apt_rad_val       =   4;                                                                  % aperture stimuli radius in dva
 const.apt_rad           =   vaDeg2pix(const.apt_rad_val,scr);                                   % aperture stimuli radius in pixels
 
-const.stim_offset_val   =   [-4.5,0;0,0;+4.5,0;0,0];                                            % stimulus x/y offset in degrees in pRF and colormatcher task
+const.stim_offset_val   =   [-4,0;0,0;+4,0;0,0];                                                % stimulus x/y offset in degrees in pRF and colormatcher task
 const.stim_offset       =   vaDeg2pix(const.stim_offset_val,scr);                               % stimulus x/y offset in pixels in pRF and colormatcher task
 const.stim_rect         =   [   scr.x_mid-const.stim_size(1);...                                % rect of the actual stimulus
                                 scr.y_mid-const.stim_size(2);...
@@ -112,7 +112,7 @@ if const.mkVideo
 end
 const.noise_size        =   sqrt((const.stim_size(1)*2)^2+(const.stim_size(1)*2)^2);            % size of the patch to allow 45deg rotation
 const.noise_angle       =   [45,-45,NaN];                                                       % noise rotation angles
-const.noise_pixelVal    =   0.02;                                                               % stimulus noise pixel size in degrees
+const.noise_pixelVal    =   0.04;                                                               % stimulus noise pixel size in degrees
 const.noise_pixel       =   vaDeg2pix(const.noise_pixelVal,scr);                                % stimulus noise pixel size in pixels
 const.native_noise_dim  =   round([const.noise_size/const.noise_pixel,const.noise_size/const.noise_pixel]);% starting size of the patch
 const.noise_color       =   'pink';                                                             % stimuli noise color ('white','pink','brownian');
@@ -151,9 +151,9 @@ const.raised_cos        =   (const.raised_cos - min(const.raised_cos))/...
 const.stim_aperture     =   compStimAperture(const);                                            % define stimulus aperture alpha layer
 
 % Fixation circular aperture
-const.fix_out_rim_radVal=   0.25;                                                               % radius of outer circle of fixation bull's eye
-const.fix_rim_radVal    =   0.85*const.fix_out_rim_radVal;                                      % radius of intermediate circle of fixation bull's eye in degree
-const.fix_radVal        =   0.15*const.fix_out_rim_radVal;                                      % radius of inner circle of fixation bull's eye in degrees
+const.fix_out_rim_radVal=   0.4;                                                                % radius of outer circle of fixation bull's eye
+const.fix_rim_radVal    =   0.9*const.fix_out_rim_radVal;                                       % radius of intermediate circle of fixation bull's eye in degree
+const.fix_radVal        =   0.1*const.fix_out_rim_radVal;                                       % radius of inner circle of fixation bull's eye in degrees
 const.fix_out_rim_rad   =   vaDeg2pix(const.fix_out_rim_radVal,scr);                            % radius of outer circle of fixation bull's eye in pixels
 const.fix_rim_rad       =   vaDeg2pix(const.fix_rim_radVal,scr);                                % radius of intermediate circle of fixation bull's eye in pixels
 const.fix_rad           =   vaDeg2pix(const.fix_radVal,scr);                                    % radius of inner circle of fixation bull's eye in pixels
@@ -171,7 +171,7 @@ const.bar_hor_dir_run   =   [9,1,9,5,9,1,9,5,9];                                
 const.bar_width_deg     =   1;                                                                  % bar width in dva
 const.bar_width         =   vaDeg2pix(const.bar_width_deg,scr);                                 % bar width in pixels
 
-const.bar_mask_size     =   const.stim_size(1)*4;                                                   % bar mask size in pixels
+const.bar_mask_size     =   const.stim_size(1)*4;                                               % bar mask size in pixels
 const.bar_aperture      =   compBarAperture(const);                                             % compute bar aperture mesh
 
 const.bar_dir_ang_start =   0;                                                                  % first direction angle

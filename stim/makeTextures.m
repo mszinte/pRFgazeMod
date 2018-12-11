@@ -44,7 +44,9 @@ Screen('Flip',scr.main);
 Screen('Close',t_handle);
 
 % Make black noise
-black_fix_noise         =   zeros(round(const.noise_size),round(const.noise_size),4);
+black_fix_noise(:,:,1)  =   zeros(round(const.noise_size),round(const.noise_size),1)+const.background_color(1);
+black_fix_noise(:,:,2)  =   zeros(round(const.noise_size),round(const.noise_size),1)+const.background_color(2);
+black_fix_noise(:,:,3)  =   zeros(round(const.noise_size),round(const.noise_size),1)+const.background_color(3);
 black_fix_noise(:,:,4)  =   const.fix_aperture;
 tex_black_fix_noise     =   Screen('MakeTexture',scr.main,black_fix_noise);
 

@@ -33,9 +33,9 @@ imageMat(round(bar_mask_size/2 - const.bar_width/2):round(bar_mask_size/2 + cons
 imageMat(round(bar_mask_size/2 + const.bar_width/2)+1:round(bar_mask_size/2 + const.bar_width/2)+size(raised_cos,1)) = raised_cos'; 
 imageMat                =   repmat(imageMat,1,round(bar_mask_size));
 
-imageMatCol(:,:,1)      =   imageMat*const.background_color(1);
-imageMatCol(:,:,2)      =   imageMat*const.background_color(2);
-imageMatCol(:,:,3)      =   imageMat*const.background_color(3);
+imageMatCol(:,:,1)      =   imageMat*0+const.background_color(1);
+imageMatCol(:,:,2)      =   imageMat*0+const.background_color(2);
+imageMatCol(:,:,3)      =   imageMat*0+const.background_color(3);
 imageMatCol(:,:,4)      =   imageMat*255;
 
 end
