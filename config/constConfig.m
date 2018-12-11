@@ -100,7 +100,7 @@ const.stim_rect         =   [   scr.x_mid-const.stim_size(1);...                
                             
 const.stim_rect_cond    =   const.stim_rect + [ const.stim_offset(const.cond2,:)';...           % rect of the actual stimulus in the specific condition
                                                 const.stim_offset(const.cond2,:)'];
-const.num_steps_kappa   =   15;                                                                 % number of kappa steps
+const.num_steps_kappa   =   3;                                                                 % number of kappa steps
 const.noise_kappa       =   [0,10.^(linspace(-1,1.5,const.num_steps_kappa-1))];                 % von misses filter kappa parameter (1st = noise, last = less noisy)
 const.good_4_harder     =   3;                                                                  % amount of trials before (harder) staircase update
 const.bad_4_easier      =   1;                                                                  % amount of trials before (easier) staircase update
