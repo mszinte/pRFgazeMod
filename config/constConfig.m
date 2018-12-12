@@ -34,7 +34,7 @@ const.dot_color         =   const.stim_color;                                   
 const.dot_probe_color   =   const.black;                                                        % define fixation dot color when probe
 
 %% Time parameters
-const.TR_dur            =   1.4;                                                                % repetition time
+const.TR_dur            =   1.2;                                                                % repetition time
 const.TR_num            =   (round(const.TR_dur/scr.frame_duration));                           % repetition time in screen frames
 const.bar_dir_num       =   9;                                                                  % number of bar passes and break
 
@@ -54,10 +54,6 @@ const.bar_step_num_apt  =   (round(const.bar_step_dur_apt/scr.frame_duration)); 
 const.blk_step         =    9;                                                                  % blank period step
 const.blk_step_dur      =   const.TR_dur;                                                       % blank step duration in seconds
 const.blk_step_num      =   (round(const.blk_step_dur/scr.frame_duration));                     % blank step duration in screen frames
-
-const.flicker_freq      =   10;                                                                 % stimuli fliquering frequency in hertz
-const.flicker_dur       =   1/const.flicker_freq;                                               % stimuli fliquering duration in seconds
-const.flicker_num       =   (round(const.flicker_dur/scr.frame_duration));                      % stimuli fliquering duration in screen frames
 
 const.noise_freq        =   10;                                                                 % compute noise frequency in hertz
 const.patch_dur         =   1/const.noise_freq;                                                 % compute single patch duration in seconds
@@ -86,7 +82,7 @@ const.num_frame_max_blk =   const.blk_step*const.TR_num;                        
 
 %% Stim parameters
 % Noise patches
-const.noise_num         =   2;                                                                  % number of generated patches per kappa
+const.noise_num         =   10;                                                                  % number of generated patches per kappa
 const.stim_size         =   [scr.scr_sizeX/2,scr.scr_sizeY/2];                                  % full screen stimuli size in pixels
 const.apt_rad_val       =   4;                                                                  % aperture stimuli radius in dva
 const.apt_rad           =   vaDeg2pix(const.apt_rad_val,scr);                                   % aperture stimuli radius in pixels
@@ -100,7 +96,7 @@ const.stim_rect         =   [   scr.x_mid-const.stim_size(1);...                
                             
 const.stim_rect_cond    =   const.stim_rect + [ const.stim_offset(const.cond2,:)';...           % rect of the actual stimulus in the specific condition
                                                 const.stim_offset(const.cond2,:)'];
-const.num_steps_kappa   =   5;                                                                 % number of kappa steps
+const.num_steps_kappa   =   15;                                                                 % number of kappa steps
 const.noise_kappa       =   [0,10.^(linspace(-1,1.5,const.num_steps_kappa-1))];                 % von misses filter kappa parameter (1st = noise, last = less noisy)
 const.good_4_harder     =   3;                                                                  % amount of trials before (harder) staircase update
 const.bad_4_easier      =   1;                                                                  % amount of trials before (easier) staircase update
@@ -251,7 +247,6 @@ elseif const.cond2 == 1 || const.cond2 == 3 || const.cond2 == 2
 end
 
 % define horizontal bar pass
-flick_val = 0;
 for tAng = 1:size(var1,2)
     for nbf = 1:const.num_frame_max_hor
         
@@ -270,17 +265,6 @@ for tAng = 1:size(var1,2)
         if mod(nbf,const.patch_num) == 1;       const.time2draw_hor(nbf,tAng)   =   1;
         else;                                   const.time2draw_hor(nbf,tAng)   =   0;
         end
-        
-        % define flicker
-        if round(const.flicker_num) == 1;       flick_val = 1;
-        else
-            if mod(nbf,const.flicker_num) == 1
-                if flick_val == 0;              flick_val = 1;
-                else;                           flick_val = 0;
-                end
-            end
-        end
-        const.flick_val_hor(nbf,tAng)   =   flick_val;
         
         % define time to show probe frame
         if nbf >= const.probe_num_start_hor(const.bar_steps_hor(nbf,tAng)) && nbf <= const.probe_num_end_hor(const.bar_steps_hor(nbf,tAng)) && var1(tAng) ~= 9
@@ -319,7 +303,6 @@ const.time2make_hor     =   const.time2make_hor(1:size(const.time2draw_hor,1),:)
 
 
 % define vertical bar pass
-flick_val = 0;
 for tAng = 1:size(var1,2)
     for nbf = 1:const.num_frame_max_ver
         
@@ -338,17 +321,6 @@ for tAng = 1:size(var1,2)
         if mod(nbf,const.patch_num) == 1;       const.time2draw_ver(nbf,tAng)   =   1;
         else;                                   const.time2draw_ver(nbf,tAng)   =   0;
         end
-        
-        % define flicker
-        if round(const.flicker_num) == 1;       flick_val = 1;
-        else
-            if mod(nbf,const.flicker_num) == 1
-                if flick_val == 0;              flick_val = 1;
-                else;                           flick_val = 0;
-                end
-            end
-        end
-        const.flick_val_ver(nbf,tAng)   =   flick_val;
         
         % define time to show probe frame
         if nbf >= const.probe_num_start_ver(const.bar_steps_ver(nbf,tAng)) && nbf <= const.probe_num_end_ver(const.bar_steps_ver(nbf,tAng)) && var1(tAng) ~= 9
@@ -385,7 +357,6 @@ const.time2make_ver     =   [zeros(1,size(const.time2draw_ver,2));zeros(round(co
 const.time2make_ver     =   const.time2make_ver(1:size(const.time2draw_ver,1),:);
 
 % define aperture bar pass
-flick_val = 0;
 for tAng = 1:size(var1,2)
     for nbf = 1:const.num_frame_max_apt
         
@@ -404,17 +375,6 @@ for tAng = 1:size(var1,2)
         if mod(nbf,const.patch_num) == 1;       const.time2draw_apt(nbf,tAng)   =   1;
         else;                                   const.time2draw_apt(nbf,tAng)   =   0;
         end
-        
-        % define flicker
-        if round(const.flicker_num) == 1;       flick_val = 1;
-        else
-            if mod(nbf,const.flicker_num) == 1
-                if flick_val == 0;              flick_val = 1;
-                else;                           flick_val = 0;
-                end
-            end
-        end
-        const.flick_val_apt(nbf,tAng)   =   flick_val;
         
         % define time to show probe frame
         if nbf >= const.probe_num_start_apt(const.bar_steps_apt(nbf,tAng)) && nbf <= const.probe_num_end_apt(const.bar_steps_apt(nbf,tAng)) && var1(tAng) ~= 9

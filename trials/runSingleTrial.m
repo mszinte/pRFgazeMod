@@ -73,7 +73,6 @@ if const.cond2 == 4
         time2probe_cond         =   const.time2probe_hor;
         time2resp_cond          =   const.time2resp_hor;
         time2make_cond          =   const.time2make_hor;
-        flick_val_cond          =   const.flick_val_hor;
         resp_reset_cond         =   const.resp_reset_hor;
         time2log_cond           =   const.time2log_hor;
         trial_start_cond        =   const.trial_start_hor;
@@ -91,7 +90,6 @@ if const.cond2 == 4
         time2probe_cond         =   const.time2probe_ver;
         time2resp_cond          =   const.time2resp_ver;
         time2make_cond          =   const.time2make_ver;
-        flick_val_cond          =   const.flick_val_ver;
         resp_reset_cond         =   const.resp_reset_ver;
         time2log_cond           =   const.time2log_ver;
         trial_start_cond        =   const.trial_start_ver;
@@ -110,7 +108,6 @@ else
     time2probe_cond         =   const.time2probe_apt;
     time2resp_cond          =   const.time2resp_apt;
     time2make_cond          =   const.time2make_apt;
-    flick_val_cond          =   const.flick_val_apt;
     resp_reset_cond         =   const.resp_reset_apt;
     time2log_cond           =   const.time2log_apt;
     trial_start_cond        =   const.trial_start_apt;
@@ -255,9 +252,6 @@ while nbf < num_frame_max
     
     % define response frames
     time2resp               =   time2resp_cond(nbf,t);
-        
-    % define flick value
-    flick_val               =   flick_val_cond(nbf,t);
     
     % log time
     time2log                =   time2log_cond(nbf,t);
@@ -329,17 +323,8 @@ while nbf < num_frame_max
     if time2draw
         Screen('Close',expDes.tex);
         expDes.tex = expDes.texnew;
+        tex2draw =   expDes.tex;
     end
-    
-%     if flick_val == 0
-%         if time2probe
-%             tex2draw                =   expDes.tex_blank_probe;
-%         else
-%             tex2draw                =   expDes.tex_blank;
-%         end
-%     elseif flick_val == 1
-    tex2draw                =   expDes.tex;
-%     end
     
     %% Screen flip
     Screen('DrawTexture',scr.main,tex2draw,[],const.stim_rect_cond)
@@ -370,8 +355,7 @@ while nbf < num_frame_max
         imwrite(image_vid,sprintf('%s_frame_%i.png',const.movie_image_file,expDes.vid_num))
         writeVideo(const.vid_obj,image_vid);
     end
-        
-    
+
     %% Save trials times
     if time2log
         % probe onset

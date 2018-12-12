@@ -114,10 +114,6 @@ screen_filename         =   sprintf('%s/blank.mat',const.stim_folder);
 load(screen_filename,'screen_stim');
 expDes.tex_blank        =   Screen('MakeTexture',scr.main,screen_stim);
 
-screen_filename         =   sprintf('%s/blank_probe.mat',const.stim_folder);
-load(screen_filename,'screen_stim');
-expDes.tex_blank_probe  =   Screen('MakeTexture',scr.main,screen_stim);
-
 % Main Loop
 % ---------
 for t = 1:const.bar_dir_num

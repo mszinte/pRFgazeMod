@@ -102,7 +102,8 @@ total_amount            =   ((kappa_val_num-1) * (kappa_val_num-1) * noise_rand_
                             ((kappa_val_num-1) * (kappa_val_num-1) * noise_rand_num * fix_ori_num * stim_ori_num * bar_step_num_apt) + ...
                             noise_rand_num * bar_step_num_hor + ...
                             noise_rand_num * bar_step_num_ver + ...
-                            noise_rand_num * bar_step_num_apt + 1;
+                            noise_rand_num * bar_step_num_apt + ...
+                            1;
 
 textprogressbar('Progress: ');
 
@@ -345,30 +346,6 @@ else
     screen_stim             =   Screen('GetImage', scr.main,const.stim_rect_cond,'backBuffer',[],1);
 end
 screen_filename         =   sprintf('%s/blank.mat',const.stim_folder);
-save(screen_filename,'screen_stim')
-clear screen_stim
-
-% make inter-interval screenshot when probe
-rects                   =   [rect_noise,...                                                                         % fix annulus
-                             rect_noise,...                                                                         % empty center
-                             rect_noise];                                                                           % fixation dot
-texs                    =   [tex_fix_ann_probe,...                                                                  % fix annulus
-                             tex_black_fix_noise,...                                                                % empty center
-                             tex_fix_dot_probe];                                                                    % fixation dot
-
-Screen('FillRect',scr.main,const.background_color);
-Screen('DrawTextures',scr.main,texs,[],rects)
-Screen('DrawingFinished',scr.main,[],1);
-
-if const.drawStimuli
-	% plot and save the screenshot
-	Screen('Flip',scr.main);
-	screen_stim             =   Screen('GetImage', scr.main,const.stim_rect,[],0,1);
-else
-    % save the sreenshot
-    screen_stim             =   Screen('GetImage', scr.main,const.stim_rect,'backBuffer',[],1);
-end
-screen_filename         =   sprintf('%s/blank_probe.mat',const.stim_folder);
 save(screen_filename,'screen_stim')
 clear screen_stim
 
