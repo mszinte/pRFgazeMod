@@ -82,7 +82,7 @@ const.num_frame_max_blk =   const.blk_step*const.TR_num;                        
 
 %% Stim parameters
 % Noise patches
-const.noise_num         =   5;                                                                  % number of generated patches per kappa
+const.noise_num         =   3;                                                                  % number of generated patches per kappa
 const.stim_size         =   [scr.scr_sizeX/2,scr.scr_sizeY/2];                                  % full screen stimuli size in pixels
 const.apt_rad_val       =   4;                                                                  % aperture stimuli radius in dva
 const.apt_rad           =   vaDeg2pix(const.apt_rad_val,scr);                                   % aperture stimuli radius in pixels
@@ -96,7 +96,7 @@ const.stim_rect         =   [   scr.x_mid-const.stim_size(1);...                
                             
 const.stim_rect_cond    =   const.stim_rect + [ const.stim_offset(const.cond2,:)';...           % rect of the actual stimulus in the specific condition
                                                 const.stim_offset(const.cond2,:)'];
-const.num_steps_kappa   =   15;                                                                 % number of kappa steps
+const.num_steps_kappa   =   9;                                                                 % number of kappa steps
 const.noise_kappa       =   [0,10.^(linspace(-1,1.5,const.num_steps_kappa-1))];                 % von misses filter kappa parameter (1st = noise, last = less noisy)
 const.good_4_harder     =   3;                                                                  % amount of trials before (harder) staircase update
 const.bad_4_easier      =   1;                                                                  % amount of trials before (easier) staircase update
