@@ -17,8 +17,8 @@ function [expDes]=runSingleTrial(scr,const,expDes,my_key,t)
 % expDes : struct containing all the variable design configurations.
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 05 / 12 / 2018
-% Project :     pRF_gazeMod
+% Last update : 12 / 12 / 2018
+% Project :     pRFgazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
 

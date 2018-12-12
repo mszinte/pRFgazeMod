@@ -12,9 +12,9 @@ function [const]=dirSaveFile(const)
 % const : struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 19 / 06 / 2018
-% Project :     pRF_gazeMod
-% Version :     3.0
+% Last update : 12 / 12 / 2018
+% Project :     pRFgazeMod
+% Version :     4.0
 % ----------------------------------------------------------------------
 
 % Create data directory 

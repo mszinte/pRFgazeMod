@@ -15,8 +15,8 @@ function [const] = runTrials(scr,const,expDes,el,my_key)
 % const : struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 05 / 12 / 2018
-% Project :     pRF_gazeMod
+% Last update : 12 / 12 / 2018
+% Project :     pRFgazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
 

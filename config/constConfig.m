@@ -13,8 +13,8 @@ function [const]=constConfig(scr,const)
 % const : struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 05 / 12 / 2018
-% Project :     pRF_gazeMod
+% Last update : 12 / 12 / 2018
+% Project :     pRFgazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
 
@@ -82,7 +82,7 @@ const.num_frame_max_blk =   const.blk_step*const.TR_num;                        
 
 %% Stim parameters
 % Noise patches
-const.noise_num         =   10;                                                                  % number of generated patches per kappa
+const.noise_num         =   5;                                                                  % number of generated patches per kappa
 const.stim_size         =   [scr.scr_sizeX/2,scr.scr_sizeY/2];                                  % full screen stimuli size in pixels
 const.apt_rad_val       =   4;                                                                  % aperture stimuli radius in dva
 const.apt_rad           =   vaDeg2pix(const.apt_rad_val,scr);                                   % aperture stimuli radius in pixels

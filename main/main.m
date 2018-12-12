@@ -12,22 +12,14 @@ function main(const)
 % none
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 05 / 12 / 2018
-% Project :     pRF_gazeMod
+% Last update : 12 / 12 / 2018
+% Project :     pRFgazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
 
 % File director
 % -------------
 [const]                 =   dirSaveFile(const);
-
-% % Network settings for Eyelink
-% % ----------------------------
-% if const.tracker
-%     [~,~]                   =   system('networksetup -switchtolocation "eyelink"');  
-% else
-%     [~,~]                   =   system('networksetup -switchtolocation "web"');
-% end
 
 % Screen configurations
 % ---------------------
