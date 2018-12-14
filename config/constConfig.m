@@ -13,7 +13,7 @@ function [const]=constConfig(scr,const)
 % const : struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 12 / 12 / 2018
+% Last update : 14 / 12 / 2018
 % Project :     pRFgazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
@@ -40,28 +40,21 @@ const.bar_dir_num       =   9;                                                  
 
 const.bar_step_ver      =   18;                                                                 % bar steps for vertical bar pass
 const.bar_step_hor      =   32;                                                                 % bar steps for horizontal bar pass 
-const.bar_step_apt      =   18;                                                                  % bar steps for apperture bar pass
+const.bar_step_apt      =   18;                                                                 % bar steps for apperture bar pass
+const.blk_step          =   10;                                                                 % blank period step
 
 const.bar_step_dur_ver  =   const.TR_dur;                                                       % bar step duration for vertical bar pass in seconds
 const.bar_step_num_ver  =   (round(const.bar_step_dur_ver/scr.frame_duration));                 % bar step duration for vertical bar pass in screen frames
-
 const.bar_step_dur_hor  =   const.TR_dur;                                                       % bar step duration for horizontal bar pass in seconds
 const.bar_step_num_hor  =   (round(const.bar_step_dur_hor/scr.frame_duration));                 % bar step duration for horizontal bar pass in screen frames
-
 const.bar_step_dur_apt  =   const.TR_dur;                                                       % bar step duration for apperture bar pass in seconds
 const.bar_step_num_apt  =   (round(const.bar_step_dur_apt/scr.frame_duration));                 % bar step duration for apperture bar pass in screen frames
-
-const.blk_step         =    9;                                                                  % blank period step
 const.blk_step_dur      =   const.TR_dur;                                                       % blank step duration in seconds
 const.blk_step_num      =   (round(const.blk_step_dur/scr.frame_duration));                     % blank step duration in screen frames
 
 const.noise_freq        =   10;                                                                 % compute noise frequency in hertz
 const.patch_dur         =   1/const.noise_freq;                                                 % compute single patch duration in seconds
 const.patch_num         =   (round(const.patch_dur/scr.frame_duration));                        % compute single patch duration in screen frames
-
-const.iti_in_TR         =   1;                                                                  % inter trial interval in TR
-const.iti_dur           =   const.iti_in_TR*const.TR_dur;                                       % inter trial interval in seconds
-const.iti_num           =   (round(const.iti_dur/scr.frame_duration));                          % inter trial interval in frames
 
 const.probe_duration    =   0.600;                                                              % probe duration in seconds
 const.probe_num_redraw  =   (round(const.probe_duration/(1/const.noise_freq)));                 % probe duration in redraw frames
@@ -78,11 +71,11 @@ const.probe_to_draw_apt =   const.bar_step_apt*const.probe_num_redraw;          
 const.num_frame_max_hor =   const.bar_step_hor*const.TR_num;                                    % number of flip per pass in horizontal bar pass
 const.num_frame_max_ver =   const.bar_step_ver*const.TR_num;                                    % number of flip per pass in vertical bar pass
 const.num_frame_max_apt =   const.bar_step_apt*const.TR_num;                                    % number of flip per pass in aperture bar pass
-const.num_frame_max_blk =   const.blk_step*const.TR_num;                                       % number of flip per pass when blank bar pass
+const.num_frame_max_blk =   const.blk_step*const.TR_num;                                        % number of flip per pass when blank bar pass
 
 %% Stim parameters
 % Noise patches
-const.noise_num         =   3;                                                                  % number of generated patches per kappa
+const.noise_num         =   5;                                                                  % number of generated patches per kappa
 const.stim_size         =   [scr.scr_sizeX/2,scr.scr_sizeY/2];                                  % full screen stimuli size in pixels
 const.apt_rad_val       =   4;                                                                  % aperture stimuli radius in dva
 const.apt_rad           =   vaDeg2pix(const.apt_rad_val,scr);                                   % aperture stimuli radius in pixels
@@ -96,7 +89,7 @@ const.stim_rect         =   [   scr.x_mid-const.stim_size(1);...                
                             
 const.stim_rect_cond    =   const.stim_rect + [ const.stim_offset(const.cond2,:)';...           % rect of the actual stimulus in the specific condition
                                                 const.stim_offset(const.cond2,:)'];
-const.num_steps_kappa   =   9;                                                                 % number of kappa steps
+const.num_steps_kappa   =   15;                                                                 % number of kappa steps
 const.noise_kappa       =   [0,10.^(linspace(-1,1.5,const.num_steps_kappa-1))];                 % von misses filter kappa parameter (1st = noise, last = less noisy)
 const.good_4_harder     =   3;                                                                  % amount of trials before (harder) staircase update
 const.bad_4_easier      =   1;                                                                  % amount of trials before (easier) staircase update
@@ -415,21 +408,21 @@ if const.scanner
     const.TRs = 0;
     for bar_pass = 1:const.bar_dir_num        
         if var1(bar_pass) == 9
-            TR_bar_pass             =   const.blk_step+const.iti_in_TR;
+            TR_bar_pass             =   const.blk_step;
         else
             if const.cond2 == 4
                 if var1(bar_pass) == 1 || var1(bar_pass) == 5
-                    TR_bar_pass     =   const.bar_step_hor+const.iti_in_TR;
+                    TR_bar_pass     =   const.bar_step_hor;
                 elseif var1(bar_pass) == 3 || var1(bar_pass) == 7
-                    TR_bar_pass     =   const.bar_step_ver+const.iti_in_TR;
+                    TR_bar_pass     =   const.bar_step_ver;
                 end
             else
-                TR_bar_pass     =   const.bar_step_apt+const.iti_in_TR;
+                TR_bar_pass     =   const.bar_step_apt;
             end
         end
         const.TRs               =   const.TRs + TR_bar_pass;
     end
-    fprintf(1,'\n\tScanner parameters; %1.0f TRs, %1.2f seconds, %1.2f min\n',const.TRs,const.TR_dur,(const.TRs*const.TR_dur)/60);
+    fprintf(1,'\n\tScanner parameters; %1.0f TRs, %1.2f seconds, %s\n',const.TRs,const.TR_dur,datestr(seconds((const.TRs*const.TR_dur)),'MM:SS'));
 end
 
 %% Eyelink calibration value

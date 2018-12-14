@@ -14,7 +14,7 @@ function makeTextures(scr,const,expDes)
 % none - images saved
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 05 / 12 / 2018
+% Last update : 14 / 12 / 2018
 % Project :     pRF_gazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
@@ -211,9 +211,9 @@ for kappa_val_fix = 2:kappa_val_num
                         end
                     end
                 end
+                % close opened texture
+                Screen('Close',tex_stim);
             end
-            % close opened texture
-            Screen('Close',tex_stim);
             Screen('Close',tex_fix);
         end
     end
@@ -319,10 +319,10 @@ for noise_rand = 1:noise_rand_num
                 textprogressbar(numPrint*100/total_amount);
             end
         end
+        % close opened texture
+        Screen('Close',tex_stim);
     end
-    % close opened texture
-    Screen('Close',tex_stim);
-    Screen('Close',tex_fix);
+	Screen('Close',tex_fix);
 end
 
 % make inter-interval screenshot

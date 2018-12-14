@@ -17,7 +17,7 @@ function [expDes]=runSingleTrial(scr,const,expDes,my_key,t)
 % expDes : struct containing all the variable design configurations.
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 12 / 12 / 2018
+% Last update : 14 / 12 / 2018
 % Project :     pRFgazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
@@ -125,16 +125,6 @@ drawn_probe             =   0;
 resp                    =   0;
 missed_all              =   [];
 
-%% Wait first TR (ITI)
-
-% show the iti image
-time_start              =   GetSecs;
-screen_filename         =   sprintf('%s/blank.mat',const.stim_folder);
-load(screen_filename,'screen_stim');
-expDes.tex              =   Screen('MakeTexture',scr.main,screen_stim);
-Screen('DrawTexture',scr.main,expDes.tex,[],const.stim_rect_cond);
-Screen('Flip',scr.main);
-
 % define image of next frame
 bar_step                =   1;
 
@@ -181,19 +171,16 @@ end
 load(screen_filename,'screen_stim');
 expDes.texnew              =   Screen('MakeTexture',scr.main,screen_stim,[],[],[],angle);
 
-if const.mkVideo == 1
-    for t_iti = 1:const.iti_num
-        Screen('DrawTexture',scr.main,expDes.tex,[],const.stim_rect_cond);
-        Screen('Flip',scr.main);
-        expDes.vid_num          =   expDes.vid_num + 1;
-        image_vid               =   Screen('GetImage', scr.main);
-        imwrite(image_vid,sprintf('%s_frame_%i.png',const.movie_image_file,expDes.vid_num));
-        writeVideo(const.vid_obj,image_vid);
-    end
-else
-    % wait for T press
+% wait for T press in trial beginning
+if t == 1
+    % show the iti image
+    time_start              =   GetSecs;
+    expDes.tex              =   expDes.tex_blank;
+    Screen('DrawTexture',scr.main,expDes.tex,[],const.stim_rect_cond);
+    Screen('Flip',scr.main);
     tellapsed               =   GetSecs - time_start;
     first_tr                =   0;
+    
     while ~first_tr
         if const.scanner == 0 || const.scannerTest
             WaitSecs(const.TR_dur-tellapsed);
@@ -215,17 +202,18 @@ else
             end
         end
     end
+    
+    % write in log/edf
+    bar_pass_start          =   GetSecs;
+    log_txt                 =   sprintf('bar pass %i event t at %f',t,bar_pass_start);
+    if const.writeLogTxt
+        fprintf(const.log_file_fid,'%s\n',log_txt);
+    end
+    if const.tracker
+        Eyelink('message','%s',log_txt);
+    end
 end
 
-% write in log/edf
-bar_pass_start          =   GetSecs;
-log_txt                 =   sprintf('bar pass %i event t at %f',t,bar_pass_start);
-if const.writeLogTxt
-    fprintf(const.log_file_fid,'%s\n',log_txt);
-end
-if const.tracker
-    Eyelink('message','%s',log_txt);
-end
 
 %% Trial loop
 %  ----------

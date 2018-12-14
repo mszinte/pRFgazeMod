@@ -12,8 +12,8 @@ function [expDes]=designConfig(const)
 % expDes : struct containg experimental design
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 05 / 12 / 2018
-% Project :     pRF_gazeMod
+% Last update : 14 / 12 / 2018
+% Project :     pRFgazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
 
@@ -111,16 +111,16 @@ for t_bar_pass = 1:size(bar_dir,2)
     rand_var1                   =   bar_dir(t_bar_pass);
     
     if rand_var1 == 9
-        bar_pos_per_pass  =   const.blk_step + const.iti_in_TR;
+        bar_pos_per_pass  =   const.blk_step;
     else
         if const.cond2 == 4
             if rand_var1 == 1 || rand_var1 == 5
-                bar_pos_per_pass     =   const.bar_step_hor+const.iti_in_TR;
+                bar_pos_per_pass     =   const.bar_step_hor;
             elseif rand_var1 == 3 || rand_var1 == 7
-                bar_pos_per_pass     =   const.bar_step_ver+const.iti_in_TR;
+                bar_pos_per_pass     =   const.bar_step_ver;
             end
         else
-            bar_pos_per_pass     =   const.bar_step_apt+const.iti_in_TR;
+            bar_pos_per_pass     =   const.bar_step_apt;
         end
     end
     
@@ -129,8 +129,8 @@ for t_bar_pass = 1:size(bar_dir,2)
         rand_rand1                  =   expDes.oneR(randperm(numel(expDes.oneR),1));
         rand_rand2                  =   expDes.twoR(randperm(numel(expDes.twoR),1));
 
-        % no bar or inter-trial-interval
-        if rand_var1 == 9 || bar_step == bar_pos_per_pass(end)
+        % no bar
+        if rand_var1 == 9
             rand_var1                   =   9;
             rand_rand1                  =   3;
             rand_rand2                  =   3;
