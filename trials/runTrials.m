@@ -176,15 +176,24 @@ for trial = 1:expDes.nb_trials
                 head_line               =   [head_line,sprintf('%s\t',behav_txt_head{tab})];
             end
         end
-        fprintf('%s\n',head_line);
+        fprintf(const.behav_file_fid,'%s\n',head_line);
     end
     
 	% trials line
     trial_line              =   [];
     for tab = 1:size(behav_mat_res,2)
-        trial_line              =   [trial_line,sprintf('%1.10g\t',behav_mat_res{tab}(trial))];
         if tab == size(behav_mat_res,2)
-            trial_line              =   [trial_line,sprintf('%1.10g',behav_mat_res{tab}(trial))];
+            if isnan(behav_mat_res{tab}(trial))
+                trial_line              =   [trial_line,sprintf('n/a')];
+            else
+                trial_line              =   [trial_line,sprintf('%1.10g',behav_mat_res{tab}(trial))];
+            end
+        else
+            if isnan(behav_mat_res{tab}(trial))
+                trial_line              =   [trial_line,sprintf('n/a\t')];
+            else
+                trial_line              =   [trial_line,sprintf('%1.10g\t',behav_mat_res{tab}(trial))];
+            end
         end
     end
     fprintf(const.behav_file_fid,'%s\n',trial_line);
