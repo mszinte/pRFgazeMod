@@ -30,7 +30,7 @@ const.eyelink_temp_file =   'XX.edf';
 const.eyelink_local_file=   sprintf('%s_eyeData.edf',const.dat_output_file);
 
 % Behavioral data
-const.behav_file        =   sprintf('%s_behavData.tsv',const.dat_output_file);
+const.behav_file        =   sprintf('%s_events.tsv',const.dat_output_file);
 if const.expStart
     if exist(const.behav_file,'file')
         aswErase = upper(strtrim(input(sprintf('\n\tThis file allready exist, do you want to erase it ? (Y or N): '),'s')));
