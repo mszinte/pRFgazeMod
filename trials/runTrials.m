@@ -170,12 +170,13 @@ for trial = 1:expDes.nb_trials
     % header line
     if trial == 1
         for tab = 1:size(behav_txt_head,2)
-            head_line               =   [head_line,sprintf('%s\t',behav_txt_head{tab})];
             if tab == size(behav_txt_head,2)
                 head_line               =   [head_line,sprintf('%s',behav_txt_head{tab})];
+            else
+                head_line               =   [head_line,sprintf('%s\t',behav_txt_head{tab})];
             end
         end
-        fprintf(const.behav_file_fid,'%s\n',head_line);
+        fprintf('%s\n',head_line);
     end
     
 	% trials line
