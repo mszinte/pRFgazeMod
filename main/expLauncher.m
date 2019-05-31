@@ -26,7 +26,7 @@
 %    f. and click save to X configuration file + type password + quit
 
 % 3. run first or second sessions
-%    a. check that const.expStart = 1
+%    a. check that const.expStart = 1, const.scannerTest = 0 & const.scanner = 1
 %    b. click on run in expLauncher.m (!!!! select add top path when asked   !!!!)
 %    c. follow instructions
 %    d. press space to start the block, the code wait first TR
