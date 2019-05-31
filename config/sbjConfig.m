@@ -12,7 +12,7 @@ function [const]=sbjConfig(const)
 % const : struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 05 / 12 / 2018
+% Last update : 01 / 06 / 2019
 % Project :     pRF_gazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
@@ -29,7 +29,20 @@ if const.expStart
     end 
 end
 
-const.runNum            =   input(sprintf('\n\tRun numbers: '));
+const.sesNum            =   input(sprintf('\n\tSession number (1 to 2): '));
+if isempty(const.sesNum)
+    error('Incorrect session number');
+end
+const.sesNumTxt = sprintf('ses-0%i',const.sesNum);
+if const.sesNum == 1
+    const.cond_run_order = const.cond_run_order_ses1;
+    const.cond_run_num = const.cond_run_num_ses1;
+elseif  const.sesNum == 2
+    const.cond_run_order = const.cond_run_order_ses2;
+    const.cond_run_num = const.cond_run_num_ses2;
+end
+
+const.runNum            =   input(sprintf('\n\tRun number (1 to 10): '));
 if isempty(const.runNum)
     error('Incorrect run number');
 end
@@ -45,9 +58,8 @@ if const.expStart == 0
         error('Type either (1) or (2) or (3) or (4)')
     end
 else
-    const.cond1             =   const.cond_run_order(const.runNum,1);
-    const.cond2             =   const.cond_run_order(const.runNum,2);
-    
+    const.cond1         =   const.cond_run_order(const.runNum,1);
+    const.cond2         =   const.cond_run_order(const.runNum,2);    
 end
 
 if const.cond1 == 1
@@ -77,8 +89,7 @@ if const.expStart
         const.recEye        =   1;
     end    
     
-    
-    if const.runNum == 1
+    if const.runNum == 1 && const.sesNum == 1
         const.sjctName      =   upper(strtrim(input(sprintf('\n\tParticipant identity: '),'s')));
         const.sjct_age      =   input(sprintf('\n\tParticipant age: '));
         if isempty(const.sjct_age)

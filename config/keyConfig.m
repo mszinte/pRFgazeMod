@@ -12,7 +12,7 @@ function [my_key]=keyConfig
 % my_key : structure containing keyboard configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 05 / 12 / 2018
+% Last update : 01 / 06 / 2019
 % Project :     pRF_gazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
@@ -49,7 +49,6 @@ for keyb = 1:size(my_key.keyboard_idx,2)
     KbQueueCreate(my_key.keyboard_idx(keyb));
     KbQueueFlush(my_key.keyboard_idx(keyb));
     KbQueueStart(my_key.keyboard_idx(keyb));
-    
 end
 
 [~,keyCodeMat]   = KbQueueCheck(my_key.keyboard_idx(1));

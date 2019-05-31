@@ -12,18 +12,17 @@ function [const]=dirSaveFile(const)
 % const : struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 12 / 12 / 2018
+% Last update : 01 / 06 / 2019
 % Project :     pRFgazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
 
 % Create data directory 
-if ~isdir(sprintf('data/%s/fmap/',const.sjct))
-    mkdir(sprintf('data/%s/fmap/',const.sjct))
+if ~isdir(sprintf('data/%s/%s/fmap/',const.sjct,const.sesNumTxt))
+    mkdir(sprintf('data/%s/%s/fmap/',const.sjct,const.sesNumTxt))
 end
-
 % Define directory
-const.dat_output_file   =   sprintf('data/%s/fmap/%s_task-%s%s_run-%i',const.sjct,const.sjct,const.cond1_txt,const.cond2_txt,const.cond_run_num(const.runNum));
+const.dat_output_file   =   sprintf('data/%s/%s/fmap/%s_task-%s%s_run-%i',const.sjct,const.sesNumTxt,const.sjct,const.cond1_txt,const.cond2_txt,const.cond_run_num(const.runNum));
 
 % Eye data
 const.eyelink_temp_file =   'XX.edf';
@@ -51,18 +50,18 @@ if const.writeLogTxt
 end
 
 % Create additional info directory
-if ~isdir(sprintf('data/%s/add/',const.sjct))
-    mkdir(sprintf('data/%s/add/',const.sjct))
+if ~isdir(sprintf('data/%s/%s/add/',const.sjct,const.sesNumTxt))
+    mkdir(sprintf('data/%s/%s/add/',const.sjct,const.sesNumTxt))
 end
 
 % Define directory
-const.add_output_file   =   sprintf('data/%s/add/%s_task-%s%s_run-%i',const.sjct,const.sjct,const.cond1_txt,const.cond2_txt,const.cond_run_num(const.runNum));
+const.add_output_file   =   sprintf('data/%s/%s/add/%s_task-%s%s_run-%i',const.sjct,const.sesNumTxt,const.sjct,const.cond1_txt,const.cond2_txt,const.cond_run_num(const.runNum));
 
 % Define .mat saving file
 const.mat_file          =   sprintf('%s_matFile.mat',const.add_output_file);
 
 % Staircase file
-const.staircase_file    =   sprintf('data/%s/add/%s_staircases.mat',const.sjct,const.sjct);
+const.staircase_file    =   sprintf('data/%s/%s/add/%s_staircases.mat',const.sjct,const.sesNumTxt,const.sjct);
 
 % Define .mat stimuli file
 const.stim_folder       =   sprintf('stim/screenshots');

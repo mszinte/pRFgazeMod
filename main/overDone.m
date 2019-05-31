@@ -13,7 +13,7 @@ function overDone(const,my_key)
 % none
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 05 / 12 / 2018
+% Last update : 01 / 06 / 2019
 % Project :     pRF_gazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------

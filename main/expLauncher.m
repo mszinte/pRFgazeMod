@@ -2,7 +2,7 @@
 %  =============================
 % By :      Martin SZINTE
 % Projet :  pRF_gazeMod experiment
-% With :    Daniel LUTSCHER, Jan THEEUWES & Tomas KNAPEN
+% With :    Tomas KNAPEN
 % Version:  4.0
 
 % Version description
@@ -16,7 +16,6 @@
 % TO DO
 % =====
 % code analysis of behavioral data
-% code eye and data analysis with python started by terminal instructions
 
 % First settings
 % --------------
@@ -25,7 +24,7 @@ Screen('CloseAll');clear all;clear mex;clear functions;close all;home;ListenChar
 % General settings
 % ----------------
 const.expName           =   'pRFgazeMod';   % experiment name.
-const.expStart          =   1;              % Start of a recording exp                          0 = NO  , 1 = YES
+const.expStart          =   0;              % Start of a recording exp                          0 = NO  , 1 = YES
 const.checkTrial        =   0;              % Print trial conditions (for debugging)            0 = NO  , 1 = YES
 const.writeLogTxt       =   1;              % write a log file in addition to eyelink file      0 = NO  , 1 = YES
 const.genStimuli        =   0;              % Generate all stimuli                              0 = NO  , 1 = YES
@@ -34,9 +33,9 @@ const.mkVideo           =   0;              % Make a video of a run (on mac not 
 
 % External controls
 % -----------------
-const.tracker           =   1;              % run with eye tracker                              0 = NO  , 1 = YES
-const.scanner           =   1;              % run in MRI scanner                                0 = NO  , 1 = YES
-const.scannerTest       =   0;              % run with T returned at TR time                    0 = NO  , 1 = YES
+const.tracker           =   0;              % run with eye tracker                              0 = NO  , 1 = YES
+const.scanner           =   0;              % run in MRI scanner                                0 = NO  , 1 = YES
+const.scannerTest       =   1;              % run with T returned at TR time                    0 = NO  , 1 = YES
 
 % Durations
 % ---------
@@ -48,31 +47,32 @@ const.scannerTest       =   0;              % run with T returned at TR time    
 
 % Run order
 % ---------
-const.cond_run_order    =  [1,4;2,4;...     %    run 01 - AttendFixGazeCenterFS_run1  | run 02 - AttendStimGazeCenterFS_run1 |  L1+R1+U1+D1
-                            1,4;2,4;...     %    run 03 - AttendFixGazeCenterFS_run2  | run 04 - AttendStimGazeCenterFS_run2 |  L2+R2+U2+D2
-                            1,1;2,1;...     %    run 05 - AttendFixGazeLeft_run1      | run 06 - AttendStimGazeLeft_run1     |  L2+R2
-                            1,2;2,2;...     %    run 09 - AttendFixGazeCenter_run1    | run 10 - AttendStimGazeCenter_run1   |  L2+R2
-                            1,3;2,3;...     %    run 07 - AttendFixGazeRight_run1     | run 08 - AttendStimGazeRight_run1    |  L2+R2
-                            ...
-                            1,4;2,4;...     %    run 11 - AttendFixGazeCenterFS_run3  | run 12 - AttendStimGazeCenterFS_run3 |  L3+R3+U3+D3
-                            1,4;2,4;...     %    run 13 - AttendFixGazeCenterFS_run4  | run 14 - AttendStimGazeCenterFS_run4 |  L4+R4+U4+D4
-                            1,1;2,1;...     %    run 15 - AttendFixGazeLeft_run2      | run 16 - AttendStimGazeLeft_run2     |  L4+R4
-                            1,2;2,2;...     %    run 17 - AttendFixGazeCenter_run2    | run 18 - AttendStimGazeCenter_run2   |  L4+R4
-                            1,3;2,3];       %    run 19 - AttendFixGazeRight_run2     | run 20 - AttendStimGazeRight_run2    |  L4+R4
+const.cond_run_order_ses1 = [1,4;2,4;...     %    run 01 - AttendFixGazeCenterFS_run1  | run 02 - AttendStimGazeCenterFS_run1 |  L1+R1+U1+D1
+                             1,4;2,4;...     %    run 03 - AttendFixGazeCenterFS_run2  | run 04 - AttendStimGazeCenterFS_run2 |  L2+R2+U2+D2
+                             1,1;2,1;...     %    run 05 - AttendFixGazeLeft_run1      | run 06 - AttendStimGazeLeft_run1     |  L2+R2
+                             1,3;2,3;...     %    run 07 - AttendFixGazeRight_run1     | run 08 - AttendStimGazeRight_run1    |  L2+R2
+                             1,2;2,2];       %    run 09 - AttendFixGazeCenter_run1    | run 10 - AttendStimGazeCenter_run1   |  L2+R2                             
+                             
+const.cond_run_order_ses2 = [1,4;2,4;...     %    run 01 - AttendFixGazeCenterFS_run1  | run 02 - AttendStimGazeCenterFS_run1 |  L3+R3+U3+D3
+                             1,4;2,4;...     %    run 03 - AttendFixGazeCenterFS_run2  | run 04 - AttendStimGazeCenterFS_run2 |  L4+R4+U4+D4
+                             1,1;2,1;...     %    run 05 - AttendFixGazeLeft_run1      | run 06 - AttendStimGazeLeft_run1     |  L4+R4
+                             1,3;2,3;...     %    run 07 - AttendFixGazeRight_run1     | run 08 - AttendStimGazeRight_run1    |  L4+R4
+                             1,2;2,2];       %    run 09 - AttendFixGazeCenter_run1    | run 10 - AttendStimGazeCenter_run1   |  L4+R4                             
 
 % Run number per condition
 % ------------------------
-const.cond_run_num      =  [1;1;...
+const.cond_run_num_ses1 =  [1;1;...
                             2;2;...
                             1;1;...
                             1;1;...
+                            1;1];
+                        
+const.cond_run_num_ses2 =  [1;1;...
+                            2;2;...
                             1;1;...
-                            3;3;...
-                            4;4;...
-                            2;2;...
-                            2;2;...
-                            2;2;];
-
+                            1;1;...
+                            1;1];
+                            
 % Desired screen setting
 % ----------------------
 const.desiredFD         =   120;            % Desired refresh rate

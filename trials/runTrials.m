@@ -15,7 +15,7 @@ function [const] = runTrials(scr,const,expDes,el,my_key)
 % const : struct containing constant configurations
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 12 / 12 / 2018
+% Last update : 01 / 06 / 2019
 % Project :     pRFgazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
@@ -56,7 +56,7 @@ if const.expStart
 end
 
 % Initial calibrations
-% -------------------
+% --------------------
 if const.tracker
     fprintf(1,'\tEye tracking instructions - press space or 1st-red left button box -\n');
     eyeLinkClearScreen(el.bgCol);
@@ -154,8 +154,8 @@ behav_txt_head{3}       =   'run_number';                   behav_mat_res{3}    
 behav_txt_head{4}       =   'trial_number';                 behav_mat_res{4}        = 	expDes.expMat(:,2);
 behav_txt_head{5}       =   'att_task';                     behav_mat_res{5}        = 	expDes.expMat(:,3);
 behav_txt_head{6}       =   'fix_direction';                behav_mat_res{6}        = 	expDes.expMat(:,4);
-behav_txt_head{7}       =   'bar_period';                   behav_mat_res{7}        = 	expDes.expMat(:,5);
-behav_txt_head{8}       =   'bar_direction';                behav_mat_res{8}        = 	expDes.expMat(:,6);
+behav_txt_head{7}       =   'bar_direction';                behav_mat_res{7}        = 	expDes.expMat(:,5);
+behav_txt_head{8}       =   'bar_period';                   behav_mat_res{8}        = 	expDes.expMat(:,6);
 behav_txt_head{9}       =   'bar_step';                     behav_mat_res{9}        = 	expDes.expMat(:,7);
 behav_txt_head{10}      =   'fix_noise_ori';                behav_mat_res{10}       = 	expDes.expMat(:,8);
 behav_txt_head{11}      =   'stim_noise_ori';               behav_mat_res{11}       = 	expDes.expMat(:,9);

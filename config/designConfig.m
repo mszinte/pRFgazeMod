@@ -12,7 +12,7 @@ function [expDes]=designConfig(const)
 % expDes : struct containg experimental design
 % ----------------------------------------------------------------------
 % Function created by Martin SZINTE (martin.szinte@gmail.com)
-% Last update : 14 / 12 / 2018
+% Last update : 01 / 06 / 2019
 % Project :     pRFgazeMod
 % Version :     4.0
 % ----------------------------------------------------------------------
