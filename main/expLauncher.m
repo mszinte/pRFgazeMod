@@ -13,9 +13,43 @@
 % displayed at 3 different position surrounding the fixation target put at the screen center 
 % or displaced to the left or to the right.
 
+% To run
+% ======
+% 1. open matlab by typing in terminal "sudo /home/lab/Desktop/matlab" + type password (watdanook)
+
+% 2. change screen to take out the mirror display mode
+%    a. click NVIDIA X Server Settings
+%    b. in X Server Display Configuration, in selection pick select BOLD screen
+%    c. in configuration put new X screen
+%    d. set resolution to 1920x1080 and 120Hz
+%    e. click on apply
+%    f. and click save to X configuration file + type password + quit
+
+% 3. run first or second sessions
+%    a. check that const.expStart = 1
+%    b. click on run in expLauncher.m (!!!! select add top path when asked   !!!!)
+%    c. follow instructions
+%    d. press space to start the block, the code wait first TR
+%    e. do 10 runs per session, 2 session per subjects
+
+% 4. push the data online 
+%    a. in terminal: cd /home/lab/Experiments/pRFgazeMod/
+%    b. in terminal: git add -A
+%    c. in terminal: git commit -m "data of sub-001
+%    d. in terminal: git push origin master
+
+% 5. put back the screen in mirror display mode
+%    a. click NVIDIA X Server Settings
+%    b. in X Server Display Configuration, in selection pick select BOLD screen
+%    c. in configuration put X screen 0
+%    d. click on apply
+%    e. click save to X configuration file + type password + quit
+%    f. switch off and on the computer, and check that screen settings back to mirror display
+
 % TO DO
 % =====
 % code analysis of behavioral data
+% code analysis of mri data
 
 % First settings
 % --------------
@@ -24,7 +58,7 @@ Screen('CloseAll');clear all;clear mex;clear functions;close all;home;ListenChar
 % General settings
 % ----------------
 const.expName           =   'pRFgazeMod';   % experiment name.
-const.expStart          =   0;              % Start of a recording exp                          0 = NO  , 1 = YES
+const.expStart          =   1;              % Start of a recording exp                          0 = NO  , 1 = YES
 const.checkTrial        =   0;              % Print trial conditions (for debugging)            0 = NO  , 1 = YES
 const.writeLogTxt       =   1;              % write a log file in addition to eyelink file      0 = NO  , 1 = YES
 const.genStimuli        =   0;              % Generate all stimuli                              0 = NO  , 1 = YES
