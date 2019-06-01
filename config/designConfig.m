@@ -68,7 +68,15 @@ expDes.txt_rand2        =   {'cw','ccw','none'};
 
 % Staircase
 % ---------
-if const.runNum ~= 1
+if const.runNum == 1 && const.sesNum == 1
+    % create staircase starting value
+    expDes.fix_stair_val    =   const.fix_stair_val;
+    expDes.cor_count_fix    =   0;
+    expDes.incor_count_fix  =   0;
+    expDes.stim_stair_val   =   const.stim_stair_val;
+    expDes.cor_count_stim   =   0;
+    expDes.incor_count_stim =   0;
+else
     % load staircase of previous blocks
     load(const.staircase_file);
     expDes.fix_stair_val    =   staircase.fix_stair_val;
@@ -77,14 +85,6 @@ if const.runNum ~= 1
     expDes.stim_stair_val   =   staircase.stim_stair_val;
     expDes.cor_count_stim   =   staircase.cor_count_stim;
     expDes.incor_count_stim =   staircase.incor_count_stim;
-else
-    % create staircase starting value
-    expDes.fix_stair_val    =   const.fix_stair_val;
-    expDes.cor_count_fix    =   0;
-    expDes.incor_count_fix  =   0;
-    expDes.stim_stair_val   =   const.stim_stair_val;
-    expDes.cor_count_stim   =   0;
-    expDes.incor_count_stim =   0;
 end
 
 %% Experimental configuration :

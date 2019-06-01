@@ -109,8 +109,8 @@ const.cond_run_num_ses2 =  [1;1;...
                             
 % Desired screen setting
 % ----------------------
-const.desiredFD         =   120;            % Desired refresh rate
-% fprintf(1,'\n\n\tDon''t forget to change before testing\n');
+const.desiredFD         =   60;            % Desired refresh rate
+fprintf(1,'\n\n\tDon''t forget to change before testing\n');
 const.desiredRes        =   [1920,1080];    % Desired resolution
 
 % Path

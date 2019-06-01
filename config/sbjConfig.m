@@ -33,6 +33,10 @@ const.sesNum            =   input(sprintf('\n\tSession number (1 to 2): '));
 if isempty(const.sesNum)
     error('Incorrect session number');
 end
+if const.sesNum > 2
+    error('Only 2 sessions');
+end
+
 const.sesNumTxt = sprintf('ses-0%i',const.sesNum);
 if const.sesNum == 1
     const.cond_run_order = const.cond_run_order_ses1;
@@ -45,6 +49,9 @@ end
 const.runNum            =   input(sprintf('\n\tRun number (1 to 10): '));
 if isempty(const.runNum)
     error('Incorrect run number');
+end
+if const.runNum > 10
+    error('Only 10 runs');
 end
 
 if const.expStart == 0
