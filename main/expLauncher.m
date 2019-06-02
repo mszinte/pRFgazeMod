@@ -15,6 +15,7 @@
 
 % To run
 % ======
+
 % 1. open matlab by typing in terminal "sudo /home/lab/Desktop/matlab" + type password (watdanook)
 
 % 2. change screen to take out the mirror display mode
@@ -26,16 +27,16 @@
 %    f. and click save to X configuration file + type password + quit
 
 % 3. run first or second sessions
-%    a. check that const.expStart = 1, const.scannerTest = 0 & const.scanner = 1
+%    a. check below that const.expStart = 1 & const.scannerTest = 0 & const.scanner = 1
 %    b. click on run in expLauncher.m (!!!! select add top path when asked   !!!!)
-%    c. follow instructions
-%    d. press space to start the block, the code wait first TR
+%    c. follow instructions (select participant number, session, run)
+%    d. to quit instruction press space (or ask subject to press button indicated when ready) the code wait first TR
 %    e. do 10 runs per session, 2 session per subjects
 
 % 4. push the data online 
 %    a. in terminal: cd /home/lab/Experiments/pRFgazeMod/
 %    b. in terminal: git add -A
-%    c. in terminal: git commit -m "data of sub-001
+%    c. in terminal: git commit -m "data of sub-001"
 %    d. in terminal: git push origin master
 
 % 5. put back the screen in mirror display mode
@@ -109,8 +110,8 @@ const.cond_run_num_ses2 =  [1;1;...
                             
 % Desired screen setting
 % ----------------------
-const.desiredFD         =   60;            % Desired refresh rate
-fprintf(1,'\n\n\tDon''t forget to change before testing\n');
+const.desiredFD         =   120;            % Desired refresh rate
+%fprintf(1,'\n\n\tDon''t forget to change before testing\n');
 const.desiredRes        =   [1920,1080];    % Desired resolution
 
 % Path
