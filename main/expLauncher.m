@@ -69,8 +69,8 @@ const.mkVideo           =   0;              % Make a video of a run (on mac not 
 % External controls
 % -----------------
 const.tracker           =   0;              % run with eye tracker                              0 = NO  , 1 = YES
-const.scanner           =   0;              % run in MRI scanner                                0 = NO  , 1 = YES
-const.scannerTest       =   1;              % run with T returned at TR time                    0 = NO  , 1 = YES
+const.scanner           =   1;              % run in MRI scanner                                0 = NO  , 1 = YES
+const.scannerTest       =   0;              % run with T returned at TR time                    0 = NO  , 1 = YES
 
 % Durations
 % ---------
