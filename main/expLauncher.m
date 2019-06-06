@@ -16,15 +16,15 @@
 % To run
 % ======
 
-% 1. open matlab by typing in terminal "sudo /home/lab/Desktop/matlab" + type password (watdanook)
-
-% 2. change screen to take out the mirror display mode
+% 1. change screen to take out the mirror display mode
 %    a. click NVIDIA X Server Settings
 %    b. in X Server Display Configuration, in selection pick select BOLD screen
 %    c. in configuration put new X screen
 %    d. set resolution to 1920x1080 and 120Hz
 %    e. click on apply
-%    f. and click save to X configuration file + type password + quit
+%    f. and click save to X configuration file + type password + quit + restart computer 
+
+% 2. open matlab by typing in terminal "sudo /home/lab/Desktop/matlab" + type password (watdanook)
 
 % 3. run first or second sessions
 %    a. check below that const.expStart = 1 & const.scannerTest = 0 & const.scanner = 1

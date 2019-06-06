@@ -1,0 +1,4 @@
+# error at the end of the block in matlab because of the image to load
+# all data get saved in events and log but not in staircase mat file.
+
+# run 8 top up was repeated after a crash
