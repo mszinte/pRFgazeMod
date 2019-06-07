@@ -28,6 +28,7 @@ import os
 import glob
 import nibabel as nb
 import ipdb
+import json
 opj = os.path.join
 deb = ipdb.set_trace
 
@@ -178,7 +179,7 @@ for session in ['ses-01','ses-02']:
 		bold_files_ses = bold_files_ses2
 		epi_files_ses = epi_files_ses2
 		bold_physio_files_ses = bold_physio_files_ses2
-		epi_physio_files_ses = epi_physio_files_ses
+		epi_physio_files_ses = epi_physio_files_ses2
 		raw_behav_dir_ses = raw_behav_dir_ses2
 
 	# create bids folders
@@ -193,6 +194,7 @@ for session in ['ses-01','ses-02']:
 	bids_t1w = opj(anat_dir,"{sub}_{session}_T1w.nii.gz".format(sub = sub_name_bids, session = session))
 	os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = raw_t1w, dest = bids_t1w))
 
+
 	for type_data in ['nii.gz','json']:
 
 		# bold files
@@ -206,13 +208,40 @@ for session in ['ses-01','ses-02']:
 			epi_run_raw = opj(raw_dir_ses,'nifti',"{epi_file}.{type_data}".format(epi_file = epi_file, type_data = type_data))
 			epi_run_bids = opj(fmap_dir,"{sub}_{session}_{epi_cond}_epi.{type_data}".format(sub = sub_name_bids, epi_cond = epi_cond[run_num], type_data = type_data, session = session))
 			os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = epi_run_raw, dest = epi_run_bids))
-		
+
+			# add entry to epi json files
+			if type_data == 'json':
+				add_entry = False
+
+				with open(epi_run_bids) as f:
+					json_s = f.read()
+					json_dict = json.loads(json_s)
+
+				if 'PhaseEncodingDirection' in json_dict: None
+				else: 
+					json_dict.update({"PhaseEncodingDirection": "i-"})
+					add_entry = True
+
+				if 'TotalReadoutTime' in json_dict: None
+				else:
+					json_dict.update({"TotalReadoutTime": 0.0322})
+					add_entry = True
+
+				if 'IntendedFor' in json_dict: None
+				else: 
+					json_dict.update({"IntendedFor": ["{session}/func/{sub}_{session}_{task_cond}_bold.nii.gz".format(sub = sub_name_bids, task_cond = task_cond[run_num], session = session)]})
+					add_entry = True
+
+				if add_entry == True:
+					with open(epi_run_bids, 'w') as json_file:
+						json.dump(json_dict, json_file)
+
 	# bold physio
 	for run_num,bold_physio_file in enumerate(bold_physio_files_ses):
 		bold_physio_run_raw = opj(raw_dir_ses,"{bold_physio_file}.log".format(bold_physio_file = bold_physio_file))
 		bold_physio_run_bids = opj(func_dir,"{sub}_{session}_{task_cond}_physio.log".format(sub = sub_name_bids, task_cond = task_cond[run_num], session = session))
 		os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = bold_physio_run_raw, dest = bold_physio_run_bids))
-	
+		
 	# epi physio
 	for run_num,epi_physio_file in enumerate(epi_physio_files_ses):
 		epi_physio_run_raw = opj(raw_dir_ses,"{epi_physio_file}.log".format(epi_physio_file = epi_physio_file))
@@ -223,4 +252,5 @@ for session in ['ses-01','ses-02']:
 	os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = raw_behav_dir_ses, dest = func_dir))
 	
 
-	
+		
+		
