@@ -18,11 +18,11 @@ function [const]=dirSaveFile(const)
 % ----------------------------------------------------------------------
 
 % Create data directory 
-if ~isdir(sprintf('data/%s/%s/fmap/',const.sjct,const.sesNumTxt))
-    mkdir(sprintf('data/%s/%s/fmap/',const.sjct,const.sesNumTxt))
+if ~isdir(sprintf('data/%s/%s/func/',const.sjct,const.sesNumTxt))
+    mkdir(sprintf('data/%s/%s/func/',const.sjct,const.sesNumTxt))
 end
 % Define directory
-const.dat_output_file   =   sprintf('data/%s/%s/fmap/%s_%s_task-%s%s_run-%i',const.sjct,const.sesNumTxt,const.sjct,const.sesNumTxt,const.cond1_txt,const.cond2_txt,const.cond_run_num(const.runNum));
+const.dat_output_file   =   sprintf('data/%s/%s/func/%s_%s_task-%s%s_run-%i',const.sjct,const.sesNumTxt,const.sjct,const.sesNumTxt,const.cond1_txt,const.cond2_txt,const.cond_run_num(const.runNum));
 
 % Eye data
 const.eyelink_temp_file =   'XX.edf';
