@@ -188,6 +188,11 @@ for session in ['ses-01','ses-02']:
 		try: exec("os.makedirs({}_dir)".format(bids_folder))
 		except: pass
 
+	# t1w data
+	raw_t1w = '/home/shared/2017/visual/pRF_gazeMod/sourcedata/sub-002/anat/sub-002_T1w.nii.gz'
+	bids_t1w = opj(anat_dir,"{sub}_{session}_T1w.nii.gz".format(sub = sub_name_bids, session = session))
+	os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = raw_t1w, dest = bids_t1w))
+
 	for type_data in ['nii.gz','json']:
 
 		# bold files
