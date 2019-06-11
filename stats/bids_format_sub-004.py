@@ -122,7 +122,7 @@ bold_files_ses2 =  ["parrec_task-AFGCFS_run-1_bold_20190610141210_5",		# run 01
 					"parrec_task-AFGR_run-1_bold_20190610141210_17",		# run 07
 					"parrec_task-ASGR_run-1_bold_20190610141210_19",		# run 08
 					"parrec_task-AFGC_run-1_bold_20190610141210_21",		# run 09
-					"parrec_task-ASGC"]										# run 10 missing
+					"parrec_task-ASGC_run-1_bold_20190610141210_23"]	    # run 10
 
 epi_files_ses2 =   ["parrec_dir-TU_run-1_epi_20190610141210_6",				# run 01
 					"parrec_dir-TU_run-2_epi_20190610141210_8",				# run 02
