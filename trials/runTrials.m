@@ -108,6 +108,7 @@ instructionsIm(scr,const,my_key,sprintf('%s%s',const.cond1_txt,scanTxt),0);
 for keyb = 1:size(my_key.keyboard_idx,2)
     KbQueueFlush(my_key.keyboard_idx(keyb));
 end
+fprintf(1,'\n\n\tBUTTON PRESSED BY SUBJECT\n');
 
 % make empty texture
 screen_filename         =   sprintf('%s/blank.mat',const.stim_folder);

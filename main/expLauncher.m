@@ -6,7 +6,7 @@
 % Version:  4.0
 
 % Version description
-% ===================ebebebd
+% ===================
 % Experiment in which we first used a full screen 4 direction (left/right/up/down)
 % bar pass stimuli in a attetion to fixation or attention to the bar experiment.
 % Next, we use the same task but this time using a bar pass restricted to an aperture and 
@@ -59,18 +59,18 @@ Screen('CloseAll');clear all;clear mex;clear functions;close all;home;ListenChar
 % General settings
 % ----------------
 const.expName           =   'pRFgazeMod';   % experiment name.
-const.expStart          =   1;              % Start of a recording exp                          0 = NO  , 1 = YES
+const.expStart          =   0;              % Start of a recording exp                          0 = NO  , 1 = YES
 const.checkTrial        =   0;              % Print trial conditions (for debugging)            0 = NO  , 1 = YES
 const.writeLogTxt       =   1;              % write a log file in addition to eyelink file      0 = NO  , 1 = YES
 const.genStimuli        =   0;              % Generate all stimuli                              0 = NO  , 1 = YES
 const.drawStimuli       =   0;              % Draw stimuli generated                            0 = NO  , 1 = YES
-const.mkVideo           =   0;              % Make a video of a run (on mac not linux)          0 = NO  , 1 = YES
+const.mkVideo           =   1;              % Make a video of a run (on mac not linux)          0 = NO  , 1 = YES
 
 % External controls
 % -----------------
 const.tracker           =   0;              % run with eye tracker                              0 = NO  , 1 = YES
-const.scanner           =   1;              % run in MRI scanner                                0 = NO  , 1 = YES
-const.scannerTest       =   0;              % run with T returned at TR time                    0 = NO  , 1 = YES
+const.scanner           =   0;              % run in MRI scanner                                0 = NO  , 1 = YES
+const.scannerTest       =   1;              % run with T returned at TR time                    0 = NO  , 1 = YES
 
 % Durations
 % ---------
@@ -110,8 +110,8 @@ const.cond_run_num_ses2 =  [1;1;...
                             
 % Desired screen setting
 % ----------------------
-const.desiredFD         =   120;            % Desired refresh rate
-%fprintf(1,'\n\n\tDon''t forget to change before testing\n');
+const.desiredFD         =   60;            % Desired refresh rate
+fprintf(1,'\n\n\tDon''t forget to change before testing\n');
 const.desiredRes        =   [1920,1080];    % Desired resolution
 
 % Path
