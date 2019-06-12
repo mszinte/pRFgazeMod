@@ -109,52 +109,52 @@ epi_physio_files_ses1 =	[		"SCANPHYSLOG20190610104506",				# run 01
 								"SCANPHYSLOG20190610112012",				# run 09
 								"SCANPHYSLOG20190610112419"]				# run 10
 
-raw_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-004_ses-02_prfGazeMod/'
-raw_behav_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-004_behav/ses-02/func/'
+raw_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-003_ses-02_prfGazeMod/'
+raw_behav_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-003_behav/ses-02/func/'
 					
-bold_files_ses2 =  ["",		# run 01
-					"",		# run 02
-					"",		# run 03
-					"",		# run 04
-					"",		# run 05
-					"",		# run 06
-					"",		# run 07
-					"",		# run 08
-					"",		# run 09
-					""]		# run 10 missing
+bold_files_ses2 =  ["parrec_task-AFGCFS_run-1_bold_20190612154520_4",		# run 01
+					"parrec_task-ASGCFS_run-1_bold_20190612154520_6",		# run 02
+					"parrec_task-AFGCFS_run-2_bold_20190612154520_8",		# run 03
+					"parrec_task-ASGCFS_run-2_bold_20190612154520_10",		# run 04
+					"parrec_task-AFGL_run-1_bold_20190612154520_12",		# run 05
+					"parrec_task-ASGL_run-1_bold_20190612154520_14",		# run 06
+					"parrec_task-AFGR_run-1_bold_20190612154520_16",		# run 07
+					"parrec_task-ASGR_run-1_bold_20190612154520_18",		# run 08
+					"parrec_task-AFGC_run-1_bold_20190612154520_20",		# run 09
+					"parrec_task-ASGC_run-1_bold_20190612154520_22"]		# run 10
 
-epi_files_ses2 =   ["",				# run 01
-					"",				# run 02
-					"",			# run 03
-					"",			# run 04
-					"",			# run 05
-					"",			# run 06
-					"",			# run 07
-					"",			# run 08
-					"",			# run 09
-					""]			# run 10
+epi_files_ses2 =   ["parrec_dir-TU_run-1_epi_20190612154520_5",				# run 01
+					"parrec_dir-TU_run-2_epi_20190612154520_7",				# run 02
+					"parrec_dir-TU_run-3_epi_20190612154520_9",				# run 03
+					"parrec_dir-TU_run-4_epi_20190612154520_11",			# run 04
+					"parrec_dir-TU_run-5_epi_20190612154520_13",			# run 05
+					"parrec_dir-TU_run-6_epi_20190612154520_15",			# run 06
+					"parrec_dir-TU_run-7_epi_20190612154520_17",			# run 07
+					"parrec_dir-TU_run-8_epi_20190612154520_19",			# run 08
+					"parrec_dir-TU_run-9_epi_20190612154520_21",			# run 09
+					"parrec_dir-TU_run-10_epi_20190612154520_23"]			# run 10
 
-bold_physio_files_ses2 =	[	"",				# run 01
-								"",				# run 02
-								"",				# run 03
-								"",				# run 04
-								"",				# run 05
-								"",				# run 06
-								"",				# run 07
-								"",				# run 08
-								"",				# run 09
-								""]				# run 10
+bold_physio_files_ses2 =	[	"SCANPHYSLOG20190612160710",				# run 01
+								"SCANPHYSLOG20190612161149",				# run 02
+								"SCANPHYSLOG20190612161629",				# run 03
+								"SCANPHYSLOG20190612162107",				# run 04
+								"SCANPHYSLOG20190612162547",				# run 05
+								"SCANPHYSLOG20190612162941",				# run 06
+								"SCANPHYSLOG20190612163358",				# run 07
+								"SCANPHYSLOG20190612163802",				# run 08
+								"SCANPHYSLOG20190612164200",				# run 09
+								"SCANPHYSLOG20190612164555"]				# run 10
 
-epi_physio_files_ses2 =	[		"",				# run 01
-								"",				# run 02
-								"",				# run 03
-								"",				# run 04
-								"",				# run 05
-								"",				# run 06
-								"",				# run 07
-								"",				# run 08
-								"",				# run 09
-								""]				# run 10
+epi_physio_files_ses2 =	[		"SCANPHYSLOG20190612161101",				# run 01
+								"SCANPHYSLOG20190612161539",				# run 02
+								"SCANPHYSLOG20190612162019",				# run 03
+								"SCANPHYSLOG20190612162458",				# run 04
+								"SCANPHYSLOG20190612162900",				# run 05
+								"SCANPHYSLOG20190612163255",				# run 06
+								"SCANPHYSLOG20190612163712",				# run 07
+								"SCANPHYSLOG20190612164116",				# run 08
+								"SCANPHYSLOG20190612164514",				# run 09
+								"SCANPHYSLOG20190612164909"]				# run 10
 
 for session in ['ses-01','ses-02']:
 	if session == 'ses-01':
