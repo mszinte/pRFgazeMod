@@ -54,7 +54,7 @@ epi_cond = 	[	"dir-TU_run-01",								# run 01
 				"dir-TU_run-09",								# run 09
 				"dir-TU_run-10"]								# run 10
 
-sub_name_bids = 'sub-005'
+sub_name_bids = 'sub-006'
 
 
 # Func
@@ -65,53 +65,53 @@ sub_name_bids = 'sub-005'
 raw_dir_ses1 		= '/home/raw_data/2019/visual/prf_gazemod/sub-006_ses-01_prfGazeMod/'
 raw_behav_dir_ses1 	= '/home/raw_data/2019/visual/prf_gazemod/sub-006_behav/ses-01/func/'
 
-bold_files_ses1 =  ["parrec_task-AFGCFS_run-1_bold_20190612170355_5",		# run 01
-					"parrec_task-ASGCFS_run-1_bold_20190612170355_7",		# run 02
-					"parrec_task-AFGCFS_run-2_bold_20190612170355_9",		# run 03
-					"parrec_task-ASGCFS_run-2_bold_20190612170355_11",		# run 04
-					"parrec_task-ASGL_run-1_bold_20190612170355_15",		# run 05
-					"parrec_task-AFGL_run-1_bold_20190612170355_13",		# run 06
-					"parrec_task-AFGR_run-1_bold_20190612170355_17",		# run 07
-					"parrec_task-ASGR_run-1_bold_20190612170355_19",		# run 08
-					"parrec_task-AFGC_run-1_bold_20190612170355_21",		# run 09
-					"parrec_task-ASGC_run-1_bold_20190612170355_23"]		# run 10
+bold_files_ses1 =  ["parrec_task-AFGCFS_run-1_bold_20190618102622_4",		# run 01
+					"parrec_task-ASGCFS_run-1_bold_20190618102622_6",		# run 02
+					"parrec_task-AFGCFS_run-2_bold_20190618102622_8",		# run 03
+					"parrec_task-ASGCFS_run-2_bold_20190618102622_10",		# run 04
+					"parrec_task-AFGL_run-1_bold_20190618102622_12",		# run 05
+					"parrec_task-ASGL_run-1_bold_20190618102622_14",		# run 06
+					"parrec_task-AFGR_run-1_bold_20190618102622_16",		# run 07
+					"parrec_task-ASGR_run-1_bold_20190618102622_18",		# run 08
+					"parrec_task-AFGC_run-1_bold_20190618102622_20",		# run 09
+					"parrec_task-ASGC_run-1_bold_20190618102622_22"]		# run 10
 
-epi_files_ses1 =   ["parrec_dir-TU_run-1_epi_20190612170355_6",				# run 01
-					"parrec_dir-TU_run-2_epi_20190612170355_8",				# run 02
-					"parrec_dir-TU_run-3_epi_20190612170355_10",			# run 03
-					"parrec_dir-TU_run-4_epi_20190612170355_12",			# run 04
-					"parrec_dir-TU_run-6_epi_20190612170355_16",			# run 05
-					"parrec_dir-TU_run-5_epi_20190612170355_14",			# run 06
-					"parrec_dir-TU_run-7_epi_20190612170355_18",			# run 07
-					"parrec_dir-TU_run-8_epi_20190612170355_20",			# run 08
-					"parrec_dir-TU_run-9_epi_20190612170355_22",			# run 09
-					"parrec_dir-TU_run-10_epi_20190612170355_24"]			# run 10
+epi_files_ses1 =   ["parrec_dir-TU_run-1_epi_20190618102622_5",				# run 01
+					"parrec_dir-TU_run-2_epi_20190618102622_7",				# run 02
+					"parrec_dir-TU_run-3_epi_20190618102622_9",				# run 03
+					"parrec_dir-TU_run-4_epi_20190618102622_11",			# run 04
+					"parrec_dir-TU_run-5_epi_20190618102622_13",			# run 05
+					"parrec_dir-TU_run-6_epi_20190618102622_15",			# run 06
+					"parrec_dir-TU_run-7_epi_20190618102622_17",			# run 07
+					"parrec_dir-TU_run-8_epi_20190618102622_19",			# run 08
+					"parrec_dir-TU_run-9_epi_20190618102622_21",			# run 09
+					"parrec_dir-TU_run-10_epi_20190618102622_23"]			# run 10
 
 
-bold_physio_files_ses1 =	[	"SCANPHYSLOG20190612172117",				# run 01
-								"SCANPHYSLOG20190612172619",				# run 02
-								"SCANPHYSLOG20190612173100",				# run 03
-								"SCANPHYSLOG20190612173540",				# run 04
-								"SCANPHYSLOG20190612174900",				# run 05 => recorded as run 06 see error
-								"SCANPHYSLOG20190612174019",				# run 06 => recorded as run 05 see error
-								"SCANPHYSLOG20190612175324",				# run 07
-								"SCANPHYSLOG20190612175723",				# run 08
-								"SCANPHYSLOG20190612180124",				# run 09
-								"SCANPHYSLOG20190612180531"]				# run 10
+bold_physio_files_ses1 =	[	"SCANPHYSLOG20190618105845",				# run 01
+								"SCANPHYSLOG20190618110321",				# run 02
+								"SCANPHYSLOG20190618110804",				# run 03
+								"SCANPHYSLOG20190618111236",				# run 04
+								"SCANPHYSLOG20190618111800",				# run 05
+								"SCANPHYSLOG20190618112154",				# run 06
+								"SCANPHYSLOG20190618112624",				# run 07
+								"SCANPHYSLOG20190618113032",				# run 08
+								"SCANPHYSLOG20190618113433",				# run 09
+								"SCANPHYSLOG20190618113836"]				# run 10
 
-epi_physio_files_ses1 =	[		"SCANPHYSLOG20190612172508",				# run 01
-								"SCANPHYSLOG20190612173008",				# run 02
-								"SCANPHYSLOG20190612173450",				# run 03
-								"SCANPHYSLOG20190612173931",				# run 04
-								"SCANPHYSLOG20190612175213",				# run 05 => recorded as run 06 see error
-								"SCANPHYSLOG20190612174333",				# run 06 => recorded as run 05 see error
-								"SCANPHYSLOG20190612175637",				# run 07
-								"SCANPHYSLOG20190612180036",				# run 08
-								"SCANPHYSLOG20190612180437",				# run 09
-								"SCANPHYSLOG20190612180844"]				# run 10
+epi_physio_files_ses1 =	[		"SCANPHYSLOG20190618110235",				# run 01
+								"SCANPHYSLOG20190618110711",				# run 02
+								"SCANPHYSLOG20190618111154",				# run 03
+								"SCANPHYSLOG20190618111626",				# run 04
+								"SCANPHYSLOG20190618112113",				# run 05
+								"SCANPHYSLOG20190618112507",				# run 06
+								"SCANPHYSLOG20190618112937",				# run 07
+								"SCANPHYSLOG20190618113345",				# run 08
+								"SCANPHYSLOG20190618113746",				# run 09
+								"SCANPHYSLOG20190618114148"]				# run 10
 
-raw_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-005_ses-02_prfGazeMod/'
-raw_behav_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-005_behav/ses-02/func/'
+raw_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-006_ses-02_prfGazeMod/'
+raw_behav_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-006_behav/ses-02/func/'
 					
 bold_files_ses2 =  ["",		# run 01
 					"",		# run 02
