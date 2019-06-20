@@ -42,7 +42,7 @@ task_cond = [	"task-AttendFixGazeCenterFS_run-1",				# run 01
 				"task-AttendStimGazeRight_run-1",				# run 08
 				"task-AttendFixGazeCenter_run-1",				# run 09
 				"task-AttendStimGazeCenter_run-1"]				# run 10
-
+				
 epi_cond = 	[	"dir-TU_run-01",								# run 01
 				"dir-TU_run-02",								# run 02
 				"dir-TU_run-03",								# run 03
@@ -110,52 +110,55 @@ epi_physio_files_ses1 =	[		"SCANPHYSLOG20190618093020",				# run 01
 								"SCANPHYSLOG20190618101518",				# run 09
 								"SCANPHYSLOG20190618101924"]				# run 10
 
+# Session 2
+# ---------
+
 raw_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-001_ses-02_prfGazeMod/'
 raw_behav_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-001_behav/ses-02/func/'
 					
-bold_files_ses2 =  ["",		# run 01
-					"",		# run 02
-					"",		# run 03
-					"",		# run 04
-					"",		# run 05
-					"",		# run 06
-					"",		# run 07
-					"",		# run 08
-					"",		# run 09
-					""]	    # run 10
+bold_files_ses2 =  ["parrec_task-AFGCFS_run-1_bold_20190619170352_5",		# run 01
+					"parrec_task-ASGCFS_run-1_bold_20190619170352_7",		# run 02
+					"parrec_task-AFGCFS_run-2_bold_20190619170352_9",		# run 03
+					"parrec_task-ASGCFS_run-2_bold_20190619170352_11",		# run 04
+					"parrec_task-AFGL_run-1_bold_20190619170352_13",		# run 05
+					"parrec_task-ASGL_run-1_bold_20190619170352_15",		# run 06
+					"parrec_task-AFGR_run-1_bold_20190619170352_17",		# run 07
+					"parrec_task-ASGR_run-1_bold_20190619170352_19",		# run 08
+					"parrec_task-AFGC_run-1_bold_20190619170352_21",		# run 09
+					"parrec_task-ASGC_run-1_bold_20190619170352_23"]	    # run 10
 
-epi_files_ses2 =   ["",			# run 01
-					"",			# run 02
-					"",			# run 03
-					"",			# run 04
-					"",			# run 05
-					"",			# run 06
-					"",			# run 07
-					"",			# run 08
-					"",			# run 09
-					""]			# run 10
+epi_files_ses2 =   ["parrec_dir-TU_run-1_epi_20190619170352_6",				# run 01
+					"parrec_dir-TU_run-2_epi_20190619170352_8",				# run 02
+					"parrec_dir-TU_run-3_epi_20190619170352_10",			# run 03
+					"parrec_dir-TU_run-4_epi_20190619170352_12",			# run 04
+					"parrec_dir-TU_run-5_epi_20190619170352_14",			# run 05
+					"parrec_dir-TU_run-6_epi_20190619170352_16",			# run 06
+					"parrec_dir-TU_run-7_epi_20190619170352_18",			# run 07
+					"parrec_dir-TU_run-8_epi_20190619170352_20",			# run 08
+					"parrec_dir-TU_run-9_epi_20190619170352_22",			# run 09
+					"parrec_dir-TU_run-10_epi_20190619170352_24"]			# run 10
 
-bold_physio_files_ses2 =	[	"",				# run 01
-								"",				# run 02
-								"",				# run 03
-								"",				# run 04
-								"",				# run 05
-								"",				# run 06
-								"",				# run 07
-								"",				# run 08
-								"",				# run 09
-								""]				# run 10
+bold_physio_files_ses2 =	[	"SCANPHYSLOG20190619172229",				# run 01
+								"SCANPHYSLOG20190619172659",				# run 02
+								"SCANPHYSLOG20190619173127",				# run 03
+								"SCANPHYSLOG20190619173557",				# run 04
+								"SCANPHYSLOG20190619174024",				# run 05
+								"SCANPHYSLOG20190619174409",				# run 06
+								"SCANPHYSLOG20190619174813",				# run 07
+								"SCANPHYSLOG20190619175213",				# run 08
+								"SCANPHYSLOG20190619175638",				# run 09
+								"SCANPHYSLOG20190619180046"]				# run 10
 
-epi_physio_files_ses2 =	[		"",				# run 01
-								"",				# run 02
-								"",				# run 03
-								"",				# run 04
-								"",				# run 05
-								"",				# run 06
-								"",				# run 07
-								"",				# run 08
-								"",				# run 09
-								""]				# run 10
+epi_physio_files_ses2 =	[		"SCANPHYSLOG20190619172620",				# run 01
+								"SCANPHYSLOG20190619173050",				# run 02
+								"SCANPHYSLOG20190619173517",				# run 03
+								"SCANPHYSLOG20190619173947",				# run 04
+								"SCANPHYSLOG20190619174338",				# run 05
+								"SCANPHYSLOG20190619174722",				# run 06
+								"SCANPHYSLOG20190619175127",				# run 07
+								"SCANPHYSLOG20190619175527",				# run 08
+								"SCANPHYSLOG20190619175951",				# run 09
+								"SCANPHYSLOG20190619180359"]				# run 10
 
 for session in ['ses-01','ses-02']:
 	if session == 'ses-01':
@@ -175,16 +178,12 @@ for session in ['ses-01','ses-02']:
 
 	# create bids folders
 	bids_dir = opj(shared_dir,'bids_data')
-	for bids_folder in ['anat','fmap','func']:
+	for bids_folder in ['fmap','func']:
 		exec("{bids_folder}_dir = opj(bids_dir,sub_name_bids,'{ses_name}','{bids_folder}')".format(bids_folder = bids_folder, ses_name = session))
 		try: exec("os.makedirs({}_dir)".format(bids_folder))
 		except: pass
 
-	# t1w data
-	# raw_t1w = '/home/shared/2017/visual/pRF_gazeMod/sourcedata/sub-002/anat/sub-002_T1w.nii.gz'
-	# bids_t1w = opj(anat_dir,"{sub}_{session}_T1w.nii.gz".format(sub = sub_name_bids, session = session))
-	# os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = raw_t1w, dest = bids_t1w))
-
+	
 	for type_data in ['nii.gz','json']:
 
 		# bold files
@@ -242,5 +241,43 @@ for session in ['ses-01','ses-02']:
 	os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = raw_behav_dir_ses, dest = func_dir))
 	
 
+# Session 3
+# ---------
+raw_dir_ses3 = '/home/raw_data/2019/visual/prf_gazemod/sub-001_anat/'
+
+anat_cond = [	'acq-ADNI_run-1_T1w',							# T1 weighted ADNI run 01
+				'acq-ADNI_run-2_T1w',							# T1 weighted ADNI run 02
+				'acq-PHILLIPS_run-1_T1w',						# T1 weighted Phillips run 01
+				'acq-PHILLIPS_run-2_T1w',						# T1 weighted Phillips run 02
+				'T2w',											# T2 weighted
+				'FLAIR']										# 3D FLAIR
+
+
+anat_files_ses3 = [	'parrec_acq-1mm-sag_T1w_6m12s_ADNI_20190620123010_3',	# T1 weighted ADNI run 01
+					'parrec_acq-1mm-sag_T1w_6m12s_ADNI_20190620123010_7',	# T1 weighted ADNI run 02
+					'parrec_acq-1mm-sag_T1w_3m54s_Philips_20190620123010_4',# T1 weighted Phillips run 01
+					'parrec_acq-1mm-sag_T1w_3m54s_Philips_20190620123010_8',# T1 weighted Phillips run 02
+					'parrec_3DT2_1mm_20190620123010_6',						# T2 weighted
+					'parrec_3DFLAIR_recon1mm_6min_20190620123010_5']		# 3D FLAIR
+
+for session in ['ses-03']:
+	if session == 'ses-03':
+		raw_dir_ses = raw_dir_ses3
+		anat_files_ses = anat_files_ses3
 		
-		
+	# create bids folders
+	bids_dir = opj(shared_dir,'bids_data')
+	for bids_folder in ['anat']:
+		exec("{bids_folder}_dir = opj(bids_dir,sub_name_bids,'{ses_name}','{bids_folder}')".format(bids_folder = bids_folder, ses_name = session))
+		try: exec("os.makedirs({}_dir)".format(bids_folder))
+		except: pass
+
+
+	for type_data in ['nii.gz','json']:
+
+		# anat files
+		for run_num,anat_file in enumerate(anat_files_ses):
+			anat_run_raw = opj(raw_dir_ses,'parrec','nifti',"{anat_file}.{type_data}".format(anat_file = anat_file, type_data = type_data))
+			anat_run_bids = opj(anat_dir,"{sub}_{session}_{anat_cond}.{type_data}".format(sub = sub_name_bids, anat_cond = anat_cond[run_num], type_data = type_data, session = session))
+			os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = anat_run_raw, dest = anat_run_bids))
+	

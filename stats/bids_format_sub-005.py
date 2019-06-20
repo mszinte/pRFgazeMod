@@ -113,49 +113,49 @@ epi_physio_files_ses1 =	[		"SCANPHYSLOG20190612172508",				# run 01
 raw_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-005_ses-02_prfGazeMod/'
 raw_behav_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-005_behav/ses-02/func/'
 					
-bold_files_ses2 =  ["",		# run 01
-					"",		# run 02
-					"",		# run 03
-					"",		# run 04
-					"",		# run 05
-					"",		# run 06
-					"",		# run 07
-					"",		# run 08
-					"",		# run 09
-					""]	    # run 10
+bold_files_ses2 =  ["parrec_task-AFGCFS_run-1_bold_20190619155147_6",		# run 01
+					"parrec_task-ASGCFS_run-1_bold_20190619155147_8",		# run 02
+					"parrec_task-AFGCFS_run-2_bold_20190619155147_10",		# run 03
+					"parrec_task-ASGCFS_run-2_bold_20190619155147_12",		# run 04
+					"parrec_task-AFGL_run-1_bold_20190619155147_14",		# run 05
+					"parrec_task-ASGL_run-1_bold_20190619155147_16",		# run 06
+					"parrec_task-AFGR_run-1_bold_20190619155147_18",		# run 07
+					"parrec_task-ASGR_run-1_bold_20190619155147_20",		# run 08
+					"parrec_task-AFGC_run-1_bold_20190619155147_22",		# run 09
+					"parrec_task-ASGC_run-1_bold_20190619155147_24"]	    # run 10
 
-epi_files_ses2 =   ["",				# run 01
-					"",				# run 02
-					"",			# run 03
-					"",			# run 04
-					"",			# run 05
-					"",			# run 06
-					"",			# run 07
-					"",			# run 08
-					"",			# run 09
-					""]			# run 10
+epi_files_ses2 =   ["parrec_dir-TU_run-1_epi_20190619155147_7",				# run 01
+					"parrec_dir-TU_run-2_epi_20190619155147_9",				# run 02
+					"parrec_dir-TU_run-3_epi_20190619155147_11",			# run 03
+					"parrec_dir-TU_run-4_epi_20190619155147_13",			# run 04
+					"parrec_dir-TU_run-5_epi_20190619155147_15",			# run 05
+					"parrec_dir-TU_run-6_epi_20190619155147_17",			# run 06
+					"parrec_dir-TU_run-7_epi_20190619155147_19",			# run 07
+					"parrec_dir-TU_run-8_epi_20190619155147_21",			# run 08
+					"parrec_dir-TU_run-9_epi_20190619155147_23",			# run 09
+					"parrec_dir-TU_run-10_epi_20190619155147_25"]			# run 10
 
-bold_physio_files_ses2 =	[	"",				# run 01
-								"",				# run 02
-								"",				# run 03
-								"",				# run 04
-								"",				# run 05
-								"",				# run 06
-								"",				# run 07
-								"",				# run 08
-								"",				# run 09
-								""]				# run 10
+bold_physio_files_ses2 =	[	"SCANPHYSLOG20190619161121",				# run 01
+								"SCANPHYSLOG20190619161600",				# run 02
+								"SCANPHYSLOG20190619162046",				# run 03
+								"SCANPHYSLOG20190619162519",				# run 04
+								"SCANPHYSLOG20190619162958",				# run 05
+								"SCANPHYSLOG20190619163410",				# run 06
+								"SCANPHYSLOG20190619163809",				# run 07
+								"SCANPHYSLOG20190619164215",				# run 08
+								"SCANPHYSLOG20190619164612",				# run 09
+								"SCANPHYSLOG20190619165004"]				# run 10
 
-epi_physio_files_ses2 =	[		"",				# run 01
-								"",				# run 02
-								"",				# run 03
-								"",				# run 04
-								"",				# run 05
-								"",				# run 06
-								"",				# run 07
-								"",				# run 08
-								"",				# run 09
-								""]				# run 10
+epi_physio_files_ses2 =	[		"SCANPHYSLOG20190619161511",				# run 01
+								"SCANPHYSLOG20190619161951",				# run 02
+								"SCANPHYSLOG20190619162437",				# run 03
+								"SCANPHYSLOG20190619162910",				# run 04
+								"SCANPHYSLOG20190619163311",				# run 05
+								"SCANPHYSLOG20190619163724",				# run 06
+								"SCANPHYSLOG20190619164123",				# run 07
+								"SCANPHYSLOG20190619164529",				# run 08
+								"SCANPHYSLOG20190619164926",				# run 09
+								"SCANPHYSLOG20190619165318"]				# run 10
 
 for session in ['ses-01','ses-02']:
 	if session == 'ses-01':
