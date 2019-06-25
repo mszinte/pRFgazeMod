@@ -30,7 +30,7 @@ deb = ipdb.set_trace
 
 # define data transfer command
 trans_cmd = 'rsync -avuz --progress'
-shared_dir 		= '/home/shared/2018/visual/pRFgazeMod/'
+shared_dir = '/home/shared/2018/visual/pRFgazeMod/'
 
 task_cond = [	"task-AttendFixGazeCenterFS_run-1",				# run 01
 				"task-AttendStimGazeCenterFS_run-1",			# run 02
@@ -42,7 +42,7 @@ task_cond = [	"task-AttendFixGazeCenterFS_run-1",				# run 01
 				"task-AttendStimGazeRight_run-1",				# run 08
 				"task-AttendFixGazeCenter_run-1",				# run 09
 				"task-AttendStimGazeCenter_run-1"]				# run 10
-
+				
 epi_cond = 	[	"dir-TU_run-01",								# run 01
 				"dir-TU_run-02",								# run 02
 				"dir-TU_run-03",								# run 03
@@ -54,7 +54,7 @@ epi_cond = 	[	"dir-TU_run-01",								# run 01
 				"dir-TU_run-09",								# run 09
 				"dir-TU_run-10"]								# run 10
 
-sub_name_bids = 'sub-006'
+sub_name_bids = 'sub-007'
 
 
 # Func
@@ -62,102 +62,105 @@ sub_name_bids = 'sub-006'
 
 # Session 1
 # ---------
-raw_dir_ses1 		= '/home/raw_data/2019/visual/prf_gazemod/sub-006_ses-01_prfGazeMod/'
-raw_behav_dir_ses1 	= '/home/raw_data/2019/visual/prf_gazemod/sub-006_behav/ses-01/func/'
+raw_dir_ses1 		= '/home/raw_data/2019/visual/prf_gazemod/sub-007_ses-01_prfGazeMod/'
+raw_behav_dir_ses1 	= '/home/raw_data/2019/visual/prf_gazemod/sub-007_behav/ses-01/func/'
 
-bold_files_ses1 =  ["parrec_task-AFGCFS_run-1_bold_20190618102622_4",		# run 01
-					"parrec_task-ASGCFS_run-1_bold_20190618102622_6",		# run 02
-					"parrec_task-AFGCFS_run-2_bold_20190618102622_8",		# run 03
-					"parrec_task-ASGCFS_run-2_bold_20190618102622_10",		# run 04
-					"parrec_task-AFGL_run-1_bold_20190618102622_12",		# run 05
-					"parrec_task-ASGL_run-1_bold_20190618102622_14",		# run 06
-					"parrec_task-AFGR_run-1_bold_20190618102622_16",		# run 07
-					"parrec_task-ASGR_run-1_bold_20190618102622_18",		# run 08
-					"parrec_task-AFGC_run-1_bold_20190618102622_20",		# run 09
-					"parrec_task-ASGC_run-1_bold_20190618102622_22"]		# run 10
+bold_files_ses1 =  ["parrec_task-AFGCFS_run-1_bold_20190624155839_4",		# run 01
+					"parrec_task-ASGCFS_run-1_bold_20190624155839_6",		# run 02
+					"parrec_task-AFGCFS_run-2_bold_20190624155839_8",		# run 03
+					"parrec_task-ASGCFS_run-2_bold_20190624155839_10",		# run 04
+					"parrec_task-AFGL_run-1_bold_20190624155839_12",		# run 05
+					"parrec_task-ASGL_run-1_bold_20190624155839_14",		# run 06
+					"parrec_task-AFGR_run-1_bold_20190624155839_16",		# run 07
+					"parrec_task-ASGR_run-1_bold_20190624155839_18",		# run 08
+					"parrec_task-AFGC_run-1_bold_20190624155839_20",		# run 09
+					"parrec_task-ASGC_run-1_bold_20190624155839_22"]		# run 10
 
-epi_files_ses1 =   ["parrec_dir-TU_run-1_epi_20190618102622_5",				# run 01
-					"parrec_dir-TU_run-2_epi_20190618102622_7",				# run 02
-					"parrec_dir-TU_run-3_epi_20190618102622_9",				# run 03
-					"parrec_dir-TU_run-4_epi_20190618102622_11",			# run 04
-					"parrec_dir-TU_run-5_epi_20190618102622_13",			# run 05
-					"parrec_dir-TU_run-6_epi_20190618102622_15",			# run 06
-					"parrec_dir-TU_run-7_epi_20190618102622_17",			# run 07
-					"parrec_dir-TU_run-8_epi_20190618102622_19",			# run 08
-					"parrec_dir-TU_run-9_epi_20190618102622_21",			# run 09
-					"parrec_dir-TU_run-10_epi_20190618102622_23"]			# run 10
+epi_files_ses1 =   ["parrec_dir-TU_run-1_epi_20190624155839_5",				# run 01
+					"parrec_dir-TU_run-2_epi_20190624155839_7",				# run 02
+					"parrec_dir-TU_run-3_epi_20190624155839_9",				# run 03
+					"parrec_dir-TU_run-4_epi_20190624155839_11",			# run 04
+					"parrec_dir-TU_run-5_epi_20190624155839_13",			# run 05
+					"parrec_dir-TU_run-6_epi_20190624155839_15",			# run 06
+					"parrec_dir-TU_run-7_epi_20190624155839_17",			# run 07
+					"parrec_dir-TU_run-8_epi_20190624155839_19",			# run 08
+					"parrec_dir-TU_run-9_epi_20190624155839_21",			# run 09
+					"parrec_dir-TU_run-10_epi_20190624155839_23"]			# run 10
 
 
-bold_physio_files_ses1 =	[	"SCANPHYSLOG20190618105845",				# run 01
-								"SCANPHYSLOG20190618110321",				# run 02
-								"SCANPHYSLOG20190618110804",				# run 03
-								"SCANPHYSLOG20190618111236",				# run 04
-								"SCANPHYSLOG20190618111800",				# run 05
-								"SCANPHYSLOG20190618112154",				# run 06
-								"SCANPHYSLOG20190618112624",				# run 07
-								"SCANPHYSLOG20190618113032",				# run 08
-								"SCANPHYSLOG20190618113433",				# run 09
-								"SCANPHYSLOG20190618113836"]				# run 10
+bold_physio_files_ses1 =	[	"SCANPHYSLOG20190624160655",				# run 01
+								"SCANPHYSLOG20190624161209",				# run 02
+								"SCANPHYSLOG20190624161652",				# run 03
+								"SCANPHYSLOG20190624162134",				# run 04
+								"SCANPHYSLOG20190624162612",				# run 05
+								"SCANPHYSLOG20190624163032",				# run 06
+								"SCANPHYSLOG20190624163444",				# run 07
+								"SCANPHYSLOG20190624163838",				# run 08
+								"SCANPHYSLOG20190624164243",				# run 09
+								"SCANPHYSLOG20190624164644"]				# run 10
 
-epi_physio_files_ses1 =	[		"SCANPHYSLOG20190618110235",				# run 01
-								"SCANPHYSLOG20190618110711",				# run 02
-								"SCANPHYSLOG20190618111154",				# run 03
-								"SCANPHYSLOG20190618111626",				# run 04
-								"SCANPHYSLOG20190618112113",				# run 05
-								"SCANPHYSLOG20190618112507",				# run 06
-								"SCANPHYSLOG20190618112937",				# run 07
-								"SCANPHYSLOG20190618113345",				# run 08
-								"SCANPHYSLOG20190618113746",				# run 09
-								"SCANPHYSLOG20190618114148"]				# run 10
+epi_physio_files_ses1 =	[		"SCANPHYSLOG20190624161046",				# run 01
+								"SCANPHYSLOG20190624161600",				# run 02
+								"SCANPHYSLOG20190624162042",				# run 03
+								"SCANPHYSLOG20190624162524",				# run 04
+								"SCANPHYSLOG20190624162926",				# run 05
+								"SCANPHYSLOG20190624163346",				# run 06
+								"SCANPHYSLOG20190624163758",				# run 07
+								"SCANPHYSLOG20190624164152",				# run 08
+								"SCANPHYSLOG20190624164557",				# run 09
+								"SCANPHYSLOG20190624164958"]				# run 10
 
-raw_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-006_ses-02_prfGazeMod/'
-raw_behav_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-006_behav/ses-02/func/'
+# Session 2
+# ---------
+
+raw_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-007_ses-02_prfGazeMod/'
+raw_behav_dir_ses2 	= '/home/raw_data/2019/visual/prf_gazemod/sub-007_behav/ses-02/func/'
 					
-bold_files_ses2 =  ["parrec_task-AFGCFS_run-1_bold_20190624144115_6",		# run 01
-					"parrec_task-ASGCFS_run-1_bold_20190624144115_8",		# run 02
-					"parrec_task-AFGCFS_run-2_bold_20190624144115_10",		# run 03
-					"parrec_task-ASGCFS_run-2_bold_20190624144115_12",		# run 04
-					"parrec_task-AFGL_run-1_bold_20190624144115_14",		# run 05
-					"parrec_task-ASGL_run-1_bold_20190624144115_16",		# run 06
-					"parrec_task-AFGR_run-1_bold_20190624144115_18",		# run 07
-					"parrec_task-ASGR_run-1_bold_20190624144115_20",		# run 08
-					"parrec_task-AFGC_run-1_bold_20190624144115_22",		# run 09
-					"parrec_task-ASGC_run-1_bold_20190624144115_24"]	    # run 10
+bold_files_ses2 =  ["",		# run 01
+					"",		# run 02
+					"",		# run 03
+					"",		# run 04
+					"",		# run 05
+					"",		# run 06
+					"",		# run 07
+					"",		# run 08
+					"",		# run 09
+					""]	    # run 10
 
-epi_files_ses2 =   ["parrec_dir-TU_run-1_epi_20190624144115_7",				# run 01
-					"parrec_dir-TU_run-2_epi_20190624144115_9",				# run 02
-					"parrec_dir-TU_run-3_epi_20190624144115_11",			# run 03
-					"parrec_dir-TU_run-4_epi_20190624144115_13",			# run 04
-					"parrec_dir-TU_run-5_epi_20190624144115_15",			# run 05
-					"parrec_dir-TU_run-6_epi_20190624144115_17",			# run 06
-					"parrec_dir-TU_run-7_epi_20190624144115_19",			# run 07
-					"parrec_dir-TU_run-8_epi_20190624144115_21",			# run 08
-					"parrec_dir-TU_run-9_epi_20190624144115_23",			# run 09
-					"parrec_dir-TU_run-10_epi_20190624144115_25"]			# run 10
+epi_files_ses2 =   ["",				# run 01
+					"",				# run 02
+					"",			# run 03
+					"",			# run 04
+					"",			# run 05
+					"",			# run 06
+					"",			# run 07
+					"",			# run 08
+					"",			# run 09
+					""]			# run 10
 
-bold_physio_files_ses2 =	[	"SCANPHYSLOG20190624150331",				# run 01
-								"SCANPHYSLOG20190624150817",				# run 02
-								"SCANPHYSLOG20190624151250",				# run 03
-								"SCANPHYSLOG20190624151723",				# run 04
-								"SCANPHYSLOG20190624152158",				# run 05
-								"SCANPHYSLOG20190624152608",				# run 06
-								"SCANPHYSLOG20190624153015",				# run 07
-								"SCANPHYSLOG20190624153423",				# run 08
-								"SCANPHYSLOG20190624153819",				# run 09
-								"SCANPHYSLOG20190624154212"]				# run 10
+bold_physio_files_ses2 =	[	"",				# run 01
+								"",				# run 02
+								"",				# run 03
+								"",				# run 04
+								"",				# run 05
+								"",				# run 06
+								"",				# run 07
+								"",				# run 08
+								"",				# run 09
+								""]				# run 10
 
-epi_physio_files_ses2 =	[		"SCANPHYSLOG20190624150721",				# run 01
-								"SCANPHYSLOG20190624151208",				# run 02
-								"SCANPHYSLOG20190624151641",				# run 03
-								"SCANPHYSLOG20190624152113",				# run 04
-								"SCANPHYSLOG20190624152511",				# run 05
-								"SCANPHYSLOG20190624152925",				# run 06
-								"SCANPHYSLOG20190624153330",				# run 07
-								"SCANPHYSLOG20190624153736",				# run 08
-								"SCANPHYSLOG20190624154132",				# run 09
-								"SCANPHYSLOG20190624154525"]				# run 10
+epi_physio_files_ses2 =	[		"",				# run 01
+								"",				# run 02
+								"",				# run 03
+								"",				# run 04
+								"",				# run 05
+								"",				# run 06
+								"",				# run 07
+								"",				# run 08
+								"",				# run 09
+								""]				# run 10
 
-for session in ['ses-01','ses-02']:
+for session in ['ses-01']:#,'ses-02']:
 	if session == 'ses-01':
 		raw_dir_ses = raw_dir_ses1
 		bold_files_ses = bold_files_ses1
@@ -180,6 +183,7 @@ for session in ['ses-01','ses-02']:
 		try: exec("os.makedirs({}_dir)".format(bids_folder))
 		except: pass
 
+	
 	for type_data in ['nii.gz','json']:
 
 		# bold files
@@ -237,5 +241,43 @@ for session in ['ses-01','ses-02']:
 	os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = raw_behav_dir_ses, dest = func_dir))
 	
 
+# Session 3
+# ---------
+raw_dir_ses3 = '/home/raw_data/2019/visual/prf_gazemod/sub-007_anat/'
+
+anat_cond = [	'acq-ADNI_run-1_T1w',							# T1 weighted ADNI run 01
+				'acq-ADNI_run-2_T1w',							# T1 weighted ADNI run 02
+				'acq-PHILLIPS_run-1_T1w',						# T1 weighted Phillips run 01
+				'acq-PHILLIPS_run-2_T1w',						# T1 weighted Phillips run 02
+				'T2w',											# T2 weighted
+				'FLAIR']										# 3D FLAIR
+
+
+anat_files_ses3 = [	'parrec_acq-1mm-sag_T1w_6m12s_ADNI_20190624172306_3',	# T1 weighted ADNI run 01
+					'parrec_acq-1mm-sag_T1w_6m12s_ADNI_20190624172306_7',	# T1 weighted ADNI run 02
+					'parrec_acq-1mm-sag_T1w_3m54s_Philips_20190624172306_4',# T1 weighted Phillips run 01
+					'parrec_acq-1mm-sag_T1w_3m54s_Philips_20190624172306_8',# T1 weighted Phillips run 02
+					'parrec_3DT2_1mm_20190624172306_6',						# T2 weighted
+					'parrec_3DFLAIR_recon1mm_6min_20190624172306_5']		# 3D FLAIR
+
+for session in ['ses-03']:
+	if session == 'ses-03':
+		raw_dir_ses = raw_dir_ses3
+		anat_files_ses = anat_files_ses3
 		
-		
+	# create bids folders
+	bids_dir = opj(shared_dir,'bids_data')
+	for bids_folder in ['anat']:
+		exec("{bids_folder}_dir = opj(bids_dir,sub_name_bids,'{ses_name}','{bids_folder}')".format(bids_folder = bids_folder, ses_name = session))
+		try: exec("os.makedirs({}_dir)".format(bids_folder))
+		except: pass
+
+
+	for type_data in ['nii.gz','json']:
+
+		# anat files
+		for run_num,anat_file in enumerate(anat_files_ses):
+			anat_run_raw = opj(raw_dir_ses,'parrec','nifti',"{anat_file}.{type_data}".format(anat_file = anat_file, type_data = type_data))
+			anat_run_bids = opj(anat_dir,"{sub}_{session}_{anat_cond}.{type_data}".format(sub = sub_name_bids, anat_cond = anat_cond[run_num], type_data = type_data, session = session))
+			os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = anat_run_raw, dest = anat_run_bids))
+	
