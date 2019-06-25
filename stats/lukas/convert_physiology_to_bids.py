@@ -2,21 +2,19 @@ import os
 import os.path as op
 import numpy as np
 import pandas as pd
-import matplotlib
-matplotlib.use('Agg')
+import matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from glob import glob
 import nibabel as nib
 import gzip
 import json
 
-
 class PhilipsPhysioLog:
     """ Reads, converts, and aligns Philips physiology files (SCANPHYSLOG).
     
     Work in progress!
     """
-    def __init__(self, f, fmri_file=None, n_dyns=100, sf=496, tr=None):
+    def __init__(self, f, fmri_file=None, n_dyns=100, sf=500, tr=None):
         """ Initializes PhilipsPhysioLog object. """
         self.f = f
         self.n_dyns = n_dyns
