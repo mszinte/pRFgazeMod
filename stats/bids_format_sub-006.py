@@ -237,5 +237,46 @@ for session in ['ses-01','ses-02']:
 	os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = raw_behav_dir_ses, dest = func_dir))
 	
 
+
+# Session 3
+# ---------
+raw_dir_ses3 = '/home/raw_data/2019/visual/prf_gazemod/sub-006_anat/'
+
+anat_cond = [	'acq-ADNI_run-1_T1w',							# T1 weighted ADNI run 01
+				'acq-ADNI_run-2_T1w',							# T1 weighted ADNI run 02
+				'acq-PHILLIPS_run-1_T1w',						# T1 weighted Phillips run 01
+				'acq-PHILLIPS_run-2_T1w',						# T1 weighted Phillips run 02
+				'T2w',											# T2 weighted
+				'FLAIR']										# 3D FLAIR
+
+
+anat_files_ses3 = [	'parrec_acq-1mm-sag_T1w_6m12s_ADNI_20190627120647_3',	# T1 weighted ADNI run 01
+					'parrec_acq-1mm-sag_T1w_6m12s_ADNI_20190627120647_7',	# T1 weighted ADNI run 02
+					'parrec_acq-1mm-sag_T1w_3m54s_Philips_20190627120647_4',# T1 weighted Phillips run 01
+					'parrec_acq-1mm-sag_T1w_3m54s_Philips_20190627120647_8',# T1 weighted Phillips run 02
+					'parrec_3DT2_1mm_20190627120647_6',						# T2 weighted
+					'parrec_3DFLAIR_recon1mm_6min_20190627120647_5']		# 3D FLAIR
+
+for session in ['ses-03']:
+	if session == 'ses-03':
+		raw_dir_ses = raw_dir_ses3
+		anat_files_ses = anat_files_ses3
 		
+	# create bids folders
+	bids_dir = opj(shared_dir,'bids_data')
+	for bids_folder in ['anat']:
+		exec("{bids_folder}_dir = opj(bids_dir,sub_name_bids,'{ses_name}','{bids_folder}')".format(bids_folder = bids_folder, ses_name = session))
+		try: exec("os.makedirs({}_dir)".format(bids_folder))
+		except: pass
+
+
+	for type_data in ['nii.gz','json']:
+
+		# anat files
+		for run_num,anat_file in enumerate(anat_files_ses):
+			anat_run_raw = opj(raw_dir_ses,'parrec','nifti',"{anat_file}.{type_data}".format(anat_file = anat_file, type_data = type_data))
+			anat_run_bids = opj(anat_dir,"{sub}_{session}_{anat_cond}.{type_data}".format(sub = sub_name_bids, anat_cond = anat_cond[run_num], type_data = type_data, session = session))
+			os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = anat_run_raw, dest = anat_run_bids))
+	
+
 		

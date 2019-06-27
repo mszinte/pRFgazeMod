@@ -60,10 +60,6 @@ epi_cond = 	[	"dir-TU_run-01",								# run 01
 
 sub_name_bids = 'sub-002'
 
-# Anat
-# ----
-# T1w
-
 
 # Func
 # ----
@@ -187,16 +183,10 @@ for session in ['ses-01','ses-02']:
 
 	# create bids folders
 	bids_dir = opj(shared_dir,'bids_data')
-	for bids_folder in ['anat','fmap','func']:
+	for bids_folder in ['fmap','func']:
 		exec("{bids_folder}_dir = opj(bids_dir,sub_name_bids,'{ses_name}','{bids_folder}')".format(bids_folder = bids_folder, ses_name = session))
 		try: exec("os.makedirs({}_dir)".format(bids_folder))
 		except: pass
-
-	# t1w data
-	raw_t1w = '/home/shared/2017/visual/pRF_gazeMod/sourcedata/sub-002/anat/sub-002_T1w.nii.gz'
-	bids_t1w = opj(anat_dir,"{sub}_{session}_T1w.nii.gz".format(sub = sub_name_bids, session = session))
-	os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = raw_t1w, dest = bids_t1w))
-
 
 	for type_data in ['nii.gz','json']:
 

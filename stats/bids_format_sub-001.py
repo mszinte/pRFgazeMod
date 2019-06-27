@@ -272,7 +272,6 @@ for session in ['ses-03']:
 		try: exec("os.makedirs({}_dir)".format(bids_folder))
 		except: pass
 
-
 	for type_data in ['nii.gz','json']:
 
 		# anat files
@@ -280,4 +279,3 @@ for session in ['ses-03']:
 			anat_run_raw = opj(raw_dir_ses,'parrec','nifti',"{anat_file}.{type_data}".format(anat_file = anat_file, type_data = type_data))
 			anat_run_bids = opj(anat_dir,"{sub}_{session}_{anat_cond}.{type_data}".format(sub = sub_name_bids, anat_cond = anat_cond[run_num], type_data = type_data, session = session))
 			os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = anat_run_raw, dest = anat_run_bids))
-	
