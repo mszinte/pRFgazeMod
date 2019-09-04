@@ -248,12 +248,12 @@ anat_cond = [	'acq-ADNI_run-1_T1w',							# T1 weighted ADNI run 01
 				'FLAIR']										# 3D FLAIR
 
 
-anat_files_ses3 = [	'',	# T1 weighted ADNI run 01
-					'',	# T1 weighted ADNI run 02
-					'',	# T1 weighted Phillips run 01
-					'',	# T1 weighted Phillips run 02
-					'',	# T2 weighted
-					'']	# 3D FLAIR
+anat_files_ses3 = [	'parrec_acq-1mm-sag_T1w_6m12s_ADNI_20190710142106_3',	# T1 weighted ADNI run 01
+					'parrec_acq-1mm-sag_T1w_6m12s_ADNI_20190710142106_7',	# T1 weighted ADNI run 02
+					'parrec_acq-1mm-sag_T1w_3m54s_Philips_20190710142106_4',	# T1 weighted Phillips run 01
+					'parrec_acq-1mm-sag_T1w_3m54s_Philips_20190710142106_8',	# T1 weighted Phillips run 02
+					'parrec_3DT2_1mm_20190710142106_6',						# T2 weighted
+					'parrec_3DFLAIR_recon1mm_6min_20190710142106_5']			# 3D FLAIR
 
 for session in ['ses-03']:
 	if session == 'ses-03':
