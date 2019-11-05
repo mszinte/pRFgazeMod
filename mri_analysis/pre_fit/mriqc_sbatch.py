@@ -65,7 +65,7 @@ slurm_cmd = """\
 #SBATCH -A {proj_name}
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task={nb_procs}
-#SBATCH --time={job_dur}
+#SBATCH --time={job_dur}:00:00
 #SBATCH -e {log_dir}/{subject}_mriqc_%N_%j_%a.err
 #SBATCH -o {log_dir}/{subject}_mriqc_%N_%j_%a.out
 #SBATCH -J {subject}_mriqc\n\n""".format(
@@ -75,7 +75,7 @@ slurm_cmd = """\
 
 
 # define singularity cmd
-singularity_cmd = "singularity run --bind {main_dir}:/work_dir {simg} /work_dir/{project_dir}/bids_data/ /work_dir/{project_dir}/deriv_data/mriqc/ participant --participant_label {sub_num} -w /work_dir/{project_dir}/temp_data/ --n_procs {nb_procs:.0f} --verbose-reports -m bold T1w T2w --no-sub".format(
+singularity_cmd = "singularity run --bind {main_dir}:/work_dir {simg} /work_dir/{project_dir}/bids_data/ /work_dir/{project_dir}/deriv_data/mriqc/ participant --participant_label {sub_num} -w /work_dir/{project_dir}/temp_data/ --n_procs {nb_procs:.0f} --verbose-reports --mem_gb 64 -m bold T1w T2w --no-sub".format(
 									main_dir = main_dir,
 									project_dir = project_dir,
 									simg = singularity_dir, 

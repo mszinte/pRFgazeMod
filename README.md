@@ -14,5 +14,5 @@ or displaced to the left or to the right.
 ## MRI analysis
 0. convert data to nifti using /mri_analysis/pre_fit/bids/convert2niigz.py<br/>
 1. make bids format using /mri_analysis/pre_fit/bids/bids_format_sub-001.py to bids_format_sub-008.py<br/>
-2. run mriqc on mesocentre using mri_analysis/pre_fit/mriqc_srun.py or mriqc_sbatch<br/>
-2. run fmriprep on mesocenter using mri_analysis/pre_fit/fmriprep_sbatch - use first anat-only option<br/>
+2. run mriqc on mesocentre using mri_analysis/pre_fit/mriqc_sbatch.py<br/>
+2. run fmriprep on mesocenter using mri_analysis/pre_fit/fmriprep_sbatch.py - use first anat-only option<br/>
