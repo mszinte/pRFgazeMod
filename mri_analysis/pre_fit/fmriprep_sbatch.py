@@ -20,7 +20,7 @@ preprocessed files
 -----------------------------------------------------------------------------------------
 To run:
 cd /home/mszinte/projects/pRFgazeMod/mri_analysis/
-python pre_fit/fmriprep_sbatch.py pRFgazeMod westmere sub-001 10 1 0 0 1
+python pre_fit/fmriprep_sbatch.py pRFgazeMod skylake sub-001 10 1 0 0 1
 -----------------------------------------------------------------------------------------
 Written by Martin Szinte (martin.szinte@gmail.com)
 -----------------------------------------------------------------------------------------
@@ -60,9 +60,9 @@ if cluster_name  == 'skylake':
 	nb_procs = 32
 	memory_val = 48
 	proj_name = 'a161'
-	os.system("rsync -az --no-g --no-p --progress {scratchw}/ {scratch}".format(
-				scratch = analysis_info['base_dir'],
-				scratchw  = analysis_info['base_dir_westmere']))
+	# os.system("rsync -az --no-g --no-p --progress {scratchw}/ {scratch}".format(
+	# 			scratch = analysis_info['base_dir'],
+	# 			scratchw  = analysis_info['base_dir_westmere']))
 
 elif cluster_name  == 'westmere':
 	base_dir = analysis_info['base_dir_westmere'] 
@@ -74,6 +74,7 @@ elif cluster_name  == 'westmere':
 	os.system("rsync -az --no-g --no-p --progress {scratch}/ {scratchw}".format(
 				scratch = analysis_info['base_dir'],
 				scratchw  = base_dir))
+log_dir = opj(main_dir,project_dir,'deriv_data','fmriprep','log_outputs')
 
 # special input
 anat_only, use_aroma, use_fmapfree, anat_only_end, use_skip_bids_val = '','','','',''
@@ -99,10 +100,11 @@ slurm_cmd = """\
 #SBATCH --mem={memory_val}gb
 #SBATCH --cpus-per-task={nb_procs}
 #SBATCH --time={hour_proc}:00:00
-#SBATCH -e  %N.%j.%a.err
-#SBATCH -o %N.%j.%a.out
-#SBATCH -J sub-{sub_num}_fmriprep{anat_only_end}
-#SBATCH --mail-type=BEGIN,END\n\n""".format(nb_procs = nb_procs, hour_proc = hour_proc, sub_num = sub_num,anat_only_end = anat_only_end, memory_val = memory_val)
+#SBATCH -e {log_dir}/{subject}_fmriprep{anat_only_end}_%N_%j_%a.err
+#SBATCH -o {log_dir}/{subject}_fmriprep{anat_only_end}_%N_%j_%a.out
+#SBATCH -J {subject}_fmriprep{anat_only_end}
+#SBATCH --mail-type=BEGIN,END\n\n""".format(nb_procs = nb_procs, hour_proc = hour_proc, subject = subject,
+											anat_only_end = anat_only_end, memory_val = memory_val, log_dir = log_dir)
 
 # define singularity cmd
 singularity_cmd = "singularity run --cleanenv -B {main_dir}:/work_dir {simg} --fs-license-file /work_dir/freesurfer/license.txt /work_dir/{project_dir}/bids_data/ /work_dir/{project_dir}/deriv_data/fmriprep/ participant --participant-label {sub_num} -w /work_dir/{project_dir}/temp_data/ --output-spaces T1w fsaverage MNI152NLin2009cAsym --cifti-output --low-mem --mem-mb 32000 --nthreads {nb_procs:.0f}{anat_only}{use_aroma}{use_fmapfree}{use_skip_bids_val}".format(
@@ -130,6 +132,6 @@ of.close()
 
 # Submit jobs
 print("Submitting {sh_dir} to queue".format(sh_dir = sh_dir))
-os.chdir(opj(main_dir,project_dir,'deriv_data','fmriprep','log_outputs'))
+os.chdir(log_dir)
 os.system("sbatch {sh_dir}".format(sh_dir = sh_dir))
 
