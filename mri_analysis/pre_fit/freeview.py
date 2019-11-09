@@ -17,7 +17,7 @@ preprocessed files
 To run:
 cd ~/disks/meso_H/projects/pRFgazeMod/mri_analysis/
 python pre_fit/freeview.py sub-001 45 195 before_edit
-python pre_fit/freeview.py sub-001 45 195 after_edit
+python pre_fit/freeview.py sub-002 45 195 before_edit
 -----------------------------------------------------------------------------------------
 Written by Martin Szinte (martin.szinte@gmail.com)
 -----------------------------------------------------------------------------------------
