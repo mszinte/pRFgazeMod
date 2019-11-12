@@ -16,5 +16,6 @@ or displaced to the left or to the right.
 1. make bids format using /mri_analysis/pre_fit/bids/bids_format_sub-001.py to bids_format_sub-008.py<br/>
 2. run mriqc on mesocentre using mri_analysis/pre_fit/mriqc_sbatch.py<br/>
 3. run fmriprep on mesocenter using mri_analysis/pre_fit/fmriprep_sbatch.py - use first anat-only option<br/>
-4. make sagital png and video of segmentation before edit using /pre_fit/freeview.py
-5. manual edits of segmentation
+4. make sagital png and video of segmentation before edit using /pre_fit/freeview.py<br/>
+5. run freesurfer-dev version to use t2w image for the pial surface using pre_fit/freesurfer_dev.py<br/>
+6. make sagital png and video of segmentation after freesurfer-dev using /pre_fit/freeview.py<br/>

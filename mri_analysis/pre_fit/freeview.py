@@ -26,7 +26,6 @@ Written by Martin Szinte (martin.szinte@gmail.com)
 # imports modules
 import subprocess as sb
 import os
-import glob
 import ipdb
 import sys
 import json

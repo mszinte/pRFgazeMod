@@ -71,9 +71,9 @@ elif cluster_name  == 'westmere':
 	nb_procs = 12
 	memory_val = 24
 	proj_name = 'westmere'
-	os.system("rsync -az --no-g --no-p --progress {scratch}/ {scratchw}".format(
-				scratch = analysis_info['base_dir'],
-				scratchw  = base_dir))
+	# os.system("rsync -az --no-g --no-p --progress {scratch}/ {scratchw}".format(
+	# 			scratch = analysis_info['base_dir'],
+	# 			scratchw  = base_dir))
 log_dir = opj(main_dir,project_dir,'deriv_data','fmriprep','log_outputs')
 
 # special input
