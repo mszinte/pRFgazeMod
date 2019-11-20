@@ -7,7 +7,7 @@ Launch freeview to edit manually the segmentations
 -----------------------------------------------------------------------------------------
 Input(s):
 sys.argv[1]: subject
-sys.argv[2]: explanations ('edit_19Nov')
+sys.argv[2]: explanations ('manual_edit')
 -----------------------------------------------------------------------------------------
 Output(s):
 better segmentation files to launch in recon
@@ -49,13 +49,13 @@ except: pass
 # list commands
 t1w_cmd = '-v {t1mgz}:grayscale=0,100'.format(t1mgz = '{fs_dir}/mri/T1.mgz'.format(fs_dir = fs_dir))
 t2w_cmd = '-v {t2mgz}:grayscale=0,300'.format(t2mgz = '{fs_dir}/mri/T2.mgz'.format(fs_dir = fs_dir))
-brainmask_cmd = '-v {brainmask}:grayscale=0,100:opacity=0.4'.format(brainmask = '{fs_dir}/mri/brainmask.mgz'.format(fs_dir = fs_dir))
+brainmask_cmd = '-v {brainmask}:grayscale=0,50:opacity=0.4'.format(brainmask = '{fs_dir}/mri/brainmask.mgz'.format(fs_dir = fs_dir))
 volumes_cmd = '-f {fs_dir}/surf/lh.white:color=red:edgecolor=red \
 -f {fs_dir}/surf/rh.white:color=red:edgecolor=red \
 -f {fs_dir}/surf/lh.pial:color=yellow:edgecolor=yellow \
 -f {fs_dir}/surf/rh.pial:color=yellow:edgecolor=yellow '.format(fs_dir = fs_dir)
 
-freeview_cmd = '{brainmask_cmd} {t2w_cmd} {t1w_cmd} {volumes_cmd}'.format(
+freeview_cmd = '{t2w_cmd} {t1w_cmd} {brainmask_cmd} {volumes_cmd}'.format(
                             t1w_cmd = t1w_cmd,
                             t2w_cmd = t2w_cmd,
                             brainmask_cmd = brainmask_cmd,
