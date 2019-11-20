@@ -14,7 +14,7 @@ better segmentation files to launch in recon
 -----------------------------------------------------------------------------------------
 To run:
 cd ~/disks/meso_H/projects/pRFgazeMod/mri_analysis/
-python pre_fit/pial_edits.py sub-001 edit_19Nov
+python pre_fit/pial_edits.py sub-001 manual_edit
 -----------------------------------------------------------------------------------------
 Written by Martin Szinte (martin.szinte@gmail.com)
 -----------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@ except: pass
 # list commands
 t1w_cmd = '-v {t1mgz}:grayscale=0,100'.format(t1mgz = '{fs_dir}/mri/T1.mgz'.format(fs_dir = fs_dir))
 t2w_cmd = '-v {t2mgz}:grayscale=0,300'.format(t2mgz = '{fs_dir}/mri/T2.mgz'.format(fs_dir = fs_dir))
-brainmask_cmd = '-v {brainmask}:grayscale=0,300'.format(brainmask = '{fs_dir}/mri/brainmask.mgz'.format(fs_dir = fs_dir))
+brainmask_cmd = '-v {brainmask}:grayscale=0,100:opacity=0.4'.format(brainmask = '{fs_dir}/mri/brainmask.mgz'.format(fs_dir = fs_dir))
 volumes_cmd = '-f {fs_dir}/surf/lh.white:color=red:edgecolor=red \
 -f {fs_dir}/surf/rh.white:color=red:edgecolor=red \
 -f {fs_dir}/surf/lh.pial:color=yellow:edgecolor=yellow \
@@ -67,4 +67,10 @@ of.close()
 
 # run freeview cmd
 sb.call('freeview -cmd {sh_dir}'.format(sh_dir = sh_dir),shell=True)
+
+# in freeview 
+# 1. click on edit button 
+# 2. edit the brainmask focussing on occupital lobe and limit with cerebelum
+# 3. save the brainmask as
+# 4. run freesurfer_dev.py again
 
