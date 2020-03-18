@@ -20,7 +20,7 @@ preprocessed files
 -----------------------------------------------------------------------------------------
 To run:
 cd /home/mszinte/projects/pRFgazeMod/mri_analysis/
-python pre_fit/fmriprep_sbatch.py pRFgazeMod skylake sub-001 10 1 0 0 1
+python pre_fit/fmriprep_sbatch.py pRFgazeMod skylake sub-001 20 0 1 0 0 
 -----------------------------------------------------------------------------------------
 Written by Martin Szinte (martin.szinte@gmail.com)
 -----------------------------------------------------------------------------------------
@@ -56,10 +56,10 @@ with open('settings.json') as f:
 if cluster_name  == 'skylake':
 	base_dir = analysis_info['base_dir']
 	main_dir = '/scratch/mszinte/data/'
-	singularity_dir = '/scratch/mszinte/softwares/fmriprep-1.5.0.simg'
+	singularity_dir = '/scratch/mszinte/softwares/fmriprep-20.0.4.simg'
 	nb_procs = 32
 	memory_val = 48
-	proj_name = 'a161'
+	proj_name = 'b161'
 	# os.system("rsync -az --no-g --no-p --progress {scratchw}/ {scratch}".format(
 	# 			scratch = analysis_info['base_dir'],
 	# 			scratchw  = analysis_info['base_dir_westmere']))
@@ -95,7 +95,7 @@ slurm_cmd = """\
 #SBATCH --mail-type=ALL
 #SBATCH -p skylake
 #SBATCH --mail-user=martin.szinte@univ-amu.fr
-#SBATCH -A a161
+#SBATCH -A {proj_name}
 #SBATCH --nodes=1
 #SBATCH --mem={memory_val}gb
 #SBATCH --cpus-per-task={nb_procs}
@@ -103,11 +103,11 @@ slurm_cmd = """\
 #SBATCH -e {log_dir}/{subject}_fmriprep{anat_only_end}_%N_%j_%a.err
 #SBATCH -o {log_dir}/{subject}_fmriprep{anat_only_end}_%N_%j_%a.out
 #SBATCH -J {subject}_fmriprep{anat_only_end}
-#SBATCH --mail-type=BEGIN,END\n\n""".format(nb_procs = nb_procs, hour_proc = hour_proc, subject = subject,
+#SBATCH --mail-type=BEGIN,END\n\n""".format(proj_name = proj_name, nb_procs = nb_procs, hour_proc = hour_proc, subject = subject,
 											anat_only_end = anat_only_end, memory_val = memory_val, log_dir = log_dir)
 
 # define singularity cmd
-singularity_cmd = "singularity run --cleanenv -B {main_dir}:/work_dir {simg} --fs-license-file /work_dir/freesurfer/license.txt /work_dir/{project_dir}/bids_data/ /work_dir/{project_dir}/deriv_data/fmriprep/ participant --participant-label {sub_num} -w /work_dir/{project_dir}/temp_data/ --output-spaces T1w fsaverage MNI152NLin2009cAsym --cifti-output --low-mem --mem-mb 32000 --nthreads {nb_procs:.0f}{anat_only}{use_aroma}{use_fmapfree}{use_skip_bids_val}".format(
+singularity_cmd = "singularity run --cleanenv -B {main_dir}:/work_dir {simg} --fs-license-file /work_dir/freesurfer/license.txt /work_dir/{project_dir}/bids_data/ /work_dir/{project_dir}/deriv_data/fmriprep/ participant --participant-label {sub_num} -w /work_dir/{project_dir}/temp_data/ --bold2t1w-dof 12 --output-spaces T1w fsaverage MNI152NLin2009cAsym --cifti-output --low-mem --mem-mb 32000 --nthreads {nb_procs:.0f}{anat_only}{use_aroma}{use_fmapfree}{use_skip_bids_val}".format(
 									main_dir = main_dir,
 									project_dir = project_dir,
 									simg = singularity_dir,
