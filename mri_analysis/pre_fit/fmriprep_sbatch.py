@@ -20,7 +20,10 @@ preprocessed files
 -----------------------------------------------------------------------------------------
 To run:
 cd /home/mszinte/projects/pRFgazeMod/mri_analysis/
-python pre_fit/fmriprep_sbatch.py pRFgazeMod skylake sub-001 20 0 1 0 0 
+python pre_fit/fmriprep_sbatch.py pRFgazeMod skylake sub-001 20 0 0 0 1
+python pre_fit/fmriprep_sbatch.py pRFgazeMod skylake sub-002 20 0 0 0 1
+python pre_fit/fmriprep_sbatch.py pRFgazeMod skylake sub-003 20 0 0 0 1
+python pre_fit/fmriprep_sbatch.py pRFgazeMod skylake sub-004 20 0 0 0 1
 -----------------------------------------------------------------------------------------
 Written by Martin Szinte (martin.szinte@gmail.com)
 -----------------------------------------------------------------------------------------

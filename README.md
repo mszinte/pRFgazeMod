@@ -20,5 +20,6 @@ or displaced to the left or to the right.
 5. run freesurfer-dev version to use t2w image for the pial surface using pre_fit/freesurfer_dev.py<br/>
 6. make sagital png and video of segmentation after freesurfer-dev using /pre_fit/freeview.py<br/>
 7. manual edition of the pial surface for occipital lobe edges using freeview launched with /pre_fit/pial_edit.py and following the rules of http://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/PialEditsV6.0 <br/>
-8. re-run pial edition using freesurfer-dev version with pre_fit/freesurfer_dev.py<br/>
+8. re-run pial edition using freesurfer-dev version with pre_fit/freesurfer_dev.sh<br/>
 9. make sagital png and video of segmentation after manual edit using /pre_fit/freeview.py<br/>
+10. run fmriprep with correct anatomical segmentation
