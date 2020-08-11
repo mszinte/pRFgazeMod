@@ -23,3 +23,4 @@ or displaced to the left or to the right.
 8. re-run pial edition using freesurfer-dev version with pre_fit/freesurfer_dev.sh<br/>
 9. make sagital png and video of segmentation after manual edit using /pre_fit/freeview.py<br/>
 10. run fmriprep with correct anatomical segmentation
+11. make averaged, high passed filtered data

@@ -55,112 +55,92 @@ base_dir = analysis_info['base_dir']
 # ----------------------------
 for sub_name in analysis_info['subject_list'] :
 
-    dest_folder = "{base_dir}/pp_data/{sub}/func".format(base_dir = base_dir, sub = sub_name)
-    try: os.makedirs(dest_folder)
+    dest_folder1 = "{base_dir}/pp_data/{sub}/func/fmriprep_dct/".format(base_dir = base_dir, sub = sub_name)
+    try: os.makedirs(dest_folder1)
     except: pass
 
-    orig_folder = "{base_dir}/deriv_data/fmriprep/fmriprep/{sub}/func".format(base_dir = base_dir, sub = sub_name)
-            
-    for acq in analysis_info['acq']:
-        for run in analysis_info['runs']:
-            # func
-            orig_file1 = "{orig_fold}/{sub}_task-AttendStim_{acq}_{run}_space-T1w_desc-preproc_bold.nii.gz".format(
-                                            orig_fold = orig_folder, sub = sub_name, acq = acq, run = run)
-            dest_file1 = "{dest_fold}/{sub}_task-AttendStim_{acq}_{run}_fmriprep.nii.gz".format(
-                                            dest_fold = dest_folder, sub = sub_name, acq = acq, run = run)
-
-            os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = orig_file1, dest = dest_file1))
-            
-            # mask
-            orig_file2 = "{orig_fold}/{sub}_task-AttendStim_{acq}_{run}_space-T1w_desc-brain_mask.nii.gz".format(
-                                            orig_fold = orig_folder, sub = sub_name, acq = acq, run = run)
-            dest_file2 = "{dest_fold}/{sub}_task-AttendStim_{acq}_{run}_mask.nii.gz".format(
-                                            dest_fold = dest_folder, sub = sub_name, acq = acq, run = run)
-
-            os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = orig_file2, dest = dest_file2))
+    dest_folder2 = "{base_dir}/pp_data/{sub}/func/fmriprep_dct_pca/".format(base_dir = base_dir, sub = sub_name)
+    try: os.makedirs(dest_folder2)
+    except: pass
 
 
-# SG_PSC_AVG + MASK_AVG
-# ---------------------
+    orig_folder = "{base_dir}/deriv_data/pybest/{sub}".format(base_dir = base_dir, sub = sub_name)
 
-for sub_name in analysis_info['subject_list'] :
-    for acq in analysis_info['acq']:
-        print("{sub}-{acq}: sg + psc".format(sub = sub_name, acq = acq))
-        # SG + PSC
-        # --------
-        file_list1 = sorted(glob.glob("{base_dir}/pp_data/{sub}/func/*{acq}*fmriprep.nii.gz".format(
-                                            base_dir = base_dir, sub = sub_name, acq = acq)))
+    for session in analysis_info['session']:
 
+        for attend_cond in analysis_info['attend_cond']:
+            for gaze_cond in analysis_info['gaze_cond']:
+                if gaze_cond == 'GazeCenterFS':
+                    runs = analysis_info['runs']
+                    run_txt = ['_run-1','_run-2']
 
-        for file1 in file_list1:
-        
-            print(file1)
-            # load
-            img = nb.load(file1)
-            pp_data = img.get_fdata()
-        
-            # sg filter
-            pp_data_filt = savgol_filter(   x = pp_data,
-                                            window_length = analysis_info['sg_filt_window_length'],
-                                            polyorder = analysis_info['sg_filt_polyorder'],
-                                            deriv = analysis_info['sg_filt_deriv'],
-                                            axis = 3, 
-                                            mode = 'nearest')
-            
-            pp_data_filt_mean = pp_data_filt.mean(axis=3)
-            pp_data_filt_mean = np.repeat(pp_data_filt_mean[:, :, :, np.newaxis], analysis_info['TRs'], axis=3)
-            pp_data_sg = pp_data - pp_data_filt + pp_data_filt_mean
-            
-            # percent signal change
-            pp_data_sg_median = np.median(pp_data_sg, axis=3)
-            pp_data_sg_median = np.repeat(pp_data_sg_median[:, :, :, np.newaxis], analysis_info['TRs'], axis=3)
-            pp_data_sg_psc = 100.0 * (pp_data_sg - pp_data_sg_median)/pp_data_sg_median
-            
-            # save
-            new_file = "{file}_sg_psc.nii.gz".format(file = file1[:-7])
-            new_img = nb.Nifti1Image(dataobj = pp_data_sg_psc, affine = img.affine, header = img.header)
-            new_img.to_filename(new_file)
-    
-        
-        # AVERAGE RUNS
-        # ------------
-        print("{sub}-{acq}: average runs".format(sub = sub_name, acq = acq))
-        file_list = sorted(glob.glob("{base_dir}/pp_data/{sub}/func/*{acq}*_sg_psc.nii.gz".format(base_dir = base_dir, sub = sub_name, acq = acq)))
-        img = nb.load(file_list[0])
-        pp_data_sg_psc_avg = np.zeros(img.shape)
-    
+                else:
+                    runs = [analysis_info['runs'][0]]
+                    run_txt = ['']
+
+                
+                for run,run_txt in zip(runs,run_txt):
+                    # dct func
+                    orig_file1 = "{orig_fold}/{session}/preproc/{sub}_{session}_task-{attend_cond}{gaze_cond}_space-T1w{run_txt}_desc-preproc_bold.nii.gz".format(
+                                            orig_fold = orig_folder, session = session, run = run, run_txt = run_txt,
+                                            sub = sub_name, attend_cond = attend_cond, gaze_cond = gaze_cond)
+                    dest_file1 = "{dest_fold}/{sub}_{session}_task-{attend_cond}{gaze_cond}_{run}_fmriprep_dct.nii.gz".format(
+                                            dest_fold = dest_folder1, session = session, run = run,
+                                            sub = sub_name, attend_cond = attend_cond, gaze_cond = gaze_cond)
+
+                    os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = orig_file1, dest = dest_file1))
+
+                    # dct + denoised func
+                    orig_file2 = "{orig_fold}/{session}/denoising/{sub}_{session}_task-{attend_cond}{gaze_cond}_space-T1w{run_txt}_desc-denoised_bold.nii.gz".format(
+                                            orig_fold = orig_folder, session = session, run = run, run_txt = run_txt,
+                                            sub = sub_name, attend_cond = attend_cond, gaze_cond = gaze_cond)
+                    dest_file2 = "{dest_fold}/{sub}_{session}_task-{attend_cond}{gaze_cond}_{run}_fmriprep_dct_pca.nii.gz".format(
+                                            dest_fold = dest_folder2, session = session, run = run,
+                                            sub = sub_name, attend_cond = attend_cond, gaze_cond = gaze_cond)
+
+                    os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = orig_file2, dest = dest_file2))
+
+    # Compute percent signal change
+    for preproc in analysis_info['preproc']:
+        file_list = sorted(glob.glob("{base_dir}/pp_data/{sub}/func/{preproc}/*{preproc}.nii.gz".format(
+                                             base_dir = base_dir, sub = sub_name, preproc = preproc)))
         for file in file_list:
-            print(file)
-            # load
-            pp_data_sg_psc = []
-            pp_data_sg_psc_img = nb.load(file)
-            pp_data_sg_psc = pp_data_sg_psc_img.get_fdata()
-            pp_data_sg_psc_avg += pp_data_sg_psc/len(file_list)
-        
-        # save
-        new_file = "{file}_fmriprep_sg_psc_avg.nii.gz".format(file = file[:-30])
-        
-        new_img = nb.Nifti1Image(dataobj = pp_data_sg_psc_avg, affine = img.affine, header = img.header)
-        new_img.to_filename(new_file)
+            print('psc:'+file)
+            img = nb.load(file)
+            pp_data = img.get_fdata()
+            pp_data_median = np.median(pp_data, axis=3)
+            pp_data_median = np.repeat(pp_data_median[:, :, :, np.newaxis], pp_data.shape[3], axis=3)
+            pp_data_psc = 100.0 * (pp_data - pp_data_median)/pp_data_median
 
-        # AVERAGE MASKS
-        # -------------
-        file_list2 = sorted(glob.glob("{base_dir}/pp_data/{sub}/func/*{acq}*mask.nii.gz".format(
-                                            base_dir = base_dir, sub = sub_name, acq = acq)))
+            # save
+            new_file = "{file}_psc.nii.gz".format(file = file[:-7])
+            new_img = nb.Nifti1Image(dataobj = pp_data_psc, affine = img.affine, header = img.header)
+            new_img.to_filename(new_file)
 
-        img_mask = nb.load(file_list2[0])
-        mask_avg = np.zeros(img_mask.shape)
-        for file2 in file_list2:
-            print(file2)
+    # Average tasks runs
+    for preproc in analysis_info['preproc']:
+        for attend_cond in analysis_info['attend_cond']:
+            for gaze_cond in analysis_info['gaze_cond']:
+                file_list = sorted(glob.glob("{base_dir}/pp_data/{sub}/func/{preproc}/*{attend_cond}{gaze_cond}*_psc.nii.gz".format(
+                                             base_dir = base_dir, sub = sub_name, preproc = preproc,
+                                             attend_cond = attend_cond, gaze_cond = gaze_cond)))
+                
+                img = nb.load(file_list[0])
+                data_avg = np.zeros(img.shape)
+            
+                for file in file_list:
+                    print('avg:'+file)
+                    # load
+                    data_psc = []
+                    data_psc_img = nb.load(file)
+                    data_psc = data_psc_img.get_fdata()
+                    data_avg += data_psc/len(file_list)
+                
 
-            mask = []
-            mask_img = nb.load(file2)
-            mask = mask_img.get_fdata()
-            mask_avg += mask/len(file_list2)
-
-        mask_avg = np.round(mask_avg)
-
-        # save
-        new_file2 = "{file}_fmriprep_mask_avg.nii.gz".format(file = file2[:-19])
-        new_img2 = nb.Nifti1Image(dataobj = mask_avg, affine = img_mask.affine, header = img_mask.header)
-        new_img2.to_filename(new_file2)
+                # save
+                new_file = "{base_dir}/pp_data/{sub}/func/{sub}_task-{attend_cond}{gaze_cond}_{preproc}_psc_avg.nii.gz".format(
+                            base_dir = base_dir, sub = sub_name, preproc = preproc, 
+                            attend_cond = attend_cond, gaze_cond = gaze_cond)
+                new_img = nb.Nifti1Image(dataobj = data_avg, affine = img.affine, header = img.header)
+                new_img.to_filename(new_file)
+                
