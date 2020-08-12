@@ -121,7 +121,7 @@ for sub_name in analysis_info['subject_list'] :
     for preproc in analysis_info['preproc']:
         for attend_cond in analysis_info['attend_cond']:
             for gaze_cond in analysis_info['gaze_cond']:
-                file_list = sorted(glob.glob("{base_dir}/pp_data/{sub}/func/{preproc}/*{attend_cond}{gaze_cond}*_psc.nii.gz".format(
+                file_list = sorted(glob.glob("{base_dir}/pp_data/{sub}/func/{preproc}/*{attend_cond}{gaze_cond}_*_psc.nii.gz".format(
                                              base_dir = base_dir, sub = sub_name, preproc = preproc,
                                              attend_cond = attend_cond, gaze_cond = gaze_cond)))
                 
@@ -135,7 +135,6 @@ for sub_name in analysis_info['subject_list'] :
                     data_psc_img = nb.load(file)
                     data_psc = data_psc_img.get_fdata()
                     data_avg += data_psc/len(file_list)
-                
 
                 # save
                 new_file = "{base_dir}/pp_data/{sub}/func/{sub}_task-{attend_cond}{gaze_cond}_{preproc}_psc_avg.nii.gz".format(
