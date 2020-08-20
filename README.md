@@ -26,4 +26,4 @@ or displaced to the left or to the right.
 9. make sagital png and video of segmentation after manual edit using /pre_fit/freeview.py<br/>
 10. run fmriprep with correct anatomical segmentation<br/>
 11. run pybest (modified to save niftis) to high pass filter and denoised the data with /pre_fit/pybest_sbatch.py<br/>
-12. change to percent signal and averaged runs with pre_fit/pp_fit.py<br/>
+12. Averaged runs with pre_fit/pp_fit.py<br/>

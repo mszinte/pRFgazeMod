@@ -3,7 +3,7 @@
 pre_fit.py
 -----------------------------------------------------------------------------------------
 Goal of the script:
-SG filter, PSC, AVG runs and combine data of both hemisphere
+Arrange data and AVG runs
 -----------------------------------------------------------------------------------------
 Input(s):
 sys.argv[1]: subject name
@@ -100,28 +100,11 @@ for sub_name in analysis_info['subject_list'] :
 
                     os.system("{cmd} {orig} {dest}".format(cmd = trans_cmd, orig = orig_file2, dest = dest_file2))
 
-    # Compute percent signal change
-    for preproc in analysis_info['preproc']:
-        file_list = sorted(glob.glob("{base_dir}/pp_data/{sub}/func/{preproc}/*{preproc}.nii.gz".format(
-                                             base_dir = base_dir, sub = sub_name, preproc = preproc)))
-        for file in file_list:
-            print('psc:'+file)
-            img = nb.load(file)
-            pp_data = img.get_fdata()
-            pp_data_median = np.median(pp_data, axis=3)
-            pp_data_median = np.repeat(pp_data_median[:, :, :, np.newaxis], pp_data.shape[3], axis=3)
-            pp_data_psc = 100.0 * (pp_data - pp_data_median)/pp_data_median
-
-            # save
-            new_file = "{file}_psc.nii.gz".format(file = file[:-7])
-            new_img = nb.Nifti1Image(dataobj = pp_data_psc, affine = img.affine, header = img.header)
-            new_img.to_filename(new_file)
-
     # Average tasks runs
     for preproc in analysis_info['preproc']:
         for attend_cond in analysis_info['attend_cond']:
             for gaze_cond in analysis_info['gaze_cond']:
-                file_list = sorted(glob.glob("{base_dir}/pp_data/{sub}/func/{preproc}/*{attend_cond}{gaze_cond}_*_psc.nii.gz".format(
+                file_list = sorted(glob.glob("{base_dir}/pp_data/{sub}/func/{preproc}/*{attend_cond}{gaze_cond}_*.nii.gz".format(
                                              base_dir = base_dir, sub = sub_name, preproc = preproc,
                                              attend_cond = attend_cond, gaze_cond = gaze_cond)))
                 
@@ -137,7 +120,7 @@ for sub_name in analysis_info['subject_list'] :
                     data_avg += data_psc/len(file_list)
 
                 # save
-                new_file = "{base_dir}/pp_data/{sub}/func/{sub}_task-{attend_cond}{gaze_cond}_{preproc}_psc_avg.nii.gz".format(
+                new_file = "{base_dir}/pp_data/{sub}/func/{sub}_task-{attend_cond}{gaze_cond}_{preproc}_avg.nii.gz".format(
                             base_dir = base_dir, sub = sub_name, preproc = preproc, 
                             attend_cond = attend_cond, gaze_cond = gaze_cond)
                 new_img = nb.Nifti1Image(dataobj = data_avg, affine = img.affine, header = img.header)
