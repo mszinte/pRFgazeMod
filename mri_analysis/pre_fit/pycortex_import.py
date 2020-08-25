@@ -36,7 +36,7 @@ deb = ipdb.set_trace
 # MRI imports
 # -----------
 import cortex
-from cortex.fmriprep import *
+# from cortex.fmriprep import *
 import nibabel as nb
 
 # Functions import
@@ -69,9 +69,10 @@ set_pycortex_config_file(base_dir)
 # ------------------------------
 
 print('import subject in pycortex')
-# cortex.freesurfer.import_subj(fs_subject = subject, cx_subject=subject, freesurfer_subject_dir=fs_dir, whitematter_surf='smoothwm')
+# cortex.freesurfer.import_subj(subject = subject, sname=subject, freesurfer_subject_dir=fs_dir, whitematter_surf='smoothwm')
 # cortex.fmriprep.import_subj(subject = subject[-3:], source_dir = fmriprep_dir, sname = subject)
-# cortex.freesurfer.import_flat(fs_subject = subject, patch = 'full', hemis = ['rh'], freesurfer_subject_dir = fs_dir, cx_subject = subject, auto_overwrite=True)
+cortex.freesurfer.import_flat(subject = subject, patch = 'full', freesurfer_subject_dir = fs_dir, sname = subject)
+deb()
 
 # Add transform to pycortex db
 # ----------------------------

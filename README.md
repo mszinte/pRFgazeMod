@@ -14,16 +14,13 @@ or displaced to the left or to the right.
 ## MRI analysis
 
 # pre-processing
-0. convert data to nifti using /mri_analysis/pre_fit/bids/convert2niigz.py<br/>
-1. make bids format using /mri_analysis/pre_fit/bids/bids_format_sub-001.py to bids_format_sub-008.py<br/>
-2. run mriqc on mesocentre using mri_analysis/pre_fit/mriqc_sbatch.py<br/>
-3. run fmriprep on mesocenter using mri_analysis/pre_fit/fmriprep_sbatch.py - use first anat-only option<br/>
-4. make sagital png and video of segmentation before edit using /pre_fit/freeview.py<br/>
-5. run freesurfer-dev version to use t2w image for the pial surface using pre_fit/freesurfer_dev.py<br/>
-6. make sagital png and video of segmentation after freesurfer-dev using /pre_fit/freeview.py<br/>
-7. manual edition of the pial surface for occipital lobe edges using freeview launched with /pre_fit/pial_edit.py and following the rules of http://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/PialEditsV6.0 <br/>
-8. re-run pial edition using freesurfer-dev version with pre_fit/freesurfer_dev.sh<br/>
-9. make sagital png and video of segmentation after manual edit using /pre_fit/freeview.py<br/>
-10. run fmriprep with correct anatomical segmentation<br/>
-11. run pybest (modified to save niftis) to high pass filter and denoised the data with /pre_fit/pybest_sbatch.py<br/>
-12. Averaged runs with pre_fit/pp_fit.py<br/>
+* run fmriprpep with anat-only option on mesocentre using mri_analysis/preproc/fmriprep_sbatch.py<br/>
+* make a "before_edit" video of the fmriprep/freesurfer segmentation using mri_analysis/preproc/freeview.py<br>
+* manual edition of the pial surface using freeview launched with /preproc/pial_edits.py and following the rules of http://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/PialEditsV6.0 <br/>
+* re-run freesurfer to include the manual change of the pial surface using preproc/freesurfer_pial.py<br/>
+* make a "after_edit" video of the fmriprep/freesurfer segmentation using mri_analysis/preproc/freeview.py<br>
+* Cut brains with https://docs.google.com/document/d/1mbx3EzTEYr4MIROWbgyklW_a7F6B4NX23bvk7VM7zeY/edit<br/>
+* Flatten hemispheres with preproc/flatten_sbatch.py<br/>
+* Import in pycortex and save t1w/t2w maps as pycortex webviewer
+* run pybest (modified to save niftis) to high pass filter and denoised the data with /preproc/pybest_sbatch.py
+* Save time courses as pycortex webviewer
