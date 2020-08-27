@@ -28,10 +28,10 @@ import sys
 import json
 import glob
 import numpy as np
-import ipdb
+import pdb
 import platform
 opj = os.path.join
-deb = ipdb.set_trace
+deb = pdb.set_trace
 
 # MRI imports
 # -----------
@@ -69,9 +69,7 @@ set_pycortex_config_file(base_dir)
 # ------------------------------
 
 print('import subject in pycortex')
-# cortex.freesurfer.import_subj(subject = subject, sname=subject, freesurfer_subject_dir=fs_dir, whitematter_surf='smoothwm')
-# cortex.fmriprep.import_subj(subject = subject[-3:], source_dir = fmriprep_dir, sname = subject)
-cortex.freesurfer.import_flat(subject = subject, patch = 'full', freesurfer_subject_dir = fs_dir, sname = subject)
+cortex.freesurfer.import_subj(fs_subject = subject, cx_subject = subject, freesurfer_subject_dir = fs_dir, whitematter_surf = 'smoothwm')
 deb()
 
 # Add transform to pycortex db

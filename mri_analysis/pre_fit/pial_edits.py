@@ -72,5 +72,5 @@ sb.call('freeview -cmd {sh_dir}'.format(sh_dir = sh_dir),shell=True)
 # 1. click on edit button 
 # 2. edit the brainmask focussing on occupital lobe and limit with cerebelum
 # 3. save the brainmask as
-# 4. run freesurfer_dev.py again
+# 4. run freesurfer_pial.py again
 
