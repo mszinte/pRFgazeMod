@@ -33,11 +33,10 @@ Written by Martin Szinte (martin.szinte@gmail.com)
 import sys
 import os
 import time
-import ipdb
+import pdb
 import json
-import ipdb
 opj = os.path.join
-deb = ipdb.set_trace
+deb = pdb.set_trace
 
 # inputs
 main_dir = sys.argv[1]
@@ -75,7 +74,7 @@ cd '{freesurfer_dir}{subject}/surf/'\n\n""".format(	proj_name = proj_name, nb_pr
 													subject = subject, memory_val = memory_val, log_dir = log_dir, freesurfer_dir = freesurfer_dir)
 
 # define flatten cmd
-flatten_cmd = "mris_flatten -w 1 {hemi}h.full.patch.3d {hemi}h.full.flat.patch.3d".format(hemi = hemi)
+flatten_cmd = "mris_flatten {hemi}h.full.patch.3d {hemi}h.full.flat.patch.3d".format(hemi = hemi)
 
 # create sh folder and file
 sh_dir = "{main_dir}/{project_dir}/deriv_data/flatten/jobs/{subject}_{hemi}h_flatten.sh".format(main_dir = main_dir, subject = subject,project_dir = project_dir,hemi = hemi)
