@@ -32,11 +32,10 @@ Written by Martin Szinte (martin.szinte@gmail.com)
 import sys
 import os
 import time
-import ipdb
+import pdb
 import json
-import ipdb
 opj = os.path.join
-deb = ipdb.set_trace
+deb = pdb.set_trace
 
 # inputs
 main_dir = sys.argv[1]
