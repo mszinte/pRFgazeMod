@@ -81,16 +81,17 @@ print('import subject flatmaps')
 try: cortex.freesurfer.import_flat(fs_subject = subject, cx_subject = subject, freesurfer_subject_dir = fs_dir, patch = 'full', auto_overwrite=True)
 except: pass
 
-# # Add transform to pycortex db
-# # ----------------------------
-# file_list = sorted(glob.glob("{base_dir}/pp_data/{sub}/func/*.nii.gz".format(base_dir = base_dir, sub = subject)))
-# ref_file = file_list[0]
-# transform = cortex.xfm.Transform(np.identity(4), ref_file)
-# transform.save(subject, xfm_name, 'magnet')
+# Add transform to pycortex db
+# ----------------------------
+print('add transform')
+file_list = sorted(glob.glob("{base_dir}/pp_data/{sub}/func/*.nii.gz".format(base_dir = base_dir, sub = subject)))
+ref_file = file_list[0]
+transform = cortex.xfm.Transform(np.identity(4), ref_file)
+transform.save(subject, xfm_name, 'magnet')
 
 # Add masks to pycortex transform
 # -------------------------------
-print('create pycortex transform')
+print('create pycortex mask')
 xfm_masks = analysis_info['xfm_masks']
 ref = nb.load(ref_file)
 for xfm_mask in xfm_masks:

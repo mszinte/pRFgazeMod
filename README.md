@@ -14,13 +14,16 @@ or displaced to the left or to the right.
 ## MRI analysis
 
 # pre-processing
-* run fmriprpep with anat-only option on mesocentre using mri_analysis/preproc/fmriprep_sbatch.py<br/>
-* make a "before_edit" video of the fmriprep/freesurfer segmentation using mri_analysis/preproc/freeview.py<br>
-* manual edition of the pial surface using freeview launched with /preproc/pial_edits.py and following the rules of http://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/PialEditsV6.0 <br/>
-* re-run freesurfer to include the manual change of the pial surface using preproc/freesurfer_pial.py<br/>
-* make a "after_edit" video of the fmriprep/freesurfer segmentation using mri_analysis/preproc/freeview.py<br>
-* Cut brains with https://docs.google.com/document/d/1mbx3EzTEYr4MIROWbgyklW_a7F6B4NX23bvk7VM7zeY/edit<br/>
-* Flatten hemispheres with preproc/flatten_sbatch.py<br/>
-* Import in pycortex and save t1w/t2w maps as pycortex webviewer
-* run pybest (modified to save niftis) to high pass filter and denoised the data with /preproc/pybest_sbatch.py
-* Save time courses as pycortex webviewer
+* convert data in bids, see pre_fit/bids/bids_format_sub-00X.py
+* run fmriprpep with anat-only option on mesocentre using mri_analysis/pre_fit/fmriprep_sbatch.py<br/>
+* make a "before_edit" video of the fmriprep/freesurfer segmentation using mri_analysis/pre_fit/freeview.py<br>
+* manual edition of the pial surface using freeview launched with /pre_fit/pial_edits.py and following the rules of http://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/PialEditsV6.0 <br/>
+* re-run freesurfer to include the manual change of the pial surface using pre_fit/freesurfer_pial.py<br/>
+* make a "after_edit" video of the fmriprep/freesurfer segmentation using mri_analysis/pre_fit/freeview.py<br>
+* Cut brains with https://docs.google.com/document/d/1mbx3EzTEYr4MIROWbgyklW_a7F6B4NX23bvk7VM7zeY/edit, see cortex_cuts.sh<br/>
+* Flatten hemispheres with pre_fit/flatten_sbatch.py<br/>
+* run fmriprpep for functionnal runs on mesocentre using mri_analysis/pre_fit/fmriprep_sbatch.py<br/>
+* run pybest (modified to save niftis) to z-scores, high pass filter and denoise the data using /pre_fit/pybest_sbatch.py
+* arrange data in pp_data folder, and average runs using pre_fit/pre_fit_end.py
+* Import in pycortex surfaces and flatmaps using pre_fit/pycortex_import.py
+* [optional] Save time courses as pycortex webviewer using pre_fit/save_tc.py
