@@ -1,22 +1,27 @@
 """
 -----------------------------------------------------------------------------------------
-prf_fit_fs.py
+prf_fit.py
 -----------------------------------------------------------------------------------------
 Goal of the script:
-Create pRF estimates for full screen runs
+Create pRF estimates
 -----------------------------------------------------------------------------------------
 Input(s):
 sys.argv[1]: subject name
-sys.argv[2]: pre-processing steps (fmriprep_dct or fmriprep_dct_pca)
-sys.argv[3]: slice number
-sys.argv[4]: output filename
+sys.argv[2]: task (ex: GazeCenterFS)
+sys.argv[3]: pre-processing steps (fmriprep_dct or fmriprep_dct_pca)
+sys.argv[4]: slice number
+sys.argv[5]: output filename
 -----------------------------------------------------------------------------------------
 Output(s):
-Nifti image files with fitting parameters per vertex
+Nifti image files with fit parameters for a z slice
 -----------------------------------------------------------------------------------------
 To run:
+>> cd to function directory
+>> python fit/prf_fit.py [subject] [task] [preproc][slice_nb] [nifti timeseries]
+-----------------------------------------------------------------------------------------
+Exemple:
 cd /home/mszinte/projects/pRFgazeMod/mri_analysis/
-python fit/prf_fit_fs.py sub-001 fmriprep_dct
+python fit/prf_fit.py sub-001 GazeCenterFS fmriprep_dct 10 /home/.../sub-001....nii.gz
 -----------------------------------------------------------------------------------------
 Written by Martin Szinte (martin.szinte@gmail.com)
 -----------------------------------------------------------------------------------------
@@ -55,9 +60,10 @@ import nibabel as nb
 # Get inputs
 # ----------
 subject = sys.argv[1]
-preproc = sys.argv[2]
-slice_nb = int(sys.argv[3])
-opfn = sys.argv[4]
+task = sys.argv[2]
+preproc = sys.argv[3]
+slice_nb = int(sys.argv[4])
+opfn = sys.argv[5]
 start_time = datetime.datetime.now()
 
 # Define analysis parameters
@@ -70,14 +76,14 @@ base_dir = analysis_info['base_dir']
 nb_procs = 32
 
 # Load data
-data_file = "{base_dir}/pp_data/{sub}/func/{sub}_task-GazeCenterFS_{preproc}_avg.nii.gz".format(
-                        base_dir = base_dir, sub = subject, preproc = preproc)
+data_file = "{base_dir}/pp_data/{sub}/func/{sub}_task-{task}_{preproc}_avg.nii.gz".format(
+                        base_dir = base_dir, sub = subject, task = task, preproc = preproc)
 data_img = nb.load(data_file)
 data = data_img.get_fdata()
 data_var = np.var(data,axis=3)
 mask = data_var!=0.0
 
-slice_mask = mask[:, :, slice_nb].astype(bool)
+slice_mask = mask[:,:,slice_nb].astype(bool)
 num_vox = np.sum(slice_mask)
 data_slice = data[:,:,slice_nb,:]
 data_to_analyse = data_slice[slice_mask]
@@ -89,8 +95,8 @@ x_vox,y_vox = x[slice_mask],y[slice_mask]
 vox_indices = [(xx,yy,slice_nb) for xx,yy in zip(x_vox,y_vox)]
 
 # Create stimulus design (create in matlab - see others/make_visual_dm.m)
-visual_dm_file = scipy.io.loadmat(opj(base_dir,'pp_data','visual_dm','GazeCenterFS_vd.mat'))
-visual_dm = visual_dm_file['stim']
+visual_dm_file = scipy.io.loadmat(opj(base_dir,'pp_data','visual_dm',"{task}_vd.mat".format(task = task)))
+visual_dm = visual_dm_file['stim'].transpose([1,0,2])
 
 stimulus = PRFStimulus2D(screen_width_cm = analysis_info['screen_width'],
                          screen_height_cm = analysis_info['screen_height'],
@@ -115,7 +121,7 @@ gauss_fitter.grid_fit(ecc_grid = eccs, polar_grid = polars, size_grid = sizes, p
 
 # iterative fit
 print("Iterative fit")
-gauss_fitter.iterative_fit(rsq_threshold = 0.0001, verbose = True)
+gauss_fitter.iterative_fit(rsq_threshold = 0.0001, verbose = False)
 estimates_fit = gauss_fitter.iterative_search_params
 
 # Re-arrange data

@@ -1,26 +1,32 @@
 """
 -----------------------------------------------------------------------------------------
-submit_fit_fs_jobs.py
+submit_fit_jobs.py
 -----------------------------------------------------------------------------------------
 Goal of the script:
-create jobscript to run locally or in a cluster
+Create jobscript to fit pRFs
 -----------------------------------------------------------------------------------------
 Input(s):
 sys.argv[1]: subject name (e.g. 'sub-01')
-sys.argv[2]: pre-processing steps (fmriprep_dct or fmriprep_dct_pca)
+sys.argv[2]: task (ex: GazeCenterFS)
+sys.argv[3]: pre-processing steps (fmriprep_dct or fmriprep_dct_pca)
 -----------------------------------------------------------------------------------------
 Output(s):
 .sh file to execute in server
 -----------------------------------------------------------------------------------------
 To run:
-1. cd to function
->> cd /home/mszinte/projects/pRFgazeMod/mri_analysis/
-2. run python command
-python fit/submit_fit_fs_jobs.py [subject] [preproc] 
+>> cd to function
+>> python fit/submit_fit_fs_jobs.py [subject] [task] [preproc]
 -----------------------------------------------------------------------------------------
 Exemple:
 cd /home/mszinte/projects/pRFgazeMod/mri_analysis/
-python fit/submit_fit_fs_jobs.py sub-001 fmriprep_dct
+python fit/submit_fit_jobs.py sub-001 GazeCenterFS fmriprep_dct
+python fit/submit_fit_jobs.py sub-001 GazeCenterFS fmriprep_dct_pca
+python fit/submit_fit_jobs.py sub-002 GazeCenterFS fmriprep_dct
+python fit/submit_fit_jobs.py sub-002 GazeCenterFS fmriprep_dct_pca
+python fit/submit_fit_jobs.py sub-003 GazeCenterFS fmriprep_dct
+python fit/submit_fit_jobs.py sub-003 GazeCenterFS fmriprep_dct_pca
+python fit/submit_fit_jobs.py sub-004 GazeCenterFS fmriprep_dct
+python fit/submit_fit_jobs.py sub-004 GazeCenterFS fmriprep_dct_pca
 -----------------------------------------------------------------------------------------
 Written by Martin Szinte (martin.szinte@gmail.com)
 -----------------------------------------------------------------------------------------
@@ -46,10 +52,11 @@ deb = ipdb.set_trace
 opj = os.path.join
 
 # Settings
-# ----------
+# --------
 # Inputs
 subject = sys.argv[1]
-preproc = sys.argv[2]
+task = sys.argv[2]
+preproc = sys.argv[3]
 
 # Analysis parameters
 with open('settings.json') as f:
@@ -59,7 +66,7 @@ with open('settings.json') as f:
 # Cluster settings
 base_dir = analysis_info['base_dir']
 sub_command = 'sbatch '
-fit_per_hour = 3000.0
+fit_per_hour = 6000.0
 nb_procs = 32
 memory_val = 48
 proj_name = 'b161'
@@ -73,10 +80,9 @@ try:
 except:
     pass
 
-
 # Determine data to analyse
-data_file = "{base_dir}/pp_data/{sub}/func/{sub}_task-GazeCenterFS_{preproc}_avg.nii.gz".format(
-                        base_dir = base_dir, sub = subject, preproc = preproc)
+data_file = "{base_dir}/pp_data/{sub}/func/{sub}_task-{task}_{preproc}_avg.nii.gz".format(
+                        base_dir = base_dir, sub = subject, preproc = preproc, task = task)
 
 img_data = nb.load(data_file)
 data = img_data.get_fdata()
@@ -90,10 +96,11 @@ for slice_nb in slices:
     job_dur = str(datetime.timedelta(hours = np.ceil(num_vox/fit_per_hour)))
 
     # Define output file
-    opfn = "{base_dir}/pp_data/{subject}/gauss/fit/{subject}_task-GazeCenterFS_{preproc}_avg_est_z_{slice_nb}.nii.gz".format(
+    opfn = "{base_dir}/pp_data/{subject}/gauss/fit/{subject}_task-{task}_{preproc}_avg_est_z_{slice_nb}.nii.gz".format(
                                 base_dir = base_dir,
                                 subject = subject,
-                                preproc = preproc,
+                                task = task,                        
+                                preproc = preproc,                                
                                 slice_nb = slice_nb)
     log_dir = opj(base_dir,'pp_data',subject,'gauss','log_outputs')
 
@@ -114,28 +121,31 @@ for slice_nb in slices:
 #SBATCH --mem={memory_val}gb
 #SBATCH --cpus-per-task={nb_procs}
 #SBATCH --time={job_dur}
-#SBATCH -e {log_dir}/{subject}_GazeCenterFS_{preproc}_fit_slice_{slice_nb}_%N_%j_%a.err
-#SBATCH -o {log_dir}/{subject}_GazeCenterFS_{preproc}_fit_slice_{slice_nb}_%N_%j_%a.out
-#SBATCH -J {subject}_GazeCenterFS_{preproc}_fit_slice_{slice_nb}\n\n""".format(proj_name = proj_name,
+#SBATCH -e {log_dir}/{subject}_{task}_{preproc}_fit_slice_{slice_nb}_%N_%j_%a.err
+#SBATCH -o {log_dir}/{subject}_{task}_{preproc}_fit_slice_{slice_nb}_%N_%j_%a.out
+#SBATCH -J {subject}_{task}_{preproc}_fit_slice_{slice_nb}\n\n""".format(proj_name = proj_name,
                                             nb_procs = nb_procs,
                                             memory_val = memory_val,
                                             log_dir = log_dir,
                                             job_dur = job_dur,
                                             subject = subject,
-                                            slice_nb = slice_nb,
-                                            preproc = preproc)
+                                            preproc = preproc,
+                                            task = task,
+                                            slice_nb = slice_nb)
 
     # define fit cmd
-    fit_cmd = "python fit/prf_fit_fs.py {subject} {preproc} {slice_nb} {opfn}".format(
+    fit_cmd = "python fit/prf_fit.py {subject} {task} {preproc} {slice_nb} {opfn}".format(
                 subject = subject,
+                task = task,
                 preproc = preproc,
                 slice_nb = slice_nb,
                 opfn = opfn)
     
     # create sh folder and file
-    sh_dir = "{base_dir}/pp_data/{subject}/gauss/jobs/{subject}_GazeCenterFS_{preproc}_fit_slice_{slice_nb}.sh".format(
+    sh_dir = "{base_dir}/pp_data/{subject}/gauss/jobs/{subject}_{task}_{preproc}_fit_slice_{slice_nb}.sh".format(
                 base_dir = base_dir,
                 subject = subject,
+                task = task,
                 preproc = preproc,
                 slice_nb = slice_nb)
 
@@ -153,3 +163,4 @@ for slice_nb in slices:
     # Submit jobs
     print("Submitting {sh_dir} to queue".format(sh_dir = sh_dir))
     os.system("{sub_command} {sh_dir}".format(sub_command = sub_command, sh_dir = sh_dir))
+    

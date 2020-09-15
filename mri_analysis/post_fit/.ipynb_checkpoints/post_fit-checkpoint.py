@@ -20,9 +20,7 @@ To run:
 Exemple:
 cd /home/mszinte/projects/pRFgazeMod/mri_analysis/
 python post_fit/post_fit.py sub-001 GazeCenterFS fmriprep_dct
-python post_fit/post_fit.py sub-001 GazeCenterFS fmriprep_dct_pca
-
-python post_fit/post_fit.py sub-002 GazeCenterFS fmriprep_dct_pca
+python post_fit/post_fit.py sub-002 GazeCenterFS fmriprep_dct
 -----------------------------------------------------------------------------------------
 Written by Martin Szinte (martin.szinte@gmail.com)
 -----------------------------------------------------------------------------------------
