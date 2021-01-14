@@ -18,8 +18,9 @@ To run:
 >> python post_fit/roi_to_hdf5.py [subject] [task] [preproc]
 -----------------------------------------------------------------------------------------
 Exemple:
+[optional] srun -p skylake -A b161 --time=2:00:0 -N 1 --pty bash -i
 cd /home/mszinte/projects/pRFgazeMod/mri_analysis/
-python post_fit/roi_to_hdf5.py sub-001 GazeCenterFS fmriprep_dct
+python post_fit/roi_to_hdf5.py sub-006 GazeCenterFS fmriprep_dct
 -----------------------------------------------------------------------------------------
 Written by Martin Szinte (martin.szinte@gmail.com)
 -----------------------------------------------------------------------------------------
@@ -105,16 +106,16 @@ except: pass
 
 for roi in rois:
     roi_mask_file_L = "{rois_mask_dir}/{roi}_{cortical_mask}_L.nii.gz".format(rois_mask_dir = rois_mask_dir, roi = roi, cortical_mask = cortical_mask)
-    if os.path.getsize(roi_mask_file_L) != 0:
-        continue
-    else:
+    
+    if os.path.isfile(roi_mask_file_L) == 0:
         print('creating {roi} {cortical_mask} mask'.format(roi = roi, cortical_mask = cortical_mask))
         roi_mask = cortex.utils.get_roi_masks(subject = subject, xfmname = xfm_name, gm_sampler = cortical_mask, roi_list = roi, return_dict = True, split_lr = True)
         for hemi in ['L','R']:
             roi_mask_file = "{rois_mask_dir}/{roi}_{cortical_mask}_{hemi}.nii.gz".format(rois_mask_dir = rois_mask_dir, roi = roi, cortical_mask = cortical_mask, hemi = hemi)
             roi_mask_img = nb.Nifti1Image(dataobj = roi_mask['{roi}_{hemi}'.format(roi = roi, hemi = hemi)].transpose((2,1,0)), affine = ref_img.affine, header = ref_img.header)
             roi_mask_img.to_filename(roi_mask_file)
-
+    else: 
+      continue
 
 # Create HDF5 files
 # -----------------

@@ -21,12 +21,8 @@ Exemple:
 cd /home/mszinte/projects/pRFgazeMod/mri_analysis/
 python fit/submit_fit_jobs.py sub-001 GazeCenterFS fmriprep_dct
 python fit/submit_fit_jobs.py sub-001 GazeCenterFS fmriprep_dct_pca
-python fit/submit_fit_jobs.py sub-002 GazeCenterFS fmriprep_dct
-python fit/submit_fit_jobs.py sub-002 GazeCenterFS fmriprep_dct_pca
-python fit/submit_fit_jobs.py sub-003 GazeCenterFS fmriprep_dct
-python fit/submit_fit_jobs.py sub-003 GazeCenterFS fmriprep_dct_pca
-python fit/submit_fit_jobs.py sub-004 GazeCenterFS fmriprep_dct
-python fit/submit_fit_jobs.py sub-004 GazeCenterFS fmriprep_dct_pca
+python fit/submit_fit_jobs.py sub-001 AttendFixGazeCenterFS fmriprep_dct_pca
+python fit/submit_fit_jobs.py sub-001 AttendStimGazeCenterFS fmriprep_dct_pca
 -----------------------------------------------------------------------------------------
 Written by Martin Szinte (martin.szinte@gmail.com)
 -----------------------------------------------------------------------------------------

@@ -19,6 +19,7 @@ To run:
 >> python post_fit/roi_plots.py [subject] [task] [preproc] [svg]
 -----------------------------------------------------------------------------------------
 Exemple:
+[optional] srun -p skylake -A b161 --time=2:00:0 -N 1 --pty bash -i
 cd /home/mszinte/projects/pRFgazeMod/mri_analysis/
 python post_fit/roi_plots.py sub-001 GazeCenterFS fmriprep_dct 0
 -----------------------------------------------------------------------------------------

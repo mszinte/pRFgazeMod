@@ -95,7 +95,16 @@ x_vox,y_vox = x[slice_mask],y[slice_mask]
 vox_indices = [(xx,yy,slice_nb) for xx,yy in zip(x_vox,y_vox)]
 
 # Create stimulus design (create in matlab - see others/make_visual_dm.m)
-visual_dm_file = scipy.io.loadmat(opj(base_dir,'pp_data','visual_dm',"{task}_vd.mat".format(task = task)))
+if 'GazeCenterFS' in task: 
+    end_task = 'GazeCenterFS'
+elif 'GazeCenter' in task:
+    end_task = 'GazeCenter'
+elif 'GazeRight' in task:
+    end_task = 'GazeRight'
+elif 'GazeLeft' in task:
+    end_task = 'GazeLeft'
+
+visual_dm_file = scipy.io.loadmat(opj(base_dir,'pp_data','visual_dm',"{end_task}_vd.mat".format(end_task = end_task)))
 visual_dm = visual_dm_file['stim'].transpose([1,0,2])
 
 stimulus = PRFStimulus2D(screen_width_cm = analysis_info['screen_width'],
