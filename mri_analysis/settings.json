@@ -15,7 +15,7 @@
     "screen_height": 39.29,
     "grid_nr":40,
     "max_ecc_size":20,
-    "rois": ["V1","V2","V3","V3AB","LO","VO","hMT+","iIPS","sIPS","iPCS","sPCS","mPCS"],
+    "rois": ["V1","V2","V3","V3AB","LO","hMT+","VO","iIPS","sIPS","iPCS","sPCS","mPCS"],
     "account":"mszinte@login.mesocentre.univ-amu.fr",
     "base_dir": "/scratch/mszinte/data/pRFgazeMod",
     "base_dir_local": "/Users/martin/disks/meso_S/data/pRFgazeMod",

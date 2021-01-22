@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../Dropbox/Data/Admin/Programming/plotly"
+		}
+	],
+	"settings": {
+		"jupyter.jupyterServerType": "remote"
+	}
+}
