@@ -25,5 +25,5 @@
     "ecc_th": [0.1,15.0],
     "size_th": [0.1,15.0],
     "rsqr_th": 0.1,
-    "sample_ratio": 0.33
+    "sample_num": 100
 }
