@@ -4,10 +4,10 @@
 			"path": "."
 		},
 		{
-			"path": "../../../../Dropbox/Data/Admin/Programming/plotly"
+			"path": "../../apps"
 		}
 	],
 	"settings": {
-		"jupyter.jupyterServerType": "local"
+		"jupyter.jupyterServerType": "remote"
 	}
 }

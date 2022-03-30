@@ -35,12 +35,14 @@ or displaced to the left or to the right.
 * combine fit files of GazeCenterFS [fmriprep_dct + fmriprep_dct_pca] and compute pRF derivatives using pos_fit/post_fit.py
 * plot pycortex flatmaps of GazeCenterFS [fmriprep_dct + fmriprep_dct_pca] and save webgls using LOCALLY post_fit/pycortex_maps.py
 * draw ROIS using inkscape (V1/V2/V3/V3AB/LO/VO/hMT+/iIPS/sIPS/mPCS/sPCS/iPCS)
-* create ROIs masks and H5 files per ROIS of GazeCenterFS [fmriprep_dct + fmriprep_dct_pca] using pos_fit/roi_to_hdf5.py
-* plot pRF metrics per ROIS of GazeCenterFS [fmriprep_dct + fmriprep_dct_pca] using pos_fit/roi_plots.py
+* create ROIs masks and H5 files per ROIS of GazeCenterFS [fmriprep_dct + fmriprep_dct_pca] using post_fit/roi_to_hdf5.py
+* plot pRF metrics per ROIS of GazeCenterFS [fmriprep_dct + fmriprep_dct_pca] using post_fit/roi_plots.py
+* save pandas dataframes using post_fit/roi_to_pandas.py
 
+#  app processing see app/pRFgazeMod
+* plot prf summary graphs and put dashboard on [heroku](https://prfgazemod.herokuapp.com/apps/prf_app)
 
 # to do
 * run full screen task fit
 * create batch code for h5 and roi codes
-* fix computation of amplitude
 * do change to fit only the x value and import the y value

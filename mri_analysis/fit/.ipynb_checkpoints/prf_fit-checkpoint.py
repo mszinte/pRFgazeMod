@@ -49,13 +49,12 @@ opj = os.path.join
 
 # MRI analysis imports
 # --------------------
-from prfpy.rf import *
-from prfpy.timecourse import *
-from prfpy.stimulus import PRFStimulus2D
-from prfpy.model import Iso2DGaussianModel
-from prfpy.fit import Iso2DGaussianFitter
+from model.prfpy.rf import *
+from model.prfpy.timecourse import *
+from model.prfpy.stimulus import PRFStimulus2D
+from model.prfpy.model import Iso2DGaussianModel
+from model.prfpy.fit import Iso2DGaussianFitter
 import nibabel as nb
-
 
 # Get inputs
 # ----------
@@ -88,7 +87,6 @@ num_vox = np.sum(slice_mask)
 data_slice = data[:,:,slice_nb,:]
 data_to_analyse = data_slice[slice_mask]
 
-
 # determine voxel indices
 y, x = np.meshgrid( np.arange(data.shape[1]),np.arange(data.shape[0]))
 x_vox,y_vox = x[slice_mask],y[slice_mask]
@@ -107,11 +105,10 @@ elif 'GazeLeft' in task:
 visual_dm_file = scipy.io.loadmat(opj(base_dir,'pp_data','visual_dm',"{end_task}_vd.mat".format(end_task = end_task)))
 visual_dm = visual_dm_file['stim'].transpose([1,0,2])
 
-stimulus = PRFStimulus2D(screen_width_cm = analysis_info['screen_width'],
-                         screen_height_cm = analysis_info['screen_height'],
-                         screen_distance_cm = analysis_info['screen_distance'],
-                         design_matrix = visual_dm,
-                         TR = analysis_info['TR'])
+stimulus = PRFStimulus2D(   screen_size_cm=analysis_info['screen_width'],
+                            screen_distance_cm=analysis_info['screen_distance'],
+                            design_matrix=visual_dm,
+                            TR=analysis_info['TR'])
 
 # define model and parameters
 gauss_model = Iso2DGaussianModel(stimulus = stimulus)
